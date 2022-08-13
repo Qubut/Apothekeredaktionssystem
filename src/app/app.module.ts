@@ -13,6 +13,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { NewsComponent } from './components/news/news.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
+import { TeamMemberComponent } from './components/team-member/team-member.component';
+import { TeamComponent } from './components/team/team.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { NewsletterComponent } from './components/newsletter/newsletter.componen
     DialogComponent,
     NewsComponent,
     FaqComponent,
-    NewsletterComponent
+    NewsletterComponent,
+    TeamMemberComponent,
+    TeamComponent
   ],
   imports: [
     BrowserModule,
