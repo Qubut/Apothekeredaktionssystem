@@ -15,6 +15,16 @@ import { FaqComponent } from './components/faq/faq.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
 import { TeamMemberComponent } from './components/team-member/team-member.component';
 import { TeamComponent } from './components/team/team.component';
+import { NewsArticleComponent } from './components/news-article/news-article.component';
+import { LeistungenComponent } from './components/leistungen/leistungen.component';
+import { AnfahrtComponent } from './components/anfahrt/anfahrt.component';
+import { KontaktComponent } from './components/kontakt/kontakt.component';
+import { AngeboteComponent } from './components/angebote/angebote.component';
+import { AngebotComponent } from './components/angebot/angebot.component';
+import { ErrorComponent } from './components/error/error.component';
+import { HomeComponent } from './components/home/home.component';
+import { LeistungComponent } from './components/leistung/leistung.component';
+import { FormatWorkHoursPipe } from './pipes/format-work-hours.pipe';
 
 @NgModule({
   declarations: [
@@ -29,7 +39,17 @@ import { TeamComponent } from './components/team/team.component';
     FaqComponent,
     NewsletterComponent,
     TeamMemberComponent,
-    TeamComponent
+    TeamComponent,
+    NewsArticleComponent,
+    LeistungenComponent,
+    AnfahrtComponent,
+    KontaktComponent,
+    AngeboteComponent,
+    AngebotComponent,
+    ErrorComponent,
+    HomeComponent,
+    LeistungComponent,
+    FormatWorkHoursPipe
   ],
   imports: [
     BrowserModule,
