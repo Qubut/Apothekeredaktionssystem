@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
-import { Data, Leistung } from '__global';
 
 @Component({
   selector: 'app-home',

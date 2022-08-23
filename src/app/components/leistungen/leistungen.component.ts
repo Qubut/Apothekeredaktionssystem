@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
-import { Leistung } from '__global';
 
 @Component({
   selector: 'app-leistungen',

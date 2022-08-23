@@ -5,7 +5,6 @@ import {
   OnInit,
   SimpleChanges,
 } from '@angular/core';
-import { Data, Item } from '__global';
 
 @Component({
   selector: 'app-footer',

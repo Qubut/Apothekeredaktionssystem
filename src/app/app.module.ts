@@ -25,6 +25,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { HomeComponent } from './components/home/home.component';
 import { LeistungComponent } from './components/leistung/leistung.component';
 import { FormatWorkHoursPipe } from './pipes/format-work-hours.pipe';
+import { SearchbarComponent } from './components/searchbar/searchbar.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { FormatWorkHoursPipe } from './pipes/format-work-hours.pipe';
     ErrorComponent,
     HomeComponent,
     LeistungComponent,
-    FormatWorkHoursPipe
+    FormatWorkHoursPipe,
+    SearchbarComponent
   ],
   imports: [
     BrowserModule,

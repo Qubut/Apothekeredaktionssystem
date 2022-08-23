@@ -1,19 +1,16 @@
-<div
-  class="p-12 text-center relative overflow-hidden bg-no-repeat h-96 lg:h-screen bg-fixed"
-  style="background-image: url('/assets/riem/angebot.jpg');
-  background-size:100% 100vw;
-  background-position:center "
->
-  <div
-    class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"
-    style="background-color: rgba(195, 195, 199, 0.5)"
-  >
-   <section class="flex p-4 justify-center align-middle">
-    <app-angebot></app-angebot>
-    <app-angebot></app-angebot>
-    <app-angebot></app-angebot>
-    <app-angebot></app-angebot>
-  </section>
-  </div>
- 
+<div class="p-12 text-center mt-16">
+    <section class="flex p-4 justify-center align-middle min-h-screen">
+      <div class="items-center px-20">
+        <div class="space-y-10">
+          <app-searchbar class="md-10"></app-searchbar>
+          <div class="grid lg:grid-cols-4 md:grid-cols-2">
+            <app-angebot></app-angebot>
+            <app-angebot></app-angebot>
+            <app-angebot></app-angebot>
+            <app-angebot></app-angebot>
+          </div>
+        </div>
+      </div>
+    </section>
+
 </div>
