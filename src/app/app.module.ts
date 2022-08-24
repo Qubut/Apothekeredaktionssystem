@@ -29,7 +29,12 @@ import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { StatusComponent } from './components/status/status.component';
 import { FeatureBoxComponent } from './components/feature-box/feature-box.component';
 import { FeatureComponent } from './components/feature-box/feature/feature.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ErrorStateMatcher } from '@angular/material/core';
+import { ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,14 +62,22 @@ import { FeatureComponent } from './components/feature-box/feature/feature.compo
     SearchbarComponent,
     StatusComponent,
     FeatureBoxComponent,
-    FeatureComponent
+    FeatureComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    ReactiveFormsModule
+
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

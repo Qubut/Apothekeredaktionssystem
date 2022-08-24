@@ -6,38 +6,28 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class SearchService {
-  private readonly meilieKey = environment.meilisearchKey;
-  searchClient = new MeiliSearch({
+  private readonly _meilieKey = environment.meilisearchKey;
+  private _searchClient = new MeiliSearch({
     host: environment.endpoints.meilisearch,
     headers: {
-      Authorization: `Bearer ${environment.meilisearchKey}`,
+      Authorization: `Bearer ${this._meilieKey}`,
       'Content-Type': 'application/json',
     },
   });
   config = {
-    indexName: 'angebot',
-    searchClient: this.searchClient,
+    indexName: 'aktion',
+    searchClient: this._searchClient,
   };
   constructor() {}
-  search(searchTerm: Observable<string>,isAussteller: boolean = false, offset=0) {
-    return isAussteller
-      ? searchTerm.pipe(
-          debounceTime(400),
-          distinctUntilChanged(),
-          map((term) =>
-            this.searchClient
-              .index('aussteller')
-              .search(term, { limit: 1000, filter: ``, offset })
-          )
-        )
-      : searchTerm.pipe(
-          debounceTime(400),
-          distinctUntilChanged(),
-          map((term) =>
-            this.searchClient
-              .index('stellenausschreibung')
-              .search(term, { limit: 1000, filter: ``, offset })
-          )
-        );
+  search(searchTerm: Observable<string>, offset = 0) {
+    return searchTerm.pipe(
+      debounceTime(400),
+      distinctUntilChanged(),
+      map((term) =>
+        this._searchClient
+          .index('aktion')
+          .search(term, { limit: 1000, filter: ``, offset })
+      )
+    );
   }
 }

@@ -1,4 +1,3 @@
-
 declare global {
   type ResponseData = {
     data: AnyData[];
@@ -50,7 +49,7 @@ declare global {
     order: number;
     title: string;
     url: string;
-    target: string
+    target: string;
   };
   type Leistungen = {
     attributes: Leistung;
@@ -59,6 +58,29 @@ declare global {
     name: string;
     description: string;
   };
+  type Angebot = {
+    date: Date;
+    title: string;
+    uvp: number;
+    discount: number;
+    beschreibung: string;
+    picture: {
+      url: string;
+    };
+  };
   type AnyData = { attributes: { [k: string]: any } };
+  type document = {
+    [field: string]: any;
+  };
+  type _matchesInfo<T> = Partial<
+    Record<keyof T, Array<{ start: number; length: number }>>
+  >;
+
+  type Hit<T = document> = T & {
+    _formatted?: Partial<T>;
+    _matchesInfo?: _matchesInfo<T>;
+  };
+
+  type Hits<T = document> = Array<Hit<T>>;
 }
 export {};

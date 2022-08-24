@@ -5,10 +5,10 @@
 export const environment = {
   production: false,
    endpoints:{
-    graphql:"https://skb-virtuell.de:8080/graphql",
-    meilisearch:"https://localhost:8081",
+    graphql:"https://localhost:1337/graphql",
+    meilisearch:"https://localhost:7700",
   },
-  meilisearchKey:"XT1czWre917fb0ee7d5c6eb8184c79f173fcf9150f72d0ef24a203322e6a7f0b5e7e008b"
+  meilisearchKey:"d880adc143471436101d09fa3f1386cc144f013bcfbb7cb5c8d1eb53106829f2"
 };
 
 /*

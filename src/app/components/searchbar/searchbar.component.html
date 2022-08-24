@@ -1,54 +1,45 @@
-
-    <div
-      class="flex items-center justify-between p-6 space-x-6 bg-white rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition duration-500"
+<div class="max-w-2xl mx-auto">
+  <form [formGroup]="searchForm">
+    <label
+      for="default-search"
+      class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300"
+      >Search</label
     >
-      <div class=" flex bg-gray-100 p-4 space-x-4 rounded-lg w-1/2 h-16">
+    <div class="relative">
+      <div
+        class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none"
+      >
         <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6 opacity-30"
+          class="w-5 h-5 text-gray-500 dark:text-gray-400"
           fill="none"
-          viewBox="0 0 24 24"
           stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
         >
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-          />
-        </svg>
-
-        <input
-          class="bg-gray-100 outline-none w-1/2c"
-          type="text"
-          (keyup)="search($event)"
-          name="query"
-          placeholder="Article name or keyword..."
-        />
-      </div>
-      <div
-        class="flex justify-self-start py-3 px-4 rounded-lg text-gray-500 font-semibold cursor-pointer"
-      >
-        <span>Alle Kategorien</span>
-
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M19 9l-7 7-7-7"
-          />
+          ></path>
         </svg>
       </div>
-      <div
-        class="justify-self-end bg-indigo-600 py-3 px-5 text-white font-semibold rounded-lg hover:shadow-lg transition duration-3000 cursor-pointer"
+      <input
+        (keyup)="search($event)"
+        name="searchTerm"
+        id="searchTextField"
+        type="search"
+        formControlName="searchField"
+        class="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="Suche nach den neuen Angeboten..."
+      />
+      <!-- <button
+        type="submit"
+        class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
       >
-        <span>Search</span>
-      </div>
+        Suchen
+      </button> -->
     </div>
+  </form>
+  
+</div>
