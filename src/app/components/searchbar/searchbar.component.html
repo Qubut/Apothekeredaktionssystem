@@ -1,8 +1,8 @@
 
     <div
-      class="flex items-center p-6 space-x-6 bg-white rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition duration-500"
+      class="flex items-center justify-between p-6 space-x-6 bg-white rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition duration-500"
     >
-      <div class="flex bg-gray-100 p-4 space-x-4 rounded-lg w-96">
+      <div class=" flex bg-gray-100 p-4 space-x-4 rounded-lg w-1/2 h-16">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-6 w-6 opacity-30"
@@ -19,7 +19,7 @@
         </svg>
 
         <input
-          class="bg-gray-100 outline-none"
+          class="bg-gray-100 outline-none w-1/2c"
           type="text"
           (keyup)="search($event)"
           name="query"
@@ -27,9 +27,9 @@
         />
       </div>
       <div
-        class="flex py-3 px-4 rounded-lg text-gray-500 font-semibold cursor-pointer"
+        class="flex justify-self-start py-3 px-4 rounded-lg text-gray-500 font-semibold cursor-pointer"
       >
-        <span>Alle categorien</span>
+        <span>Alle Kategorien</span>
 
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +47,7 @@
         </svg>
       </div>
       <div
-        class="bg-indigo-600 py-3 px-5 text-white font-semibold rounded-lg hover:shadow-lg transition duration-3000 cursor-pointer"
+        class="justify-self-end bg-indigo-600 py-3 px-5 text-white font-semibold rounded-lg hover:shadow-lg transition duration-3000 cursor-pointer"
       >
         <span>Search</span>
       </div>

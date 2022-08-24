@@ -1,174 +1,44 @@
-<header class="relative p-10 bg-slate-100 grid grid-cols-3">
-  <div class="flex flex-col p-10 justify-start align-start m-10">
-   
-
-    <div *ngIf="data.oeffnungszeiten as oeffnungszeiten" class="">
-      <h4
-        class="uppercase font-semibold mb-4 flex justify-center md:justify-start text-2xl"
-      >
-        Öffnungszeiten
-      </h4>
-
-      <ng-container *ngFor="let zeit of oeffnungszeiten.zeiten">
-        <ng-container *ngFor="let tag of zeit.tage; let i = index">
-          <ng-template #Rest>
-            <div class="text-lg inline-block m-2">
-              {{ tag }}
-            </div>
-          </ng-template>
-          <div
-            *ngIf="i == zeit.tage.length - 1; else Rest"
-            class="text-lg inline-block m-2"
+<header>
+  <div
+    class="relative overflow-hidden bg-no-repeat bg-cover bg-fixed"
+    style="
+      background-position: 50%;
+      background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/146.webp');
+      height: 350px;
+      @media (width<1000px){
+        height:60vh
+      }
+    "
+  >
+    <div
+      class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"
+      style="background-color: rgba(0, 0, 0, 0.75)"
+    >
+      <div class="flex justify-center items-center h-full">
+        <div class="text-center text-white px-6 md:px-12">
+          <h1
+            class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-indigo-500 lg:text-5xl sm:text-xl font-bold mt-0 mb-6"
+            *ngIf="data.greeting as greeting"
           >
-            {{ tag }}:
-          </div>
-        </ng-container>
-        <div *ngFor="let schicht of zeit.schichten" class="m-2">
-          {{ schicht.von.st | formatWorkHours }}:{{
-            schicht.von.min | formatWorkHours
-          }}
-          - {{ schicht.bis.st | formatWorkHours }}:{{
-            schicht.bis.min | formatWorkHours
-          }}
-        </div>
-      </ng-container>
-    </div>
-
-    <div class="">
-      <p
-        *ngIf="data.adresse as adresse"
-        class="flex items-center justify-center md:justify-start mb-4"
-      >
-        <svg
-          aria-hidden="true"
-          focusable="false"
-          data-prefix="fas"
-          data-icon="home"
-          class="w-4 mr-4"
-          role="img"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 576 512"
-        >
-          <path
-            fill="currentColor"
-            d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"
-          ></path>
-        </svg>
-        {{ adresse.strasse }} {{ adresse.nr }} • {{ adresse.plz }}
-        {{ adresse.ort }}
-      </p>
-      <a
-        *ngIf="data.email as email"
-        [href]="emailLink"
-        class="flex items-center justify-center md:justify-start mb-4 text-blue-500 cursor-pointer"
-      >
-        <svg
-          aria-hidden="true"
-          focusable="false"
-          data-prefix="fas"
-          data-icon="envelope"
-          class="w-4 mr-4"
-          role="img"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
-        >
-          <path
-            fill="currentColor"
-            d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"
-          ></path>
-        </svg>
-        {{ email }}
-      </a>
-      <p
-        *ngIf="data.number as number"
-        class="flex items-center justify-center md:justify-start mb-4"
-      >
-        <svg
-          aria-hidden="true"
-          focusable="false"
-          data-prefix="fas"
-          data-icon="phone"
-          class="w-4 mr-4"
-          role="img"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
-        >
-          <path
-            fill="currentColor"
-            d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z"
-          ></path>
-        </svg>
-        {{ number }}
-      </p>
-      <p
-        *ngIf="data.fax as fax"
-        class="flex items-center justify-center md:justify-start"
-      >
-        <svg
-          aria-hidden="true"
-          focusable="false"
-          data-prefix="fas"
-          data-icon="print"
-          class="w-4 mr-4"
-          role="img"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
-        >
-          <path
-            fill="currentColor"
-            d="M448 192V77.25c0-8.49-3.37-16.62-9.37-22.63L393.37 9.37c-6-6-14.14-9.37-22.63-9.37H96C78.33 0 64 14.33 64 32v160c-35.35 0-64 28.65-64 64v112c0 8.84 7.16 16 16 16h48v96c0 17.67 14.33 32 32 32h320c17.67 0 32-14.33 32-32v-96h48c8.84 0 16-7.16 16-16V256c0-35.35-28.65-64-64-64zm-64 256H128v-96h256v96zm0-224H128V64h192v48c0 8.84 7.16 16 16 16h48v96zm48 72c-13.25 0-24-10.75-24-24 0-13.26 10.75-24 24-24s24 10.74 24 24c0 13.25-10.75 24-24 24z"
-          ></path>
-        </svg>
-        {{ fax }}
-      </p>
-    </div>
-  </div>
-
-  <div class="flex flex-wrap text-center flex-col justify-center items-center">
-    <h1
-      class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-violet-500 font-bold text-4xl sm:text-[42px] lg:text-[40px] xl:text-[42px] leading-snug mb-3"
-      *ngIf="data.greeting as greeting"
-    >
-      {{ greeting }}
-    </h1>
-    <p
-      class="mb-8 text-body-color max-w-[800px] bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-orange-500 leading-8 font-medium text-xl"
-      *ngIf="data.beschreibung as beschreibung"
-    >
-      {{ beschreibung }}
-    </p>
-   
-    <ul class="">
-      <li>
-        <a
-          routerLink="angebote"
-          class="py-4 px-6 sm:px-10 lg:px-8 xl:px-10 inline-flex items-center justify-center text-center text-white text-base bg-clip bg-gradient-to-r from-blue-500 to-violet-500 hover:bg-opacity-90 font-normal rounded-lg"
-        >
-          Unsere Angebote
-        </a>
-      </li>
-    </ul>
-    <div class="clients pt-16">
-      <h6
-        class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-violet-500 text-3xl font-bold font-serif flex items-center text-body-color mb-2"
-      >
-        Wir Sprechen
-        <span class="w-8 h-[1px] bg-body-color inline-block ml-2"></span>
-      </h6>
-      <div class="flex items-center">
-        <div class="w-full py-3 mr-4">
-          <img src="/assets/flags/de.svg" alt="ayroui" />
-        </div>
-        <div class="w-full py-3 mr-4">
-          <img src="/assets/flags/ae.svg" alt="graygrids" />
-        </div>
-        <div class="w-full py-3 mr-4">
-          <img src="/assets/flags/gb.svg" alt="uideck" />
-        </div>
-        <div class="w-full py-3 mr-4">
-          <img src="/assets/flags/pl.svg" alt="uideck" />
+            {{ greeting }}
+          </h1>
+          <h3
+            class="lg:text-3xl sm:text-lg font-bold mb-8"
+            *ngIf="data.beschreibung as beschreibung"
+          >
+            {{ beschreibung }}
+          </h3>
+          <button
+            type="button"
+            class="py-4 px-6 sm:px-10 lg:px-8 xl:px-10 inline-flex items-center justify-center text-center  bg-clip bg-gradient-to-r from-blue-500 to-violet-500 border-2 border-white text-white font-medium text-md leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+            data-mdb-ripple="true"
+            data-mdb-ripple-color="light"
+          >
+            <a routerLink="angebote">Unsere Angebote</a>
+          </button>
         </div>
       </div>
     </div>
   </div>
+  <!-- Background image -->
 </header>

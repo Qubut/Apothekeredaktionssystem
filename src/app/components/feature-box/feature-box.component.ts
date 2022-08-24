@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'],
+  selector: 'app-feature-box',
+  templateUrl: './feature-box.component.html',
+  styleUrls: ['./feature-box.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class FeatureBoxComponent implements OnInit {
   @Input() data: Data = {
     name: '',
     number: 0,
@@ -26,10 +26,10 @@ export class HeaderComponent implements OnInit {
   };
   emailLink = '';
 
-  constructor() {}
+  @Input() offen = true;
+  constructor() { }
 
   ngOnInit(): void {
-    this.emailLink = `mailto:${this.data.email}`;
   }
- 
+
 }

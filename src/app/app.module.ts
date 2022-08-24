@@ -26,6 +26,9 @@ import { HomeComponent } from './components/home/home.component';
 import { LeistungComponent } from './components/leistung/leistung.component';
 import { FormatWorkHoursPipe } from './pipes/format-work-hours.pipe';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
+import { StatusComponent } from './components/status/status.component';
+import { FeatureBoxComponent } from './components/feature-box/feature-box.component';
+import { FeatureComponent } from './components/feature-box/feature/feature.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,10 @@ import { SearchbarComponent } from './components/searchbar/searchbar.component';
     HomeComponent,
     LeistungComponent,
     FormatWorkHoursPipe,
-    SearchbarComponent
+    SearchbarComponent,
+    StatusComponent,
+    FeatureBoxComponent,
+    FeatureComponent
   ],
   imports: [
     BrowserModule,
