@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "data",
+  "info": {
+    "singularName": "datum",
+    "pluralName": "data",
+    "displayName": "Data"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "email": {
+      "type": "email"
+    },
+    "number": {
+      "type": "string"
+    },
+    "fax": {
+      "type": "string"
+    },
+    "adresse": {
+      "type": "json"
+    },
+    "name": {
+      "type": "string"
+    },
+    "greeting": {
+      "type": "richtext"
+    },
+    "oeffnungszeiten": {
+      "type": "json"
+    },
+    "beschreibung": {
+      "type": "richtext"
+    },
+    "motto": {
+      "type": "string"
+    }
+  }
+}
