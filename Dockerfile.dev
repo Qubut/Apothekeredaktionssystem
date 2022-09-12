@@ -1,0 +1,14 @@
+FROM node:16.14-alpine
+ARG NODEENV=development
+ARG WORK_DIR=/backend
+ENV NODE_ENV=${NODEENV}
+WORKDIR ${WORK_DIR}
+RUN cd ${WORK_DIR}
+COPY ./package.json ./
+ENV PATH WORKDIR/node_modules/.bin:$PATH
+RUN yarn config set network-timeout 600000 -g
+RUN yarn install
+COPY ./ .
+RUN yarn build
+EXPOSE 1337
+CMD ["yarn","develop"]
