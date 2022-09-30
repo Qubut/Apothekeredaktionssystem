@@ -114,15 +114,15 @@
     <div class="grid grid-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       <div class="">
         <h1
-          *ngIf="data.name as name"
+          *ngIf="data?.name as name"
           class="uppercase font-semibold mb-4 flex items-center justify-center md:justify-start text-4xl"
         >
         <img src="/assets/riem/riemlogo.svg" alt="" srcset="" class="mr-3 w-fit h-fit">
          
         </h1>
-        <h2 *ngIf="data.motto as motto" class="text-xl font-semibold italic">{{motto}}</h2>
+        <h2 *ngIf="data?.motto as motto" class="text-xl font-semibold italic">{{motto}}</h2>
       </div>
-      <div *ngIf="data.oeffnungszeiten as oeffnungszeiten" class="">
+      <div *ngIf="data?.oeffnungszeiten as oeffnungszeiten" class="">
         <h2
           class="uppercase font-semibold mb-4 flex justify-center md:justify-start text-2xl"
         >
@@ -175,7 +175,7 @@
           Kontakt
         </h6>
         <p
-          *ngIf="data.adresse as adresse"
+          *ngIf="data?.adresse as adresse"
           class="flex items-center justify-center md:justify-start mb-4"
         >
           <svg
@@ -197,7 +197,7 @@
           {{ adresse.ort }}
         </p>
         <a
-          *ngIf="data.email as email"
+          *ngIf="data?.email as email"
           [href]="emailLink"
           class="flex items-center justify-center md:justify-start mb-4 text-blue-500 cursor-pointer"
         >
@@ -219,7 +219,7 @@
           {{ email }}
         </a>
         <p
-          *ngIf="data.number as number"
+          *ngIf="data?.number as number"
           class="flex items-center justify-center md:justify-start mb-4"
         >
           <svg
@@ -240,7 +240,7 @@
           {{ number }}
         </p>
         <p
-          *ngIf="data.fax as fax"
+          *ngIf="data?.fax as fax"
           class="flex items-center justify-center md:justify-start"
         >
           <svg

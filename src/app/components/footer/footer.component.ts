@@ -12,7 +12,7 @@ import {
   styleUrls: ['./footer.component.css'],
 })
 export class FooterComponent implements OnInit, OnChanges {
-  @Input() data: Data = {
+  @Input() data?: Data = {
     name: '',
     number: 0,
     fax: 0,
@@ -34,7 +34,7 @@ export class FooterComponent implements OnInit, OnChanges {
   @Input() links: Item[] = [];
   constructor() {}
   ngOnChanges(changes: SimpleChanges): void {
-    this.emailLink = `mailto:${this.data.email}`;
+    this.emailLink = `mailto:${this.data?.email}`;
   }
   ngOnInit(): void {}
 }

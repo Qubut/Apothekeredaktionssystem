@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 export class SearchService {
   private readonly _meilieKey = environment.meilisearchKey;
   private _searchClient = new MeiliSearch({
-    host: environment.endpoints.meilisearch,
+    host: environment.meilisearch,
     headers: {
       Authorization: `Bearer ${this._meilieKey}`,
       'Content-Type': 'application/json',

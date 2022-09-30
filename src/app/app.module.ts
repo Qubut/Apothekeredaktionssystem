@@ -35,6 +35,7 @@ import { ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { JobsComponent } from './components/jobs/jobs.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,6 +64,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     StatusComponent,
     FeatureBoxComponent,
     FeatureComponent,
+    JobsComponent,
   ],
   imports: [
     BrowserModule,

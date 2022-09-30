@@ -1,9 +1,6 @@
 declare global {
-  type ResponseData = {
-    data: AnyData[];
-  };
-  type ResponseData2 = {
-    data: AnyData;
+  type DataObject = {
+    data: Data;
   };
   type Data = {
     name: string;
@@ -36,14 +33,10 @@ declare global {
       };
     }[];
   };
-  type Menu = {
-    attributes: {
-      items: {
-        data: {
-          attributes: Item;
-        }[];
-      };
-    };
+  type Menus = {
+    data: {
+      items: Item[];
+    }[];
   };
   type Item = {
     order: number;
@@ -52,7 +45,7 @@ declare global {
     target: string;
   };
   type Leistungen = {
-    attributes: Leistung;
+    data: Leistung[];
   };
   type Leistung = {
     name: string;
