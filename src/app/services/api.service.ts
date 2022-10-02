@@ -14,7 +14,7 @@ export class ApiService {
       );
   }
   getLeistungen(): Observable<Leistung[]> {
-    return this.httpClient.get(`/api/leistungs`).pipe(
+    return this.httpClient.get(`/api/leistungen`).pipe(
       map((res) => (<Leistungen>res).data),
       shareReplay(1)
     );
@@ -25,4 +25,15 @@ export class ApiService {
       shareReplay(1)
     );
   }
+  getJobs():Observable<Job[]>{
+    return this.httpClient.get(`/api/job`).pipe(
+      map((res)=>(<Jobs>res).data),shareReplay(1)
+    )
+  }
+  getHighlights():Observable<Highlight[]>{
+    return this.httpClient.get(`/api/highlights?populate=*`).pipe(
+      map((res)=>(<Highlights>res).data),shareReplay(1)
+    )
+  }
+  
 }

@@ -1,17 +1,20 @@
 <div class="p-12 text-center mt-16">
-    <section class="flex p-4 justify-center align-middle min-h-screen">
-      <div class="items-center px-20">
-        <div class="space-y-10">
-          <app-searchbar class="md-10" (searched)="show($event)"></app-searchbar>
-          <div class="grid lg:grid-cols-4 md:grid-cols-2">
-            <app-angebot></app-angebot>
-            <app-angebot></app-angebot>
-            <app-angebot></app-angebot>
-            <app-angebot></app-angebot>
-            <ng-container *ngFor="let angebot of angebote"></ng-container>
-          </div>
+  <section class="flex p-4 justify-center align-middle min-h-screen">
+    <div class="items-center px-20">
+      <div class="space-y-10">
+        <app-searchbar class="mb-20" (searched)="show($event)"></app-searchbar>
+        <div class="grid lg:grid-cols-4 md:grid-cols-2">
+          <app-angebot></app-angebot>
+          <app-angebot></app-angebot>
+          <app-angebot></app-angebot>
+          <app-angebot></app-angebot>
+          <app-angebot></app-angebot>
+          <app-angebot></app-angebot>
+          <app-angebot></app-angebot>
+          <app-angebot></app-angebot>
+          <ng-container *ngFor="let angebot of angebote"></ng-container>
         </div>
       </div>
-    </section>
-
+    </div>
+  </section>
 </div>

@@ -61,6 +61,30 @@ declare global {
       url: string;
     };
   };
+  type Jobs = {
+    data: Job[];
+  };
+  type Job = {
+    title: string;
+    description: string;
+    bild: {
+      url: string;
+    };
+    telefon?: string;
+    adresse?: string;
+  };
+  type Highlights = {
+    data: Highlight[];
+  };
+  type Highlight = {
+    title: string;
+    description?: string;
+    bild?: {
+      url: string;
+    };
+    link?: string;
+    color: string;
+  };
   type AnyData = { attributes: { [k: string]: any } };
   type document = {
     [field: string]: any;

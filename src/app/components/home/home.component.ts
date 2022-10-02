@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit {
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
-    this.leistungen$ = this.apiService.getLeistungen();
     this.data$ = this.apiService.getData();
     this.istOffen();
   }

@@ -37,6 +37,10 @@ import {MatInputModule} from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { JobsComponent } from './components/jobs/jobs.component';
 import { JobComponent } from './components/jobs/job/job.component';
+import { EinkaufswagenComponent } from './components/einkaufswagen/einkaufswagen.component';
+import { HighlightComponent } from './components/highlight/highlight.component';
+import { HighlightsComponent } from './components/highlights/highlights.component';
+import { HighlightToastComponent } from './components/highlight/highlight-toast/highlight-toast.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,6 +71,10 @@ import { JobComponent } from './components/jobs/job/job.component';
     FeatureComponent,
     JobsComponent,
     JobComponent,
+    EinkaufswagenComponent,
+    HighlightComponent,
+    HighlightsComponent,
+    HighlightToastComponent,
   ],
   imports: [
     BrowserModule,
