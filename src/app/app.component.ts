@@ -17,5 +17,9 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.menu$ = this.apiService.getMenus();
     this.data$ = this.apiService.getData()
+    setTimeout( () => {
+        var loaderHtml: any = document.getElementById('preloader');
+        loaderHtml.style.display='none';
+    }, 1000);
   }
 }

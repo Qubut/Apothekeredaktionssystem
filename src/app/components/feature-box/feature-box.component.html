@@ -2,11 +2,12 @@
   <section class="mb-32 text-gray-800 text-center">
     <div class="grid md:grid-cols-3 gap-x-6 lg:gap-x-12">
       <div
-        class="mb-6 lg:mb-0 duration-300 hover:-translate-y-2 hover:scale-110"
+        class="mb-6 lg:mb-0 duration-300 "
       >
-        <div class="block rounded-lg shadow-lg relative">
-          <div class="bg-slate-100 p-10 text-center">
+        <div class=" rounded-lg relative">
+          <div class=" text-center">
             <div *ngIf="data.oeffnungszeiten as oeffnungszeiten" class="">
+              <!-- <img src="/assets/riem/first.png" alt="" srcset=""> -->
               <h4
                 class="text-body-color max-w-[800px] bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-violet-500 leading-8 font-medium text-xl"
               >
@@ -44,14 +45,15 @@
               <app-status [offen]="offen" class="mb-10"></app-status>
             </div>
           </div>
+          <div class="info-box__dash d1 custom-background-color-b"></div>
         </div>
       </div>
 
       <div
-        class="mb-6 lg:mb-0 duration-300 hover:-translate-y-2 hover:scale-110"
+        class="mb-6 lg:mb-0 duration-300"
       >
-        <div class="bg-slate-100 block rounded-lg shadow-lg">
-          <div class="clients pt-16 text-center flex flex-col justify-center">
+        <div class="rounded-lg">
+          <div class="clients text-center flex flex-col justify-center">
             <h5
               class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-violet-500 text-2xl font-bold font-serif text-center text-body-color mb-2"
             >
@@ -75,12 +77,14 @@
               </div>
             </div>
           </div>
+        <div class="info-box__dash d1 custom-background-color-b"></div>
+
         </div>
       </div>
       <div
-        class="mb-6 lg:mb-0 duration-300 hover:-translate-y-2 hover:scale-110 text-center"
+        class="mb-6 lg:mb-0 duration-300 text-center"
       >
-        <div class="bg-slate-100 block rounded-lg shadow-lg p-10">
+        <div class="rounded-lg">
           <div
             class="flex flex-col justify-items-center align-middle justify-center"
           >

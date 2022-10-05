@@ -1,6 +1,6 @@
 <div
   *ngIf="highlight"
-  class="relative overflow-hidden py-6 sm:py-12 bg-white w-96"
+  class="relative overflow-hidden py-6 sm:py-12 w-96"
 >
   <app-highlight-toast
     class="w-screen"
@@ -9,7 +9,7 @@
     [color]="highlight.color"
   ></app-highlight-toast>
   <div *ngIf="highlight.bild as bild" class="max-w-xl px-5 text-center">
-    
+
     <img [src]="bild.url" alt="highlight.title" class="rounded-lg" />
     <!-- <h2 class="mb-2 text-[42px] font-bold text-zinc-800">Check your inbox</h2>
       <p class="mb-2 text-lg text-zinc-500">We are glad, that you’re with us ? We’ve sent you a verification link to the email address <span class="font-medium text-indigo-500">mail@yourdomain.com</span>.</p>

@@ -1,3 +1,24 @@
 .feature-box:hover {
   transform: translateY(-1.5rem) scale(1.03);
 }
+.rounded-lg{
+  position: relative
+}
+.info-box__dash.d1, .info-box__dash.d2, .info-box__dash.d3
+{
+  bottom: 9px;
+  height: 138px;
+  left: auto;
+  right: 0;
+  top: 68px;
+  width: 1px;
+  background-color: #3C786C!important;
+  display: block;
+  position: absolute;
+}
+
+@media (width<1000px){
+  .info-box__dash.d1, .info-box__dash.d2, .info-box__dash.d3{
+    display: none;
+  }
+}
