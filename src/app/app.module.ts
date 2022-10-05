@@ -16,8 +16,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { NewsComponent } from './components/news/news.component';
 import { FaqComponent } from './components/faq/faq.component';
+import { OfferComponent } from './components/offer/offer.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
-import { ProductItemComponent } from './components/product-item/product-item.component';
+import { ProductItemComponent } from './components/product-item/product-item';
 import { ProductComponent } from './components/product/product.component';
 import { NewsArticleComponent } from './components/news-article/news-article.component';
 import { LeistungenComponent } from './components/leistungen/leistungen.component';
@@ -61,6 +62,7 @@ import { environment } from '../environments/environment';
     NewsletterComponent,
     ProductItemComponent,
     ProductComponent,
+    OfferComponent,
     NewsArticleComponent,
     LeistungenComponent,
     AnfahrtComponent,

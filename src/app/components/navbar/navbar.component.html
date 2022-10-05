@@ -45,14 +45,14 @@
         />
       </a>
       <!-- Left links -->
-      <!-- <ul class="flex flex-col pl-0 mr-auto navbar-nav list-style-none">
+       <ul class="flex flex-col pl-0 mr-auto navbar-nav list-style-none">
         <ng-container *ngFor="let page of pages">
           <li class="p-2 nav-item">
             <ng-container *ngIf="page.target != '_blank'; else external">
               <a
                 class="p-0 text-gray-500 nav-link focus:text-blue-700 hover:text-blue-500"
                 [routerLink]="page.url"
-                >{{ page.title }}aaaa</a
+                >{{ page.title }}</a
               ></ng-container
             >
             <ng-template #external>
@@ -65,55 +65,8 @@
             >
           </li>
         </ng-container>
-      </ul> -->
-
-      <ul class="flex flex-col pl-0 mr-auto navbar-nav list-style-none">
-          <li class="p-2 nav-item">
-            <ng-container >
-              <a
-                class="p-0 text-gray-500 nav-link focus:text-blue-700 hover:text-blue-500"
-                [routerLink]="['/home']"
-                >Home</a
-              >
-            </ng-container>
-          </li>
-          <li class="p-2 nav-item">
-            <ng-container >
-              <a
-                class="p-0 text-gray-500 nav-link focus:text-blue-700 hover:text-blue-500"
-                [routerLink]=""
-                >Product</a
-              >
-            </ng-container>
-          </li>
-          <li class="p-2 nav-item">
-            <ng-container >
-              <a
-                class="p-0 text-gray-500 nav-link focus:text-blue-700 hover:text-blue-500"
-                [routerLink]=""
-                >Store</a
-              >
-            </ng-container>
-          </li>
-          <li class="p-2 nav-item">
-            <ng-container >
-              <a
-                class="p-0 text-gray-500 nav-link focus:text-blue-700 hover:text-blue-500"
-                [routerLink]=""
-                >About us</a
-              >
-            </ng-container>
-          </li>
-          <li class="p-2 nav-item">
-            <ng-container >
-              <a
-                class="p-0 text-gray-500 nav-link focus:text-blue-700 hover:text-blue-500"
-                [routerLink]=""
-                >Contact</a
-              >
-            </ng-container>
-          </li>
       </ul>
+
       <!-- Left links -->
     </div>
     <!-- Collapsible wrapper -->

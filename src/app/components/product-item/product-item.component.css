@@ -16,7 +16,8 @@ label.price-label{
   top: -59px;
   z-index: 1;
   overflow: hidden;
-  width: 75px; height: 75px;
+  width: 75px;
+  height: 75px;
   text-align: right;
 }
 .ribbon span {
@@ -56,12 +57,12 @@ label.price-label{
 }
 
 .zoom {
-  transition: transform .5s; /* Animation */
+  transition: transform .5s;
   margin: 0 auto;
 }
 
 .zoom:hover {
-  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  transform: scale(1.1);
 }
 
 .product-amount {

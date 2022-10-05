@@ -1,3 +1,4 @@
+import { OfferComponent } from './components/offer/offer.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent,
   },
+  { path: 'offer', component: OfferComponent },
   { path: 'anfahrt', component: AnfahrtComponent },
   { path: 'kontakt', component: KontaktComponent },
   { path: 'angebote', component: AngeboteComponent },
