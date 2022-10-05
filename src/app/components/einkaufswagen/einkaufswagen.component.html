@@ -1,7 +1,8 @@
-<div>
+<div class="offcanvas-container" >
   <div
     class="offcanvas offcanvas-end fixed bottom-0 flex flex-col max-w-full bg-white invisible bg-clip-padding shadow-sm outline-none transition duration-300 ease-in-out text-gray-700 top-0 right-0 border-none w-120"
     tabindex="-1"
+    style="height: 36%;"
     id="offcanvasRight"
     aria-labelledby="offcanvasRightLabel"
   >
@@ -25,7 +26,7 @@
           <div
             class="flex flex-col border-b sm:border-b-0 items-center p-8 sm:px-4 sm:h-full sm:justify-center"
           >
-            <p class="text-7xl font-bold text-[#0ed3cf] rounded-full">J</p>
+            <p class="text-7xl font-bold text-[#0ed3cf] rounded-full">{{ userInfo.name.charAt(0) }}</p>
           </div>
           <div class="flex flex-col sm:border-l col-span-3">
             <div class="flex flex-col space-y-4 p-6 text-gray-600">
@@ -53,7 +54,7 @@
                   <span class="font-semibold mr-2 text-xs uppercase"
                     >Name:</span
                   >
-                  <span>Jane Doe</span>
+                  <span [(ngModel)]="userInfo">{{ userInfo.name }}</span>
                 </p>
               </div>
 
@@ -76,7 +77,7 @@
                   <span class="font-semibold mr-2 text-xs uppercase"
                     >Date of birth:</span
                   >
-                  <span>26 April 2022</span>
+                  <span>{{ userInfo.birthday }}</span>
                 </p>
               </div>
               <div class="flex flex-row text-sm">
@@ -101,7 +102,7 @@
                   <span class="font-semibold mr-2 text-xs uppercase"
                     >Hobbies:</span
                   >
-                  <span>Cooking, Fishing, Darwing</span>
+                  <span>{{ userInfo.birthday }}</span>
                 </p>
               </div>
               <div class="flex flex-col w-full relative bottom-0">

@@ -1,6 +1,10 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { cartReducer } from './reducers/cart';
+import { productReducer } from './reducers/product';
+
+import { StoreModule } from '@ngrx/store';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,8 +17,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { NewsComponent } from './components/news/news.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
-import { TeamMemberComponent } from './components/team-member/team-member.component';
-import { TeamComponent } from './components/team/team.component';
+import { ProductItemComponent } from './components/product-item/product-item.component';
+import { ProductComponent } from './components/product/product.component';
 import { NewsArticleComponent } from './components/news-article/news-article.component';
 import { LeistungenComponent } from './components/leistungen/leistungen.component';
 import { AnfahrtComponent } from './components/anfahrt/anfahrt.component';
@@ -41,6 +45,8 @@ import { EinkaufswagenComponent } from './components/einkaufswagen/einkaufswagen
 import { HighlightComponent } from './components/highlight/highlight.component';
 import { HighlightsComponent } from './components/highlights/highlights.component';
 import { HighlightToastComponent } from './components/highlight/highlight-toast/highlight-toast.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,8 +59,8 @@ import { HighlightToastComponent } from './components/highlight/highlight-toast/
     NewsComponent,
     FaqComponent,
     NewsletterComponent,
-    TeamMemberComponent,
-    TeamComponent,
+    ProductItemComponent,
+    ProductComponent,
     NewsArticleComponent,
     LeistungenComponent,
     AnfahrtComponent,
@@ -84,8 +90,9 @@ import { HighlightToastComponent } from './components/highlight/highlight-toast/
     FormsModule,
     MatInputModule,
     MatFormFieldModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+    StoreModule.forRoot({ cart : cartReducer, selectedProduct: productReducer }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [
     { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher },

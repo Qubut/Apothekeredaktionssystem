@@ -1,0 +1,15 @@
+.navbar{
+  background-color: #f3f4f6 !important;
+}
+
+:host {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+span.cart-num{
+  position: absolute;
+  top: -15px;
+  right: 14px;
+}
