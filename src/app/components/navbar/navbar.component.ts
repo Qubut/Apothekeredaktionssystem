@@ -56,10 +56,11 @@ export class NavbarComponent implements AfterViewInit {
   constructor(private store: Store<{ cart: [] }>) {
     this.cart$ = store.select('cart');
     this.cart$.subscribe(data => {
-
+        var amount = 0;
         data.map((item:any, i: number) => {
-            this.cartCount += item.amount;
-        })
+           amount += item.amount;
+        });
+        this.cartCount = amount;
     });
   }
 

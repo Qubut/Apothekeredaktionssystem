@@ -4,6 +4,7 @@ import { ActionTypes } from '../../actions/cart';
 
 export function cartReducer(state:any = [], action: any) {
   switch (action.type) {
+
     case ActionTypes.AddProduct:
 
       var preProduct  = state.filter((item: any) => item._id == action.payload._id);
@@ -11,7 +12,7 @@ export function cartReducer(state:any = [], action: any) {
       var currentProduct = Object.assign({}, action.payload);
 
       if(preProduct.length > 0){
-          totalAmount +=  preProduct[0].amount;
+          totalAmount = totalAmount + preProduct[0].amount;
       }
 
       return  [
