@@ -20,7 +20,7 @@ export class AngebotComponent implements OnInit {
   public product_amount:any = 0
 
   ngOnInit(): void {
-    console.log(this.item);
+    // console.log(item);
   }
 
   //selected product
@@ -43,10 +43,10 @@ export class AngebotComponent implements OnInit {
     if(this.product_amount > 0){
 
       var product = {
-        _id: '1',
-        image: '',
-        title: 'Test',
-        price: 15.7,
+        _id:    this.item.bild.url,
+        image:  this.item.url,
+        title:  this.item.name,
+        price:  this.item.discount * this.item.uvp,
         amount: this.product_amount,
       }
 

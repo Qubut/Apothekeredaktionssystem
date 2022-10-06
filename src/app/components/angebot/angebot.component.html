@@ -12,20 +12,20 @@
           <div class="ribbon red"><span>Popular</span></div>
       </div>
       <div class="w-full grow-0 shrink-0 basis-auto">
-        <h5 class="mb-2 text-lg font-bold">{{item.name}}</h5>
+        <h5 class="mb-2 text-lg font-bold" style="font-family: cursive;font-size: 20px;">{{item.name}}</h5>
         <p class="mb-4 text-gray-500">{{ item.description }}</p>
         <ul class="flex justify-center mx-auto list-inside mt-8">
           <div class="px-2 lg:pl-0 price-item">
-            <label class="price-label" for="">PTS</label>
-            <span>25.00</span>
+            <label class="price-label" for="">Price</label>
+            <span>{{ item.discount * item. uvp }}</span>
           </div>
           <div class="px-2 lg:pl-0 price-item">
-            <label class="price-label" for="">AST</label>
-            <span>4.7</span>
+            <label class="price-label" for="">Discount</label>
+            <span>{{ item.discount }}</span>
           </div>
           <div class="px-2 lg:pl-0 price-item">
-            <label class="price-label" for="">FG%</label>
-            <span>44.7</span>
+            <label class="price-label" for="">Uvp%</label>
+            <span>{{ item.uvp }}</span>
           </div>
         </ul>
         <ul class="flex justify-center mx-auto list-inside mt-8">
