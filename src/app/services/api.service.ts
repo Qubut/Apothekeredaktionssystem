@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { map, Observable, shareReplay } from 'rxjs';
 import { environment } from 'src/environments/environment';
 @Injectable({ providedIn: 'root' })
+
 export class ApiService {
   constructor(private httpClient: HttpClient) {}
   getMenus(): Observable<Item[]> {
@@ -35,5 +36,10 @@ export class ApiService {
       map((res)=>(<Highlights>res).data),shareReplay(1)
     )
   }
-  
+
+  getAngeBote():Observable<Angebot[]>{
+    return this.httpClient.get(`/api/angebote?populate=*`).pipe(
+      map((res)=>(<Angebots>res).data),shareReplay(1)
+    )
+  }
 }

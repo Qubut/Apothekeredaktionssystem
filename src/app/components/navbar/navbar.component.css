@@ -1,5 +1,8 @@
 .navbar{
   background-color: #f3f4f6 !important;
+  font-family: cursive;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 :host {
@@ -11,5 +14,6 @@
 span.cart-num{
   position: absolute;
   top: -15px;
+  font-size: 15px;
   right: 14px;
 }

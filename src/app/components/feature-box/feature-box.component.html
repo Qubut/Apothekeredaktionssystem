@@ -4,10 +4,10 @@
       <div
         class="mb-6 lg:mb-0 duration-300 "
       >
-        <div class=" rounded-lg relative">
+        <div class=" block rounded-lg shadow-lg relative">
           <div class=" text-center">
             <div *ngIf="data.oeffnungszeiten as oeffnungszeiten" class="">
-              <!-- <img src="/assets/riem/first.png" alt="" srcset=""> -->
+              <img src="/assets/riem/feature-1.png" class="feature-img">
               <h4
                 class="text-body-color max-w-[800px] bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-violet-500 leading-8 font-medium text-xl"
               >
@@ -41,25 +41,25 @@
                 </div>
               </ng-container>
             </div>
-            <div class="p-6">
+            <div class="2">
               <app-status [offen]="offen" class="mb-10"></app-status>
             </div>
           </div>
-          <div class="info-box__dash d1 custom-background-color-b"></div>
         </div>
       </div>
 
       <div
         class="mb-6 lg:mb-0 duration-300"
       >
-        <div class="rounded-lg">
+        <div class="block rounded-lg shadow-lg relative">
           <div class="clients text-center flex flex-col justify-center">
+            <img src="/assets/riem/feature-2.png" class="feature-img">
             <h5
               class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-violet-500 text-2xl font-bold font-serif text-center text-body-color mb-2"
             >
               Wir Sprechen
             </h5>
-            <div class="flex items-center justify-center p-10">
+            <div class="flex items-center justify-center mt-6" style="    padding: 35px;">
               <div class="w-full py-3 mr-4">
                 <img src="/assets/flags/de.svg" alt="ayroui" />
               </div>
@@ -77,23 +77,23 @@
               </div>
             </div>
           </div>
-        <div class="info-box__dash d1 custom-background-color-b"></div>
 
         </div>
       </div>
       <div
         class="mb-6 lg:mb-0 duration-300 text-center"
       >
-        <div class="rounded-lg">
+        <div class="block rounded-lg shadow-lg relative">
           <div
             class="flex flex-col justify-items-center align-middle justify-center"
           >
+            <img src="/assets/riem/feature-3.png" class="feature-img">
             <h4
               class="mb-6 text-body-color max-w-[800px] bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-violet-500 leading-8 font-medium text-xl"
             >
               Kontakt
             </h4>
-            <div class="items-center justify-center mb-4 p-10">
+            <div class="items-center justify-center mb-4">
               <p *ngIf="data.adresse as adresse">
                 <svg
                   aria-hidden="true"

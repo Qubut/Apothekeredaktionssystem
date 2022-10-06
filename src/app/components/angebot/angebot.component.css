@@ -12,13 +12,13 @@ label.price-label{
 
 .ribbon {
   position: absolute;
-  left: -5px;
-  top: -4px;
+  left: 19px;
+  top: -60px;
   z-index: 1;
   overflow: hidden;
   width: 75px;
   height: 75px;
-  text-align: right
+  text-align: right;
 }
 .ribbon span {
   font-size: 10px;
@@ -57,8 +57,9 @@ label.price-label{
 }
 
 .zoom {
-  transition: transform .5s;
+  transition: transform .8s;
   margin: 0 auto;
+  padding: 26px;
 }
 
 .zoom:hover {
@@ -84,4 +85,29 @@ label.price-label{
 
 .add-cart-ico:hover{
   color:blue
+}
+
+/* Styles for wrapping the search box */
+
+.main {
+  width: 50%;
+  margin: 50px auto;
+}
+
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit,  Input, ElementRef } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AddProduct, RemoveProduct, Reset } from '../../actions/cart';
@@ -12,12 +12,15 @@ import { ChooseProduct } from '../../actions/product';
 
 export class AngebotComponent implements OnInit {
   cart$: Observable<[]>;
+  @Input() item: any = {};
+
   constructor(private store: Store<{ cart: [] }>, public element: ElementRef) {
     this.cart$ = store.select('cart');
   }
   public product_amount:any = 0
 
   ngOnInit(): void {
+    console.log(this.item);
   }
 
   //selected product

@@ -3,16 +3,10 @@
     <div class="items-center px-20">
       <div class="space-y-10">
         <app-searchbar class="mb-20" (searched)="show($event)"></app-searchbar>
-        <div class="grid lg:grid-cols-4 md:grid-cols-2">
-          <app-angebot></app-angebot>
-          <app-angebot></app-angebot>
-          <app-angebot></app-angebot>
-          <app-angebot></app-angebot>
-          <app-angebot></app-angebot>
-          <app-angebot></app-angebot>
-          <app-angebot></app-angebot>
-          <app-angebot></app-angebot>
-          <ng-container *ngFor="let angebot of angebote"></ng-container>
+        <div class="grid md:grid-cols-4 gap-x-6 lg:gap-x-12" style="margin-top: 6rem;">
+          <ng-container *ngFor="let angebot of angebots$">
+              <app-angebot [item]="angebot"></app-angebot>
+          </ng-container>
         </div>
       </div>
     </div>

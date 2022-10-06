@@ -4,6 +4,12 @@
 .rounded-lg{
   position: relative
 }
+.inline-block, .text-black, .bg-clip-text{
+  font-family: cursive;
+  color: #3C786C!important;
+  fill: #3C786C!important;
+  font-weight: bold;
+}
 .info-box__dash.d1, .info-box__dash.d2, .info-box__dash.d3
 {
   bottom: 9px;
@@ -21,4 +27,22 @@
   .info-box__dash.d1, .info-box__dash.d2, .info-box__dash.d3{
     display: none;
   }
+}
+.feature-img{
+  margin: auto !important;
+  margin-bottom: 20px !important;
+}
+.items-center{
+  font-family: cursive;
+  color: #3C786C!important;
+  fill: #3C786C!important;
+  font-weight: bold;
+}
+
+.bg-clip-text{
+  font-family: cursive !important;
+    font-size: 24px !important;
+    color: #555 !important;
+    font-style: normal;
+    font-weight: 700 !important;
 }

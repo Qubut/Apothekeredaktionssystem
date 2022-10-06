@@ -1,0 +1,13 @@
+.bg-clip-text{
+  color: white;
+  font-weight: bold;
+  font-size: 33px;
+  margin-top: 48px;
+  line-height: 111px;
+  font-style: italic;
+  font-family: cursive;
+}
+.bg-fixed{
+  background-color: #3C786C!important;
+  background: linear-gradient(180deg,#52e7c9,#135043) !important;
+}

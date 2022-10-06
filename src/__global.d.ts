@@ -51,6 +51,9 @@ declare global {
     name: string;
     description: string;
   };
+  type Angebots = {
+    data: Angebot[];
+  };
   type Angebot = {
     date: Date;
     title: string;

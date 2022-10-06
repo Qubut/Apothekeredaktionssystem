@@ -1,48 +1,55 @@
-<div
-  class="p-8 m-16 w-96 cursor-pointer rounded-3xl bg-gray-100 transition duration-300 ease-in-out hover:scale-105 hover:drop-shadow-2xl"
->
-  <div class="-mb-20 -translate-y-1/2 transform rounded-lg">
-    <img
-      src="https://mdbootstrap.com/img/new/standard/nature/182.jpg"
-      alt="Kobe Bryant"
-      title="Kobe Bryant"
-      class="mx-auto h-64 rounden-xl"
-      data-bs-toggle="modal"
-      data-bs-target="#exampleModalCenteredScrollable"
-      (click)="selectProduct()"
-    />
-    <div class="ribbon red"><span>Popular</span></div>
-  </div>
-  <div class="text-center">
-    <h3 class="text-center text-4xl font-bold">Kobe Bryant</h3>
-    <span class="text-sm">Shooting Guard</span>
-  </div>
-  <ul class="mt-16 mb-20 flex justify-center text-center text-2xl">
-    <li class="flex flex-col"><span class="font-bold">PTS</span> 25.00</li>
-    <li class="mx-6 flex flex-col"><span class="font-bold">AST</span> 4.7</li>
-    <li class="flex flex-col"><span class="font-bold">FG%</span> 44.7</li>
-  </ul>
-  <div class="text-center">
-    <ul class="flex justify-center mx-auto list-inside mt-8">
-      <button
-        (click)="increase()"
-        style="margin-left: 47px"
-        type="button"
-        class=" cart-btn trxansition duration-150 ease-in-out addCart inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1">
-        +
-      </button>
-      <input type="text"  [(ngModel)]="product_amount" id="product_amount" class="product-amount px-2 lg:pl-0" value="0" />
-      <button (click)="decrease()" type="button"
-        class="cart-btn transition duration-150 ease-in-out removeCart inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1">
-        -
-      </button>
-      <img
-        (click)="addCart()"
-        class="add-cart-ico"
-        src="/assets/riem/add-to-cart-icon.png"
-        style="width: 33px;height: 33px;margin-left: 26px;cursor: pointer;"
-      />
-    </ul>
+<div class="mb-6 lg:mb-0 zoom">
+  <div class="relative block p-6 bg-white rounded-lg shadow-lg"
+    style="background-color: #f3f4f6;height: 100%;margin-bottom: 100px; ">
+    <div class=" items-center lg:flex" style="flex-direction:column;">
+      <div class="w-full grow-0 shrink-0 basis-auto">
+        <img src="{{ item.bild.url }}" alt="Trendy Pants and Shoes"
+          class="w-full mb-6 rounded-md lg:mb-0  transition duration-150 ease-in-out" data-tor="place.left place.top"
+          style="position: relative;top: -79px;cursor: pointer;" data-bs-toggle="modal"
+          data-bs-target="#exampleModalCenteredScrollable"
+          (click)="selectProduct()"
+          />
+          <div class="ribbon red"><span>Popular</span></div>
+      </div>
+      <div class="w-full grow-0 shrink-0 basis-auto">
+        <h5 class="mb-2 text-lg font-bold">{{item.name}}</h5>
+        <p class="mb-4 text-gray-500">{{ item.description }}</p>
+        <ul class="flex justify-center mx-auto list-inside mt-8">
+          <div class="px-2 lg:pl-0 price-item">
+            <label class="price-label" for="">PTS</label>
+            <span>25.00</span>
+          </div>
+          <div class="px-2 lg:pl-0 price-item">
+            <label class="price-label" for="">AST</label>
+            <span>4.7</span>
+          </div>
+          <div class="px-2 lg:pl-0 price-item">
+            <label class="price-label" for="">FG%</label>
+            <span>44.7</span>
+          </div>
+        </ul>
+        <ul class="flex justify-center mx-auto list-inside mt-8">
+          <button
+            (click)="increase()"
+            style="margin-left: 47px"
+            type="button"
+            class=" cart-btn trxansition duration-150 ease-in-out addCart inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1">
+            +
+          </button>
+          <input type="text"  [(ngModel)]="product_amount" id="product_amount" class="product-amount px-2 lg:pl-0" value="0" />
+          <button (click)="decrease()" type="button"
+            class="cart-btn transition duration-150 ease-in-out removeCart inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1">
+            -
+          </button>
+          <img
+            (click)="addCart()"
+            class="add-cart-ico"
+            src="/assets/riem/add-to-cart-icon.png"
+            style="width: 33px;height: 33px;margin-left: 26px; cursor: pointer;"
+          />
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 
