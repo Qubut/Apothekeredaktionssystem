@@ -4,6 +4,7 @@ export enum ActionTypes {
   AddProduct = '[Cart Component] Add',
   RemoveProduct = '[Cart Component] Remove',
   Reset = '[Cart Component] Reset',
+  Refresh = '[Cart Component] Refresh',
 }
 
 interface AddProductPayload {
@@ -12,6 +13,8 @@ interface AddProductPayload {
     title: string,
     price: number,
     amount: number,
+    discount: number
+    uvp: number
 }
 
 export class AddProduct implements Action {
@@ -26,4 +29,9 @@ export class RemoveProduct implements Action {
 
 export class Reset implements Action {
   readonly type = ActionTypes.Reset;
+  constructor(readonly payload: { _id: string, reset_num: number }) {}
+}
+
+export class Refresh implements Action {
+  readonly type = ActionTypes.Refresh;
 }

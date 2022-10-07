@@ -58,7 +58,7 @@ export class NavbarComponent implements AfterViewInit {
     this.cart$.subscribe(data => {
         var amount = 0;
         data.map((item:any, i: number) => {
-           amount += item.amount;
+           amount += parseInt(item.amount);
         });
         this.cartCount = amount;
     });

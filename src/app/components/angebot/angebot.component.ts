@@ -43,11 +43,13 @@ export class AngebotComponent implements OnInit {
     if(this.product_amount > 0){
 
       var product = {
-        _id:    this.item.bild.url,
-        image:  this.item.url,
+        _id:    this.item.id,
+        image:  this.item.bild.url,
         title:  this.item.name,
         price:  this.item.discount * this.item.uvp,
         amount: this.product_amount,
+        discount: this.item.discount,
+        uvp: this.item.uvp
       }
 
       this.store.dispatch(new AddProduct(product));
@@ -61,7 +63,11 @@ export class AngebotComponent implements OnInit {
 
   //remove proudct in cart
   increase() {
-    this.product_amount++;
+    if(this.product_amount > 14){
+      alert("Oops, the product count is limited by 15 count");
+    }else{
+      this.product_amount++;
+    }
   }
 
   //reset cart storage
