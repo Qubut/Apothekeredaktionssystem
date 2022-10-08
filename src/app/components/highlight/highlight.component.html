@@ -5,15 +5,15 @@
     <div class="card">
       <header>
         <time
-      datetime="2018-05-15T19:00">May 15 - 2018</time>
+        [attr.datetime]="date.toDateString()"
+        >{{day}} - {{month}} - {{year}}</time>
         <div class="logo">
           <img src="/assets/riem/abda.svg"></div>
-        <div class="sponsor">Sponsor</div>
+        <div class="sponsor">Riem-Apotheke</div>
       </header>
       <div class="announcement">
-        <h3>Hi there</h3>
-        <h1>This message</h1>
-        <h3 class="italic">+ and many more</h3>
+        <h1>{{highlight.title}}</h1>
+        <h3 class="italic">{{highlight.description}}</h3>
       </div>
     </div>
 

@@ -27,7 +27,7 @@ export class ApiService {
     );
   }
   getJobs():Observable<Job[]>{
-    return this.httpClient.get(`/api/job`).pipe(
+    return this.httpClient.get(`/api/jobs?populate=*`).pipe(
       map((res)=>(<Jobs>res).data),shareReplay(1)
     )
   }
@@ -37,9 +37,9 @@ export class ApiService {
     )
   }
 
-  getAngeBote():Observable<Angebot[]>{
+  getAngebote():Observable<Angebot[]>{
     return this.httpClient.get(`/api/angebote?populate=*`).pipe(
-      map((res)=>(<Angebots>res).data),shareReplay(1)
+      map((res)=>(<Angebote>res).data),shareReplay(1)
     )
   }
 }

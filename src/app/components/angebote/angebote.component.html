@@ -1,12 +1,15 @@
 <app-header></app-header>
-<div class="p-12 text-center mt-16">
+<div class="p-12 text-center">
   <section class="flex p-4 justify-center align-middle min-h-screen">
     <div class="items-center px-20">
       <div class="space-y-10">
         <app-searchbar class="mb-20" (searched)="show($event)"></app-searchbar>
-        <div class="grid md:grid-cols-4 gap-x-6 lg:gap-x-12" style="margin-top: 6rem;">
-          <ng-container *ngFor="let angebot of angebots$">
-              <app-angebot [item]="angebot"></app-angebot>
+        <div
+          class="grid md:grid-cols-4 gap-x-6 lg:gap-x-12"
+          style="margin-top: 6rem"
+        >
+          <ng-container *ngFor="let angebot of angebote$ | async">
+            <app-angebot [item]="angebot"></app-angebot>
           </ng-container>
         </div>
       </div>

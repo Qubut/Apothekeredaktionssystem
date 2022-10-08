@@ -8,7 +8,7 @@ import { map, Observable } from 'rxjs';
 
 export class EmailService {
 
-  private api = "https://mailthis.to/kowar";
+  private api = "";
 
   constructor(private http: HttpClient){}
 

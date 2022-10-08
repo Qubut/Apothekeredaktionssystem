@@ -1,57 +1,110 @@
 <div class="offcanvas-container">
   <div
     class="offcanvas offcanvas-end fixed bottom-0 flex flex-col max-w-full bg-white invisible bg-clip-padding shadow-sm outline-none transition duration-300 ease-in-out text-gray-700 top-0 right-0 border-none w-120"
-    tabindex="-1" style="height: 47%;" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    tabindex="-1"
+    style="height: 47%"
+    id="offcanvasRight"
+    aria-labelledby="offcanvasRightLabel"
+  >
     <div class="offcanvas-header flex items-center justify-between p-4">
-      <h5 class="offcanvas-title mb-0 leading-normal font-semibold text-lg" id="offcanvasRightLabel">
+      <h5
+        class="offcanvas-title mb-0 leading-normal font-semibold text-lg"
+        id="offcanvasRightLabel"
+      >
         Einkaufswagen
       </h5>
-      <button type="button"
+      <button
+        type="button"
         class="btn-close box-content w-4 h-4 p-2 -my-5 -mr-2 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
-        data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        data-bs-dismiss="offcanvas"
+        aria-label="Close"
+      ></button>
     </div>
     <div class="offcanvas-body flex-grow p-4 overflow-y-auto">
       <ng-container *ngIf="storedProduct.length > 0">
         <ng-container *ngFor="let item of storedProduct">
-          <div class="flex flex-col border rounded-lg overflow-hidden bg-white mb-3">
-            <button style="margin-right: -92%;font-size: 23px;font-family: cursive;"  (click)="removeProduct(item._id)">x</button>
+          <div
+            class="flex flex-col border rounded-lg overflow-hidden bg-white mb-3"
+          >
+            <button
+              style="margin-right: -92%; font-size: 23px; font-family: cursive"
+              (click)="removeProduct(item._id)"
+            >
+              x
+            </button>
 
             <div class="grid grid-cols-1 sm:grid-cols-4">
-
-              <div class="flex flex-col border-b sm:border-b-0 items-center p-8 sm:px-4 sm:h-full sm:justify-center">
+              <div
+                class="flex flex-col border-b sm:border-b-0 items-center p-8 sm:px-4 sm:h-full sm:justify-center"
+              >
                 <p class="text-7xl font-bold text-[#0ed3cf] rounded-full">
-                  <img src="{{ item.image }}" alt="" style="height:50px">
+                  <img src="{{ item.image }}" alt="" style="height: 50px" />
                 </p>
               </div>
               <div class="flex flex-col sm:border-l col-span-3">
                 <div class="flex flex-col space-y-4 p-6 text-gray-600">
                   <div class="flex flex-row text-sm">
                     <p class="flex items-center text-gray-500">
-                      <img src="/assets/riem/package.png" style="width: 21px;padding-right: 4px;">
-                      <span class="font-semibold mr-2 text-xs uppercase">Name:</span>
+                      <img
+                        src="/assets/riem/package.png"
+                        style="width: 21px; padding-right: 4px"
+                      />
+                      <span class="font-semibold mr-2 text-xs uppercase"
+                        >Name:</span
+                      >
                       <span>{{ item.title }}</span>
                     </p>
                   </div>
                   <div class="flex flex-row text-sm">
                     <p class="flex items-center text-gray-500">
-                      <img src="/assets/riem/money-bag.png" style="width: 21px;padding-right: 4px;">
-                      <span class="font-semibold mr-2 text-xs uppercase">Price:</span>
-                      <span>${{ item.price  }} x {{ item.amount }}</span>
+                      <img
+                        src="/assets/riem/money-bag.png"
+                        style="width: 21px; padding-right: 4px"
+                      />
+                      <span class="font-semibold mr-2 text-xs uppercase"
+                        >Price:</span
+                      >
+                      <span>${{ item.price }} x {{ item.amount }}</span>
                     </p>
                   </div>
                   <div class="flex flex-row text-sm">
                     <p class="flex items-center text-gray-500">
-                      <img src="/assets/riem/discount.png" style="width: 21px;padding-right: 4px;">
-                      <span class="font-semibold mr-2 text-xs uppercase">Discount</span>
+                      <img
+                        src="/assets/riem/discount.png"
+                        style="width: 21px; padding-right: 4px"
+                      />
+                      <span class="font-semibold mr-2 text-xs uppercase"
+                        >Discount</span
+                      >
                       <span>{{ item.discount }}</span>
                     </p>
                   </div>
                   <div class="flex flex-row text-sm">
                     <p class="flex items-center text-gray-500">
-                      <img src="/assets/riem/123-numbers.png" style="width: 21px;padding-right: 4px;">
-                      <span class="font-semibold mr-2 text-xs uppercase">Product Count</span>
-                      <select #productCount class="form-control" name="product_cn" id="product_cn" (change)="changeProductCN(item._id, productCount)">
-                          <option [selected]="item.amount == i"   *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]">{{i}}</option>
+                      <img
+                        src="/assets/riem/123-numbers.png"
+                        style="width: 21px; padding-right: 4px"
+                      />
+                      <span class="font-semibold mr-2 text-xs uppercase"
+                        >Product Count</span
+                      >
+                      <select
+                        #productCount
+                        class="form-control"
+                        name="product_cn"
+                        id="product_cn"
+                        (change)="changeProductCN(item._id, productCount)"
+                      >
+                        <option
+                          [selected]="item.amount == i"
+                          *ngFor="
+                            let i of [
+                              1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
+                            ]
+                          "
+                        >
+                          {{ i }}
+                        </option>
                       </select>
                     </p>
                   </div>
@@ -62,7 +115,7 @@
         </ng-container>
       </ng-container>
     </div>
-    <hr>
+    <hr />
     <div class="flex flex-col w-full relative bottom-0">
       <div
         class="grid grid-cols-3 border-t divide-x text-[#0ed3cf] bg-gray-50 dark:bg-transparent py-3"
@@ -70,17 +123,13 @@
         <a
           class="cursor-pointer uppercase text-xs flex flex-row items-center justify-center font-semibold"
         >
-          <div class="mr-2">
-           Count
-          </div>
+          <div class="mr-2">Count</div>
           {{ cartCount }}
         </a>
         <a
           class="cursor-pointer uppercase text-xs flex flex-row items-center justify-center font-semibold"
         >
-          <div class="mr-2">
-            Price
-          </div>
+          <div class="mr-2">Price</div>
           ${{ totalPrice }}
         </a>
         <a
@@ -89,7 +138,10 @@
           data-bs-target="#checkOutModal"
         >
           <div class="mr-2">
-            <img src="/assets/riem/icons8-checkout-50.png" style="width: 20px;">
+            <img
+              src="/assets/riem/icons8-checkout-50.png"
+              style="width: 20px"
+            />
           </div>
           Check out
         </a>
@@ -97,61 +149,108 @@
     </div>
   </div>
 </div>
-<div class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
-  id="checkOutModal" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-modal="true"
-  role="dialog">
-  <div class="modal-dialog modal-dialog-centered relative w-auto pointer-events-none">
+<div
+  class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+  id="checkOutModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-modal="true"
+  role="dialog"
+>
+  <div
+    class="modal-dialog modal-dialog-centered relative w-auto pointer-events-none"
+  >
     <div
-      class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
+      class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current"
+    >
       <div
-        class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
-        <h5 class="text-xl font-medium leading-normal text-gray-800" id="exampleModalScrollableLabel">
+        class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md"
+      >
+        <h5
+          class="text-xl font-medium leading-normal text-gray-800"
+          id="exampleModalScrollableLabel"
+        >
           User Information
         </h5>
-        <button type="button"
+        <button
+          type="button"
           class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
-          data-bs-dismiss="modal" aria-label="Close"></button>
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="modal-body relative p-4">
         <form>
           <div class="form-group mb-6">
-            <input type="text"
+            <input
+              type="text"
               class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-              id="name" [(ngModel)]="userInfo.name" placeholder="Name*" required [ngModelOptions]="{standalone: true}" />
+              id="name"
+              [(ngModel)]="userInfo.name"
+              placeholder="Name*"
+              required
+              [ngModelOptions]="{ standalone: true }"
+            />
           </div>
           <div class="form-group mb-6">
-            <input type="text"
+            <input
+              type="text"
               class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-              id="telefon" [(ngModel)]="userInfo.telefon" placeholder="Telefon*" required [ngModelOptions]="{standalone: true}" />
+              id="telefon"
+              [(ngModel)]="userInfo.telefon"
+              placeholder="Telefon*"
+              required
+              [ngModelOptions]="{ standalone: true }"
+            />
           </div>
           <div class="form-group mb-6">
-            <input type="text"
+            <input
+              type="text"
               class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-              id="address" [(ngModel)]="userInfo.address" placeholder="Address" [ngModelOptions]="{standalone: true}" />
+              id="address"
+              [(ngModel)]="userInfo.address"
+              placeholder="Address"
+              [ngModelOptions]="{ standalone: true }"
+            />
           </div>
           <div class="form-group mb-6">
-            <input type="email"
+            <input
+              type="email"
               class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-              id="email" [(ngModel)]="userInfo.email" placeholder="Email *" required [ngModelOptions]="{standalone: true}" />
+              id="email"
+              [(ngModel)]="userInfo.email"
+              placeholder="Email *"
+              required
+              [ngModelOptions]="{ standalone: true }"
+            />
           </div>
           <div class="form-group mb-6">
             <textarea
-              [ngModelOptions]="{standalone: true}"
+              [ngModelOptions]="{ standalone: true }"
               [(ngModel)]="userInfo.message"
               class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-              id="message" rows="3" placeholder="Message" required></textarea>
+              id="message"
+              rows="3"
+              placeholder="Message"
+              required
+            ></textarea>
           </div>
-          <button (click)="orderProduct()"
-            class="w-full px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+          <button
+            (click)="orderProduct()"
+            class="w-full px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+          >
             Order
           </button>
         </form>
       </div>
       <div
-        class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
-        <button type="button"
+        class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md"
+      >
+        <button
+          type="button"
           class="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
-          data-bs-dismiss="modal">
+          data-bs-dismiss="modal"
+        >
           Close
         </button>
       </div>

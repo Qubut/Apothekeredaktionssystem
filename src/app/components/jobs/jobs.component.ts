@@ -9,6 +9,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class JobsComponent implements OnInit {
   jobs$ = new Observable<Job[]>();
+  pow = Math.pow
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {

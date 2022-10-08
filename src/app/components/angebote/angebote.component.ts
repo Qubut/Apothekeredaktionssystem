@@ -8,19 +8,15 @@ import { ApiService } from 'src/app/services/api.service';
   templateUrl: './angebote.component.html',
   styleUrls: ['./angebote.component.css'],
 })
-
 export class AngeboteComponent implements OnInit {
-  angebots$ = [];
-  constructor(private apiService: ApiService, private httpClient: HttpClient) {
-    this.httpClient.get(`/api/angebote?populate=*`).subscribe((res: any) => {
-      this.angebots$ = res.data;
-      console.log(this.angebots$)
-    });
+  angebote$ = new Observable<Angebot[]>();
+  constructor(private apiService: ApiService, private httpClient: HttpClient) {}
+
+  ngOnInit(): void {
+    this.angebote$ = this.apiService.getAngebote();
   }
 
-  ngOnInit(): void {  }
-
   show(e: Hits) {
-    (<Angebots[]>(<unknown>e)).forEach((d)=>console.log(d));
+    (<Angebote[]>(<unknown>e)).forEach((d) => console.log(d));
   }
 }

@@ -51,11 +51,10 @@ declare global {
     name: string;
     description: string;
   };
-  type Angebots = {
+  type Angebote = {
     data: Angebot[];
   };
   type Angebot = {
-    date: Date;
     title: string;
     uvp: number;
     discount: number;
@@ -63,6 +62,7 @@ declare global {
     picture: {
       url: string;
     };
+    type: string;
   };
   type Jobs = {
     data: Job[];
@@ -87,6 +87,7 @@ declare global {
     };
     link?: string;
     color: string;
+    publishedAt: string;
   };
   type AnyData = { attributes: { [k: string]: any } };
   type document = {
