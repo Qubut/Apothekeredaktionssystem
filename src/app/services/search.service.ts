@@ -23,11 +23,12 @@ export class SearchService {
     return searchTerm.pipe(
       debounceTime(400),
       distinctUntilChanged(),
-      map((term) =>
-        this._searchClient
-          .index('aktion')
+      map((term) =>{
+    console.log(this._searchClient)
+        return    this._searchClient
+          .index('angebot')
           .search(term, { limit: 1000, filter: ``, offset })
-      )
+  })
     );
   }
 }

@@ -19,18 +19,23 @@ h3 {
 }
 
 .card {
+ /* @apply lg:ml-16;  */
+ @apply md:ml-16; 
+  @apply flex;
+  @apply flex-col;
   width: auto;
-  margin-left: 170px;
-  scale: 0.6;
+  /* scale: 0.6; */
   position: relative;
-  height: 350px;
-  width: 600px;
+  height: 40vh;
+  width: 40vw;
   text-align: center;
   background: linear-gradient(#E96874, #6E3663, #2B0830);
-  border-radius: 2px;
-  box-shadow: 0 6px 12px -3px rgba(0,0,0,.3);
-  color: #fff;
-  padding: 30px;
+  @apply rounded-sm;
+  @apply shadow-lg;
+  @apply text-white;
+  @apply p-3;
+  /* @apply lg:mt-10; */
+  @apply md:mt-10;
 }
 
 .card header {

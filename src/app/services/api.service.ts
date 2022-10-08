@@ -42,4 +42,7 @@ export class ApiService {
       map((res)=>(<Angebote>res).data),shareReplay(1)
     )
   }
+  getSearch(query:string):Observable<any>{
+    return this.httpClient.get(`/api/fuzzy-search/search?query=${query}`)
+  }
 }

@@ -1,42 +1,41 @@
-<div class="container my-24 px-6 mx-auto">
-  <section class="mb-32 text-gray-800 text-center md:text-left">
-    <h2 class="text-3xl font-bold text-center mb-16">Job Angebote</h2>
-    <ng-container *ngFor="let job of jobs$ | async; let i = index"
-      ><div class="grid md:grid-cols-2 gap-x-6 xl:gap-x-12 items-center mb-12">
-        <div class="mb-6 md:mb-0" [ngClass]="pow(-1, i) < 0 ? 'reverse' : ''">
-          <div
-            class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg"
-            data-mdb-ripple="true"
-            data-mdb-ripple-color="light"
-            *ngIf="job.bild as bild"
-          >
-            <img [src]="bild.url" class="w-full" alt="Louvre" />
-            <a href="#!">
-              <div
-                class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
-                style="background-color: rgba(251, 251, 251, 0.2)"
-              ></div>
-            </a>
+
+
+<div class="container my-24 px-6 mx-auto" style="margin-top: 10rem;">
+<h1 class="font-medium leading-tight mt-0 mb-2 text-blue-600 text-center text-9xl" style="font-family:cursive;font-size: xx-large;margin-bottom: 4rem; ">Jobs</h1>
+  <!-- Section: Design Block -->
+   <ng-container *ngFor="let job of jobs$ | async; let i = index"
+      ><section class="mb-32 text-gray-800">
+    <!-- Jumbotron -->
+    <div class="container mx-auto xl:px-32 text-center lg:text-left">
+      <div class="grid lg:grid-cols-2 flex items-center">
+        <div class="mb-12 lg:mb-0">
+          <div class="block rounded-lg shadow-lg px-6 py-12 md:px-12 lg:-mr-14"
+            style="background: hsla(0, 0%, 100%, 0.55); backdrop-filter: blur(30px)">
+            <h2 class="text-3xl font-bold mb-6 text-blue-600 " style="font-family: cursive;">{{job.title}}</h2>
+            <p *ngIf="job.telefon as tel" class="text-gray-700 mb-6 pb-2 lg:pb-0">
+            Telefon: {{tel}}
+            </p>
+
+            <p *ngIf="job.adresse as addr" class="text-gray-700 mb-6 pb-2 lg:pb-0">
+              Adresse: {{addr}}
+              </p>
+
+            <p class="text-gray-500 mb-0" *ngIf="job.description as desc">
+              {{desc}}
+            </p>
           </div>
         </div>
 
-        <div class="mb-6 md:mb-0">
-          <h3 class="text-2xl font-bold mb-3">{{ job.title }}</h3>
-          <p class="text-gray-500" *ngIf="job.description as desc">
-            {{ desc }}
-          </p>
-          <p class="text-gray-500 mb-6" *ngIf="job.telefon as tel">
-            <small
-              >Telefon: <u>{{ tel }}</u>
-            </small>
-          </p>
-          <p class="text-gray-500 mb-6" *ngIf="job.adresse as a">
-            <small
-              ><Address>Adresse: {{ a }}</Address>
-            </small>
-          </p>
+        <div *ngIf="job.bild as bild">
+          <img [src]="bild.url" class="w-full rounded-lg shadow-lg"
+            alt="" />
         </div>
       </div>
-    </ng-container>
+    </div>
+    <!-- Jumbotron -->
   </section>
+   </ng-container>
+  
+  <!-- Section: Design Block -->
+
 </div>
