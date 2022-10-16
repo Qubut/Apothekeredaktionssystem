@@ -8,8 +8,7 @@ interface AddProductPayload {
   user_id :string,
   product_id : string,
   name : string,
-  birthday: string,
-  hobbies : string,
+
 }
 
 export class ChooseProduct implements Action {

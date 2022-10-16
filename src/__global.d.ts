@@ -55,14 +55,17 @@ declare global {
     data: Angebot[];
   };
   type Angebot = {
-    title: string;
+    id:number;
+    name: string;
     uvp: number;
     discount: number;
-    beschreibung: string;
-    picture: {
+    description: string;
+    bild: {
       url: string;
     };
     type: string;
+    amount?:number
+    price?:number
   };
   type Jobs = {
     data: Job[];

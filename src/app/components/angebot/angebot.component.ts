@@ -1,5 +1,6 @@
 import { Component, OnInit,  Input, ElementRef } from '@angular/core';
 import { Store, select } from '@ngrx/store';
+import { title } from 'process';
 import { Observable } from 'rxjs';
 import { AddProduct, RemoveProduct, Reset } from '../../actions/cart';
 import { ChooseProduct } from '../../actions/product';
@@ -12,7 +13,18 @@ import { ChooseProduct } from '../../actions/product';
 
 export class AngebotComponent implements OnInit {
   cart$: Observable<[]>;
-  @Input() item: any = {};
+  @Input() item: Angebot = {
+    id: 0,
+    name: '',
+    uvp: 0,
+    discount: 0,
+    type: '',
+    description: '',
+    bild: {
+      url: ''
+    },
+    price:0
+  };
 
   constructor(private store: Store<{ cart: [] }>, public element: ElementRef) {
     this.cart$ = store.select('cart');
@@ -20,7 +32,6 @@ export class AngebotComponent implements OnInit {
   public product_amount:any = 0
 
   ngOnInit(): void {
-    // console.log(item);
   }
 
   //selected product
@@ -30,8 +41,6 @@ export class AngebotComponent implements OnInit {
       user_id : "1",
       product_id : '12',
       name : 'Dee J Williams',
-      birthday: '29 August 1999',
-      hobbies : 'Cooking, Fishing, Darwing',
     };
 
     this.store.dispatch(new ChooseProduct(userInfo));
@@ -43,7 +52,7 @@ export class AngebotComponent implements OnInit {
     if(this.product_amount > 0){
 
       var product = {
-        _id:    this.item.id,
+        _id:    this.item.id.toString(),
         image:  this.item.bild.url,
         title:  this.item.name,
         price:  this.item.discount * this.item.uvp,

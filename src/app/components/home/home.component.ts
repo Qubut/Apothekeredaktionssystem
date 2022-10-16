@@ -37,6 +37,8 @@ export class HomeComponent implements OnInit {
     } else if (day == sat) {
       if (hour >= von[0] && hour <= bis[0]) {
         this.offen = true;
+      } else {
+        this.offen = false;
       }
     } else {
       this.offen = false;

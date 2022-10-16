@@ -170,7 +170,7 @@
           class="text-xl font-medium leading-normal text-gray-800"
           id="exampleModalScrollableLabel"
         >
-          User Information
+          Kontakt-Informationen
         </h5>
         <button
           type="button"
@@ -180,10 +180,23 @@
         ></button>
       </div>
       <div class="modal-body relative p-4">
-        <form>
+        <form method="POST">
           <div class="form-group mb-6">
             <input
               type="text"
+              name="Anrede"
+              class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              id="name"
+              [(ngModel)]="userInfo.anrede"
+              placeholder="Anrede"
+              required
+              [ngModelOptions]="{ standalone: true }"
+            />
+          </div>
+          <div class="form-group mb-6">
+            <input
+              type="text"
+              name="Name"
               class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
               id="name"
               [(ngModel)]="userInfo.name"
@@ -194,9 +207,10 @@
           </div>
           <div class="form-group mb-6">
             <input
-              type="text"
+              type="tel"
               class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
               id="telefon"
+              name="Telefon"
               [(ngModel)]="userInfo.telefon"
               placeholder="Telefon*"
               required
@@ -209,6 +223,7 @@
               class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
               id="address"
               [(ngModel)]="userInfo.address"
+              name="Adresse"
               placeholder="Address"
               [ngModelOptions]="{ standalone: true }"
             />
@@ -216,30 +231,33 @@
           <div class="form-group mb-6">
             <input
               type="email"
+              name="E-mail"
               class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
               id="email"
               [(ngModel)]="userInfo.email"
-              placeholder="Email *"
+              placeholder="E-mail *"
               required
               [ngModelOptions]="{ standalone: true }"
             />
           </div>
           <div class="form-group mb-6">
             <textarea
+              name="Nachricht"
               [ngModelOptions]="{ standalone: true }"
               [(ngModel)]="userInfo.message"
               class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
               id="message"
               rows="3"
-              placeholder="Message"
+              placeholder="Nachricht"
               required
             ></textarea>
           </div>
           <button
             (click)="orderProduct()"
             class="w-full px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+            type="submit"
           >
-            Order
+            vorbestellen
           </button>
         </form>
       </div>
@@ -251,7 +269,7 @@
           class="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
           data-bs-dismiss="modal"
         >
-          Close
+          schließen
         </button>
       </div>
     </div>
