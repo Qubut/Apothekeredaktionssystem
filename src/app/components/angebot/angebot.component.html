@@ -16,7 +16,7 @@
         <ul class="flex justify-center mx-auto list-inside mt-8">
           <div class="px-2 lg:pl-0 price-item">
             <label class="price-label" for="">Price</label>
-            <span>€{{ item.discount * item. uvp }}</span>
+            <span>€{{ (( 1 - item.discount/100) * item. uvp).toFixed(2) }}</span>
           </div>
           <div class="px-2 lg:pl-0 price-item">
             <label class="price-label" for="">Discount</label>

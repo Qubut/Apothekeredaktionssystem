@@ -34,11 +34,11 @@ export class EinkaufswagenComponent implements OnInit {
 
       data.map((item: any, i: number) => {
         amount += parseInt(item.amount);
-        price += item.amount * item.price;
+        price += (item.amount * item.uvp *(1-item.discount/100));
       });
 
       this.cartCount = amount;
-      this.totalPrice = parseInt(price.toString().slice(0, 5));
+      this.totalPrice = price
       this.storedProduct = data;
     });
   }
@@ -86,7 +86,7 @@ export class EinkaufswagenComponent implements OnInit {
           product: item.title,
           amount: item.amount,
           discount: item.discount,
-          price: item.uvp * item.discount * item.amount,
+          price: (item.uvp * (1-item.discount/100) * item.amount).toFixed(2),
         };
       }
     );
