@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "angebote",
+  "info": {
+    "singularName": "angebot",
+    "pluralName": "angebote",
+    "displayName": "Angebot",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "bild": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "uvp": {
+      "type": "float"
+    },
+    "discount": {
+      "type": "float"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "exclusive"
+      ]
+    }
+  }
+}

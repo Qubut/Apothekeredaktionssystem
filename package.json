@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.1.0",
   "description": "A Strapi application",
-
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
@@ -11,15 +10,17 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi/plugin-i18n": "4.0.4",
-    "@strapi/plugin-users-permissions": "4.0.4",
+    "@strapi/plugin-graphql": "^4.4.3",
+    "@strapi/plugin-i18n": "4.4.0",
+    "@strapi/plugin-users-permissions": "4.3.9",
     "@strapi/provider-upload-aws-s3": "^4.0.4",
-    "@strapi/strapi": "^4.3.8",
+    "@strapi/strapi": "4.4.0",
     "knex": "^2.3.0",
     "lodash": "^4.17.21",
     "pg": "8.6.0",
-    "serverless-http": "^3.0.2",
     "strapi-plugin-duplicate-button": "^1.0.4",
+    "strapi-plugin-fuzzy-search": "^1.10.2",
+    "strapi-plugin-meilisearch": "^0.7.1",
     "strapi-plugin-menus": "^1.0.2",
     "strapi-plugin-rest-cache": "^4.2.4",
     "strapi-plugin-transformer": "^2.1.0",
@@ -36,9 +37,5 @@
     "node": ">=12.x.x <=16.x.x",
     "npm": ">=6.0.0"
   },
-  "license": "MIT",
-  "devDependencies": {
-    "serverless-offline": "^10.0.2"
-  }
-
+  "license": "MIT"
 }

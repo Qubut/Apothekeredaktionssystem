@@ -27,4 +27,58 @@ module.exports = ({ env }) => ({
       maxDepth: 3,
     },
   },
+  meilisearch: {
+    config: {
+      host: "http://ec2-3-9-176-49.eu-west-2.compute.amazonaws.com:7700",
+      apiKey: "dc55a924c56420ae0bbcf8724311de46816aa623fdc90bc89",
+    },
+  },
+  "fuzzy-search": {
+    enabled: true,
+    config: {
+      contentTypes: [
+        {
+          uid: "api::angebot.angebot",
+          modelName: "angebote",
+          transliterate: true,
+          queryConstraints: {
+            where: {
+              $and: [
+                {
+                  publishedAt: { $notNull: true },
+                },
+              ],
+            },
+          },
+          fuzzysortOptions: {
+            characterLimit: 300,
+            threshold: -600,
+            limit: 100,
+            keys: [
+              {
+                name: "title",
+                weight: 100,
+              },
+              {
+                name: "description",
+                weight: -100,
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+  graphql: {
+    config: {
+      endpoint: "/graphql",
+      shadowCRUD: true,
+      playgroundAlways: false,
+      depthLimit: 7,
+      amountLimit: 100,
+      apolloServer: {
+        tracing: false,
+      },
+    },
+  },
 });

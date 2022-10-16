@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "highlights",
+  "info": {
+    "singularName": "highlight",
+    "pluralName": "highlights",
+    "displayName": "highlight",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "bild": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "link": {
+      "type": "string"
+    },
+    "color": {
+      "type": "enumeration",
+      "enum": [
+        "blue",
+        "green",
+        "yellow",
+        "red"
+      ]
+    }
+  }
+}

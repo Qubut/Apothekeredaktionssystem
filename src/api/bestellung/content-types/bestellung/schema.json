@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bestellungen",
+  "info": {
+    "singularName": "bestellung",
+    "pluralName": "bestellungen",
+    "displayName": "Bestellung",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "angebots": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::angebot.angebot"
+    },
+    "anrede": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "nachricht": {
+      "type": "richtext"
+    },
+    "telefon": {
+      "type": "string"
+    },
+    "preis": {
+      "type": "decimal"
+    },
+    "details": {
+      "type": "json"
+    }
+  }
+}
