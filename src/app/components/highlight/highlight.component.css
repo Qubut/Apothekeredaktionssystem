@@ -21,6 +21,7 @@ h3 {
 .card {
  /* @apply lg:ml-16;  */
  @apply md:ml-16; 
+ @apply p-3;
   @apply flex;
   @apply flex-col;
   width: auto;
@@ -33,7 +34,7 @@ h3 {
   @apply rounded-sm;
   @apply shadow-lg;
   @apply text-white;
-  @apply p-3;
+ 
   /* @apply lg:mt-10; */
   @apply md:mt-10;
 }
@@ -104,8 +105,14 @@ h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @apply p-10;
 }
+.announcement_h1{
+  font-family: cursive;
+  @apply mt-8;
+  line-height: 3rem;
 
+}
 .announcement:before,
 .announcement:after {
   content: '';

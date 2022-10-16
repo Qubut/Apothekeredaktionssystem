@@ -12,8 +12,9 @@
         <div class="sponsor">Riem-Apotheke</div>
       </header>
       <div class="announcement">
-        <h1 style="line-height: 3rem;margin-bottom: 2rem;">{{highlight.title}}</h1>
+        <h1 class="announcement_h1">{{highlight.title}}</h1>
         <h3 class="italic">{{highlight.description}}</h3>
+        <h2 *ngIf="highlight.link as link"><a  [href]="highlight.link" target="_blank"><u>zum Link</u></a></h2>
       </div>
     </div>
 
