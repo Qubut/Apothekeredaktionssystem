@@ -8,7 +8,7 @@
           class="grid md:grid-cols-4 gap-x-6 lg:gap-x-12"
           style="margin-top: 6rem"
         >
-          <ng-container *ngFor="let angebot of angebote$ | async">
+          <ng-container *ngFor="let angebot of data">
             <app-angebot [item]="angebot"></app-angebot>
           </ng-container>
         </div>

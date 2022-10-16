@@ -10,6 +10,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class AngeboteComponent implements OnInit {
   angebote$ = new Observable<Angebot[]>();
+  data:Angebot[] =[]
   constructor(private apiService: ApiService, private httpClient: HttpClient) {}
 
   ngOnInit(): void {
@@ -17,6 +18,6 @@ export class AngeboteComponent implements OnInit {
   }
 
   show(e: Hits) {
-    (<Angebote[]>(<unknown>e)).forEach((d) => console.log(d));
+   this.data = (<Angebot[]>(<unknown>e))
   }
 }
