@@ -33,42 +33,6 @@ module.exports = ({ env }) => ({
       apiKey: "dc55a924c56420ae0bbcf8724311de46816aa623fdc90bc89",
     },
   },
-  "fuzzy-search": {
-    enabled: true,
-    config: {
-      contentTypes: [
-        {
-          uid: "api::angebot.angebot",
-          modelName: "angebote",
-          transliterate: true,
-          queryConstraints: {
-            where: {
-              $and: [
-                {
-                  publishedAt: { $notNull: true },
-                },
-              ],
-            },
-          },
-          fuzzysortOptions: {
-            characterLimit: 300,
-            threshold: -600,
-            limit: 100,
-            keys: [
-              {
-                name: "title",
-                weight: 100,
-              },
-              {
-                name: "description",
-                weight: -100,
-              },
-            ],
-          },
-        },
-      ],
-    },
-  },
   graphql: {
     config: {
       endpoint: "/graphql",
