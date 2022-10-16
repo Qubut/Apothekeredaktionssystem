@@ -33,16 +33,4 @@ module.exports = ({ env }) => ({
       apiKey: "dc55a924c56420ae0bbcf8724311de46816aa623fdc90bc89",
     },
   },
-  graphql: {
-    config: {
-      endpoint: "/graphql",
-      shadowCRUD: true,
-      playgroundAlways: false,
-      depthLimit: 7,
-      amountLimit: 100,
-      apolloServer: {
-        tracing: false,
-      },
-    },
-  },
 });
