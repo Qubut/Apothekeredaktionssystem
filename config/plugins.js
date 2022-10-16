@@ -29,7 +29,7 @@ module.exports = ({ env }) => ({
   },
   meilisearch: {
     config: {
-      host: "http://ec2-3-9-176-49.eu-west-2.compute.amazonaws.com:7700",
+      host: "localhost:7700",
       apiKey: "dc55a924c56420ae0bbcf8724311de46816aa623fdc90bc89",
     },
   },
