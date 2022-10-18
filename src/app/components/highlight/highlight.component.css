@@ -1,10 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Asap+Condensed:600i,700');
-
 body {
   background: #fafafa;
   display: flex;
   text-transform: uppercase;
-  font-family: 'Asap Condensed', sans-serif;
 }
 
 h1 {
@@ -19,29 +16,53 @@ h3 {
 }
 
 .card {
- /* @apply lg:ml-16;  */
- @apply md:ml-16; 
- @apply p-3;
+  /* @apply lg:ml-16;  */
+  @apply md:ml-16;
+  @apply p-3;
   @apply flex;
   @apply flex-col;
-  width: auto;
-  /* scale: 0.6; */
   position: relative;
-  height: 40vh;
-  width: 40vw;
+  @apply sm:h-[80vh];
+  @apply sm:w-[80vh];
+  @apply md:w-[80vh];
+  @apply md:h-[80vh];
+  @apply lg:h-[60vh];
+  @apply lg:w-[100vh];
+
   text-align: center;
-  background: linear-gradient(#E96874, #6E3663, #2B0830);
+  background: linear-gradient(#e96874, #6e3663, #2b0830);
+  background: linear-gradient(
+    160deg,
+    rgba(201, 223, 199, 1) 50%,
+    rgba(236, 206, 204, 1) 85%
+  );
+  background: linear-gradient(
+    160deg,
+    rgba(147, 195, 143, 0.8841737378545168) 48%,
+    rgba(226, 187, 184, 0.8897759787508753) 80%
+  );
+  @apply ease-linear;
+  @apply duration-200;
+  @apply transition-all;
   @apply rounded-sm;
   @apply shadow-lg;
-  @apply text-white;
- 
+  @apply text-black;
+
   /* @apply lg:mt-10; */
   @apply md:mt-10;
 }
-
+.card:hover {
+  background: linear-gradient(
+    160deg,
+    rgba(201, 223, 199, 1) 50%,
+    rgba(236, 206, 204, 1) 85%
+  );
+  transition-timing-function: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+  transition-duration:2s;
+}
 .card header {
   position: absolute;
-  top: 31px;
+  @apply top-8;
   left: 0;
   width: 100%;
   padding: 0 10%;
@@ -53,31 +74,38 @@ h3 {
 
 .card header > *:first-child {
   text-align: left;
+  @apply text-2xl !important;
 }
 .card header > *:last-child {
   text-align: right;
+  @apply text-2xl !important;
 }
 
 .logo {
-  font-size: 24px;
+  @apply text-2xl;
   position: relative;
 }
 .logo:before,
 .logo:after {
-  content: '';
+  content: "";
   position: absolute;
-  top: 50%;
-  border-top: 3px solid currentColor;
+  @apply top-2/4;
+  @apply border-t-4;
+  @apply border-t-slate-100;
+  @apply sm:hidden;
+
   transform: translateY(-50%);
 }
 
 .logo:before {
-  right: 158px;
-  width: 40%;
+  @apply right-40;
+  @apply w-2/5;
+  @apply sm:hidden;
 }
 .logo:after {
-  left: 158px;
-  width: 55%;
+  @apply left-40;
+  @apply w-7/12;
+  @apply sm:hidden;
 }
 
 .logo span {
@@ -107,15 +135,14 @@ h3 {
   align-items: center;
   @apply p-10;
 }
-.announcement_h1{
-  font-family: cursive;
+.announcement_h1 {
+  @apply font-greatVibes;
   @apply mt-8;
-  line-height: 3rem;
-
+  @apply leading-[4rem];
 }
 .announcement:before,
 .announcement:after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0px;
   border-top: 3px solid currentColor;
@@ -129,14 +156,11 @@ h3 {
   right: -3px;
 }
 
-
 .inspiration {
   position: absolute;
   bottom: 20px;
   left: 20px;
 }
-
-
 
 * {
   box-sizing: border-box;
@@ -144,7 +168,8 @@ h3 {
   padding: 0;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -159,11 +184,14 @@ a:link {
 
 a {
   color: currentColor;
-  transition: .2s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 
-h1, h2, h3, h4 {
-  margin: .15em 0;
+h1,
+h2,
+h3,
+h4 {
+  margin: 0.15em 0;
 }
 
 ul {
@@ -175,20 +203,4 @@ img {
   vertical-align: middle;
   height: auto;
   width: 100%;
-}
-
-@media (width<1000px){
-  .card {
-    width: auto;
-    margin-left: 0px;
-    scale: 0.6;
-    position: relative;
-    height: 350px;
-    text-align: center;
-    background: linear-gradient(#E96874, #6E3663, #2B0830);
-    border-radius: 2px;
-    box-shadow: 0 6px 12px -3px rgb(0 0 0 / 30%);
-    color: #fff;
-    padding: 30px;
-  }
 }

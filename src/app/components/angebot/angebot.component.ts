@@ -65,7 +65,7 @@ export class AngebotComponent implements OnInit {
       this.product_amount = 0;
 
     } else{
-      alert("Invalid Amount");
+      alert("Ungültiger Wert");
     }
 
   }
@@ -73,7 +73,7 @@ export class AngebotComponent implements OnInit {
   //remove proudct in cart
   increase() {
     if(this.product_amount > 14){
-      alert("Oops, the product count is limited by 15 count");
+      alert("Ups, die Anzahl der Produkte ist auf 15 Stück begrenzt");
     }else{
       this.product_amount++;
     }

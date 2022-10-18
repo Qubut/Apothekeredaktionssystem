@@ -1,12 +1,14 @@
 div.price-item{
-  display: flex;
+  @apply flex;
+  @apply flex-col;
+  @apply text-2xl;
+  @apply font-mono;
   padding-right: 5%;
-  flex-direction: column;
   padding-left: 5%;
 }
 
 label.price-label{
-  font-size: 18px;
+  @apply text-xl;
   font-weight: bold;
 }
 
@@ -67,6 +69,7 @@ label.price-label{
 }
 
 .product-amount {
+  @apply rounded-lg;
   margin-left: 13px;
   font-size: 23px;
   margin-right: 13px;

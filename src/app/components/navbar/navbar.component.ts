@@ -52,6 +52,7 @@ export class NavbarComponent implements AfterViewInit {
   public cart$: Observable<[]>;
   public cartCount: number = 0;
   private isVisible = true;
+  isCollapse=true;
 
   constructor(private store: Store<{ cart: [] }>) {
     this.cart$ = store.select('cart');
@@ -71,7 +72,9 @@ export class NavbarComponent implements AfterViewInit {
   get toggle(): VisibilityState {
     return this.isVisible ? VisibilityState.Visible : VisibilityState.Hidden;
   }
-
+autoCollapse(){
+ this.isCollapse = true
+}
   ngAfterViewInit() {
     const scroll$ = fromEvent(window, 'scroll').pipe(
       throttleTime(10),

@@ -49,6 +49,7 @@ import { HighlightToastComponent } from './components/highlight/highlight-toast/
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EmailService } from './services/email.service';
+import { LoaderComponent } from './components/loader/loader.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,6 +85,7 @@ import { EmailService } from './services/email.service';
     HighlightComponent,
     HighlightsComponent,
     HighlightToastComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,12 +1,12 @@
 {
   "/api/*": {
-    "target": "http://ec2-3-9-176-49.eu-west-2.compute.amazonaws.com:1337",
+    "target": "http://localhost:1337",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
   },
   "/search/*": {
-    "target": "http://ec2-3-9-176-49.eu-west-2.compute.amazonaws.com:7700",
+    "target": "http://localhost:7700",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"

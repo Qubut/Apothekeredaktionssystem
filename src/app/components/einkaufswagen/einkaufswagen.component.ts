@@ -34,11 +34,11 @@ export class EinkaufswagenComponent implements OnInit {
 
       data.map((item: any, i: number) => {
         amount += parseInt(item.amount);
-        price += (item.amount * item.uvp *(1-item.discount/100));
+        price += item.amount * item.uvp * (1 - item.discount / 100);
       });
 
       this.cartCount = amount;
-      this.totalPrice = price
+      this.totalPrice = price;
       this.storedProduct = data;
     });
   }
@@ -62,12 +62,17 @@ export class EinkaufswagenComponent implements OnInit {
   orderProduct() {
     if (this.validateFrm()) {
       let beautifyTxT = this.makeMessageTxT(this.storedProduct);
-      var result = this.mail.SendEmail(beautifyTxT);
-      if (result) {
-        alert('The mail is sent successfuly');
+      if (beautifyTxT) {
+        let result = this.mail.SendEmail(beautifyTxT);
 
-        this.store.dispatch(new Refresh());
-      }
+        let sub = result.subscribe((response) => console.log());
+        if (result) {
+          alert('Die Vorbestellung ist erfolgreich abgeschlossen worden');
+
+          this.store.dispatch(new Refresh());
+        }
+        sub.unsubscribe();
+      } else return;
     }
   }
 
@@ -75,6 +80,10 @@ export class EinkaufswagenComponent implements OnInit {
     products: { title: string; amount: number; discount: number; uvp: number }[]
   ) {
     let details: { [key: string]: any } = {};
+    if (products.length == 0) {
+      alert('leerer Einkaufswagen');
+      return;
+    }
     products.forEach(
       (item: {
         title: string;
@@ -86,7 +95,9 @@ export class EinkaufswagenComponent implements OnInit {
           product: item.title,
           amount: item.amount,
           discount: item.discount,
-          price: (item.uvp * (1-item.discount/100) * item.amount).toFixed(2),
+          preis: (item.uvp * (1 - item.discount / 100) * item.amount).toFixed(
+            2
+          ),
         };
       }
     );
@@ -95,7 +106,9 @@ export class EinkaufswagenComponent implements OnInit {
         anrede: this.userInfo.anrede,
         name: this.userInfo.name,
         email: this.userInfo.email,
-        message: this.userInfo.message,
+        nachricht: this.userInfo.message,
+        telefon: this.userInfo.telefon,
+        preis: this.totalPrice,
         details,
       },
     };

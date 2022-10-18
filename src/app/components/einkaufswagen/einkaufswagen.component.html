@@ -50,7 +50,7 @@
                         style="width: 21px; padding-right: 4px"
                       />
                       <span class="font-semibold mr-2 text-xs uppercase"
-                        >Name:</span
+                        >Produkt:</span
                       >
                       <span>{{ item.title }}</span>
                     </p>
@@ -62,7 +62,7 @@
                         style="width: 21px; padding-right: 4px"
                       />
                       <span class="font-semibold mr-2 text-xs uppercase"
-                        >Price:</span
+                        >Gesamtpreis:</span
                       >
                       <span
                         >€{{((item.uvp * (1 - item.discount / 100)) *
@@ -77,7 +77,7 @@
                         style="width: 21px; padding-right: 4px"
                       />
                       <span class="font-semibold mr-2 text-xs uppercase"
-                        >Discount</span
+                        >Rabatt</span
                       >
                       <span>{{ item.discount }}%</span>
                     </p>
@@ -89,7 +89,7 @@
                         style="width: 21px; padding-right: 4px"
                       />
                       <span class="font-semibold mr-2 text-xs uppercase"
-                        >Product Count</span
+                        >Produkt-Anzahl</span
                       >
                       <select
                         #productCount
@@ -126,17 +126,17 @@
         <a
           class="cursor-pointer uppercase text-xs flex flex-row items-center justify-center font-semibold"
         >
-          <div class="mr-2">Count</div>
+          <div class="mr-2">Anzahl</div>
           {{ cartCount }}
         </a>
         <a
           class="cursor-pointer uppercase text-xs flex flex-row items-center justify-center font-semibold"
         >
-          <div class="mr-2">Price</div>
-          €{{ totalPrice }}
+          <div class="mr-2">Preis</div>
+          €{{ totalPrice.toFixed(2)}}
         </a>
         <a
-          class="cursor-pointer uppercase text-xs flex flex-row items-center justify-center font-semibold"
+          class="cursor-pointer uppercase text-xs flex flex-row items-center justify-center font-semibold text-blue-500"
           data-bs-toggle="modal"
           data-bs-target="#checkOutModal"
         >
@@ -146,7 +146,7 @@
               style="width: 20px"
             />
           </div>
-          Check out
+          Check-out
         </a>
       </div>
     </div>
@@ -183,7 +183,7 @@
         ></button>
       </div>
       <div class="modal-body relative p-4">
-        <form method="POST">
+        <form method="POST" (ngSubmit)="orderProduct()">
           <div class="form-group mb-6">
             <input
               type="text"
@@ -256,7 +256,7 @@
             ></textarea>
           </div>
           <button
-            (click)="orderProduct()"
+            
             class="w-full px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
             type="submit"
           >

@@ -1,6 +1,6 @@
 <div
   *ngIf="highlight"
-  class="relative"
+  class="relative m-40"
 >
     <div class="card">
       <header>
@@ -13,8 +13,8 @@
       </header>
       <div class="announcement">
         <h1 class="announcement_h1">{{highlight.title}}</h1>
-        <h3 class="italic">{{highlight.description}}</h3>
-        <h2 *ngIf="highlight.link as link"><a  [href]="highlight.link" target="_blank"><u>zum Link</u></a></h2>
+        <h3 style="font-family: 'Kaushan Script'!important;">{{highlight.description}}</h3>
+        <h2 style="font-family: 'Kaushan Script'!important; font-size: xx-large;" *ngIf="highlight.link as link"><a  [href]="highlight.link" target="_blank"><u>zum Link</u></a></h2>
       </div>
     </div>
 

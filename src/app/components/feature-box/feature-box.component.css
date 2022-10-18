@@ -5,7 +5,7 @@
   position: relative
 }
 .inline-block, .text-black, .bg-clip-text{
-  font-family: cursive;
+  @apply font-greatVibes;
   color: #3C786C!important;
   fill: #3C786C!important;
   font-weight: bold;
@@ -33,7 +33,7 @@
   margin-bottom: 20px !important;
 }
 .items-center{
-  font-family: cursive;
+  @apply font-greatVibes;
   color: #3C786C!important;
   fill: #3C786C!important;
   font-weight: bold;

@@ -1,7 +1,7 @@
 
 
 <div class="container my-24 px-6 mx-auto" style="margin-top: 10rem;">
-<h1 class="font-medium leading-tight mt-0 mb-2 text-blue-600 text-center text-9xl" style="font-family:cursive;font-size: xx-large;margin-bottom: 4rem; ">Jobs</h1>
+<h1 class="font-medium leading-tight mt-0 mb-2 text-blue-600 text-center text-9xl" style="font-family:'Great Vibes';font-size: xx-large;margin-bottom: 4rem; ">Unsere Jobangebote</h1>
   <!-- Section: Design Block -->
    <ng-container *ngFor="let job of jobs$ | async; let i = index"
       ><section class="mb-32 text-gray-800">
@@ -11,18 +11,18 @@
         <div class="mb-12 lg:mb-0">
           <div class="block rounded-lg shadow-lg px-6 py-12 md:px-12 lg:-mr-14"
             style="background: hsla(0, 0%, 100%, 0.55); backdrop-filter: blur(30px)">
-            <h2 class="text-3xl font-bold mb-6 text-blue-600 " style="font-family: cursive;">{{job.title}}</h2>
-            <p *ngIf="job.telefon as tel" class="text-gray-700 mb-6 pb-2 lg:pb-0">
+            <h2 class="text-3xl font-bold mb-6 text-blue-600 " style="font-family: 'Kaushan Sscript';">{{job.title}}</h2>
+            <p *ngIf="job.telefon as tel" class="text-gray-800 mb-6 pb-2 lg:pb-0 text-xl">
             Telefon: {{tel}}
             </p>
 
-            <p *ngIf="job.adresse as addr" class="text-gray-700 mb-6 pb-2 lg:pb-0">
+            <p *ngIf="job.adresse as addr" class="text-gray-800 mb-6 pb-2 lg:pb-0 text-xl">
               Adresse: {{addr}}
               </p>
 
-            <p class="text-gray-500 mb-0" *ngIf="job.description as desc">
-              {{desc}}
-            </p>
+            <section [innerHTML]="desc" class="desc text-gray-700 mb-0 font-kaushan text-2xl leading-10" *ngIf="job.description as desc">
+              
+            </section>
           </div>
         </div>
 

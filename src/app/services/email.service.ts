@@ -7,15 +7,20 @@ import { map } from 'rxjs';
 })
 export class EmailService {
   headers: HttpHeaders = new HttpHeaders({
-    'Content-Type': 'application/json',
+    'Content-Type': 'application/json; charset=utf-8',
+    'X-Content-Type-Options': 'nosniff',
+    Connection: 'keep-alive',
+    'Keep-Alive': 'timeout=5',
   });
   constructor(private http: HttpClient) {}
 
   SendEmail(input: string) {
-    console.log(input);
 
     return this.http
-      .post(`/api/bestellungen`, input, { responseType: 'text' })
+      .post(`/api/bestellungen`, input, {
+        headers: this.headers,
+        responseType: 'text',
+      })
       .pipe(
         map(
           (response: any) => {

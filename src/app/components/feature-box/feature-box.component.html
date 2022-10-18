@@ -2,14 +2,14 @@
   <section class="mb-32 text-gray-800 text-center ">
     <div class="grid md:grid-cols-3 gap-x-6 lg:gap-x-12 ">
       <div
-        class="mb-6 lg:mb-0 duration-300 "
+        class="mb-6 lg:mb-0 duration-300"
       >
-        <div class=" block rounded-lg shadow-lg relative bg-slate-50 text-lg">
+        <div class="hover:scale-125 transition duration-150 ease-out block rounded-lg shadow-lg relative bg-slate-50 text-lg">
           <div class=" text-center">
             <div *ngIf="data.oeffnungszeiten as oeffnungszeiten" class="">
               <img src="/assets/riem/feature-1.png" class="feature-img">
               <h4
-                class="text-body-color max-w-[800px] bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-violet-500 leading-8 font-medium text-xl"
+                style="font-family: 'Kaushan Script'; font-size: larger;"
               >
                 Öffnungszeiten
               </h4>
@@ -51,11 +51,11 @@
       <div
         class="mb-6 lg:mb-0 duration-300 "
       >
-        <div class="block rounded-lg shadow-lg relative bg-slate-50">
+        <div class="hover:scale-125 transition duration-150 ease-out block rounded-lg shadow-lg relative bg-slate-50">
           <div class="clients text-center flex flex-col justify-center">
             <img src="/assets/riem/feature-2.png" class="feature-img">
             <h5
-              class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-violet-500 text-2xl font-bold font-serif text-center text-body-color mb-2"
+            style="font-family: 'Kaushan Script'; font-size:x-large"
             >
               Wir Sprechen
             </h5>
@@ -64,13 +64,10 @@
                 <img src="/assets/flags/de.svg" alt="ayroui" />
               </div>
               <div class="w-full py-3 mr-4">
-                <img src="/assets/flags/ae.svg" alt="graygrids" />
+                <img src="/assets/flags/eg.svg" alt="graygrids" />
               </div>
               <div class="w-full py-3 mr-4">
                 <img src="/assets/flags/gb.svg" alt="uideck" />
-              </div>
-              <div class="w-full py-3 mr-4">
-                <img src="/assets/flags/pl.svg" alt="uideck" />
               </div>
               <div class="w-full py-3 mr-4">
                 <img src="/assets/flags/ru.svg" alt="uideck" />
@@ -83,18 +80,18 @@
       <div
         class="mb-6 lg:mb-0 duration-300 text-center"
       >
-        <div class="block rounded-lg shadow-lg relative text-lg">
+        <div class="hover:scale-125 transition duration-150 ease-out block rounded-lg shadow-lg relative text-lg">
           <div
             class="flex flex-col justify-items-center align-middle justify-center"
           >
             <img src="/assets/riem/feature-3.png" class="feature-img">
             <h4
-              class="mb-6 text-body-color max-w-[800px] bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-violet-500 leading-8 font-medium text-xl"
+            style="font-family: 'Kaushan Script'; font-size:x-large"
             >
               Kontakt
             </h4>
             <div class="items-center justify-center mb-4">
-              <p *ngIf="data.adresse as adresse">
+              <p *ngIf="data.adresse as adresse" class="font-kaushan">
                 <svg
                   aria-hidden="true"
                   focusable="false"
@@ -118,7 +115,7 @@
             <a
               *ngIf="data.email as email"
               [href]="emailLink"
-              class="flex items-center justify-center mb-4 text-blue-500 cursor-pointer"
+              class="flex items-center justify-center mb-4 cursor-pointer font-kaushan"
             >
               <svg
                 aria-hidden="true"

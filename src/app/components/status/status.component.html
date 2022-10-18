@@ -1,6 +1,8 @@
-<h4 class="bg-clip-text text-transparent bg-gradient-to-r  from-blue-500 to-violet-500 font-medium text-2xl">Wir sind jetzt: </h4>
+
+<h4 style="font-family: 'Bad Script';font-size: larger;">Wir sind jetzt: </h4>
 <ng-container *ngIf="offen; else geschlossen">
     <h4
+    style="font-family: 'Bad Script'; font:bold;font-size: larger;"
       class="text-green-600 font-bold text-2xl"
     >
       Offen
@@ -8,7 +10,8 @@
   >
   <ng-template #geschlossen>
     <h4
-      class="text-red-600 text-2xl"
+      style="font-family: 'Bad Script'; font:bold;font-size: larger;"
+      class="text-red-600 font-bad text-2xl"
     >
       Geschlossen
     </h4></ng-template

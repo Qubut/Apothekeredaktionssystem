@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, share, shareReplay } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -8,13 +8,12 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  leistungen$ = new Observable<Leistung[]>();
   data$ = new Observable<Data>();
   offen = false;
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
-    this.data$ = this.apiService.getData();
+    this.data$ = this.apiService.getData().pipe(shareReplay(1))
     this.istOffen();
   }
   istOffen() {

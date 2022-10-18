@@ -1,5 +1,7 @@
-<section class="grid lg:grid-cols-2 md:grid-cols-2">
+<section class="grid grid-cols-1 text-center">
   <ng-container *ngFor="let highlight of highlights$ | async">
-    <app-highlight class="w-screen" [highlight]="highlight"></app-highlight>
+    <div style="margin-bottom:2rem; margin-top: 2rem;" class="md:mx-auto">
+      <app-highlight [highlight]="highlight"></app-highlight>
+    </div>
   </ng-container>
 </section>

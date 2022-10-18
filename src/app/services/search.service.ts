@@ -15,7 +15,7 @@ export class SearchService {
     },
   });
   config = {
-    indexName: 'aktion',
+    indexName: 'angebot',
     searchClient: this._searchClient,
   };
   constructor() {}
@@ -24,7 +24,6 @@ export class SearchService {
       debounceTime(400),
       distinctUntilChanged(),
       map((term) =>{
-    console.log(this._searchClient)
         return    this._searchClient
           .index('angebot')
           .search(term, { limit: 1000, filter: ``, offset })

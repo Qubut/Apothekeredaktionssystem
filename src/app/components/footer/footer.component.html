@@ -115,15 +115,27 @@
       <div class="">
         <h1
           *ngIf="data?.name as name"
-          class="uppercase font-semibold mb-4 flex items-center justify-center md:justify-start text-4xl"
+          style="font-family: 'Great Vibes' !important"
+          class="font-greatVibes uppercase font-semibold mb-4 flex items-center justify-center md:justify-start text-4xl"
         >
-        <img src="/assets/riem/riemlogo.svg" alt="" srcset="" class="mr-3 w-fit h-fit">
-         
+          <img
+            src="/assets/riem/riemlogo.svg"
+            alt=""
+            srcset=""
+            class="mr-3 w-fit h-fit"
+          />
         </h1>
-        <h2 *ngIf="data?.motto as motto" class="text-xl font-semibold italic">{{motto}}</h2>
+        <h2
+          *ngIf="data?.motto as motto"
+          style="font-family: 'Great Vibes'; font-size: xx-large"
+          class="text-xl font-semibold italic"
+        >
+          {{ motto }}
+        </h2>
       </div>
       <div *ngIf="data?.oeffnungszeiten as oeffnungszeiten" class="">
         <h2
+          style="font-family: 'Kaushan Script'"
           class="uppercase font-semibold mb-4 flex justify-center md:justify-start text-2xl"
         >
           Öffnungszeiten
@@ -131,18 +143,18 @@
         <ng-container *ngFor="let zeit of oeffnungszeiten.zeiten">
           <ng-container *ngFor="let tag of zeit.tage; let i = index">
             <ng-template #Rest>
-              <div class="text-lg inline-block m-2">
+              <div class="text-xl inline-block m-2">
                 {{ tag }}
               </div>
             </ng-template>
             <div
               *ngIf="i == zeit.tage.length - 1; else Rest"
-              class="text-lg inline-block m-2"
+              class="text-xl inline-block m-2"
             >
               {{ tag }}:
             </div>
           </ng-container>
-          <div *ngFor="let schicht of zeit.schichten" class="m-2">
+          <div *ngFor="let schicht of zeit.schichten" class="m-2 text-xl">
             {{ schicht.von.st | formatWorkHours }}:{{
               schicht.von.min | formatWorkHours
             }}
@@ -154,12 +166,13 @@
       </div>
       <div class="">
         <h6
+          style="font-family: 'Kaushan Script'; font-size: x-large"
           class="uppercase font-semibold mb-4 flex justify-center md:justify-start"
         >
           Schnellzugriff
         </h6>
         <ng-container *ngFor="let link of links">
-          <p class="mb-4">
+          <p class="mb-4 text-xl">
             <a
               [routerLink]="link.url"
               class="text-gray-600 hover:text-blue-500"
@@ -170,13 +183,14 @@
       </div>
       <div class="">
         <h6
+          style="font-family: 'Kaushan Script'; font-size: x-large"
           class="uppercase font-semibold mb-4 flex justify-center md:justify-start"
         >
           Kontakt
         </h6>
         <p
           *ngIf="data?.adresse as adresse"
-          class="flex items-center justify-center md:justify-start mb-4"
+          class="flex items-center justify-center md:justify-start mb-4 text-xl"
         >
           <svg
             aria-hidden="true"
@@ -199,7 +213,7 @@
         <a
           *ngIf="data?.email as email"
           [href]="emailLink"
-          class="flex items-center justify-center md:justify-start mb-4 text-blue-500 cursor-pointer"
+          class="text-xl flex items-center justify-center md:justify-start mb-4 text-blue-500 cursor-pointer"
         >
           <svg
             aria-hidden="true"
@@ -220,7 +234,7 @@
         </a>
         <p
           *ngIf="data?.number as number"
-          class="flex items-center justify-center md:justify-start mb-4"
+          class="text-xl flex items-center justify-center md:justify-start mb-4"
         >
           <svg
             aria-hidden="true"
@@ -241,7 +255,7 @@
         </p>
         <p
           *ngIf="data?.fax as fax"
-          class="flex items-center justify-center md:justify-start"
+          class="text-xl flex items-center justify-center md:justify-start"
         >
           <svg
             aria-hidden="true"
@@ -263,7 +277,7 @@
       </div>
     </div>
   </div>
-  <div class="text-center p-6 bg-gray-200">
+  <div class="text-center p-6 bg-gray-200 text-lg">
     <span>© 2022 Copyright:</span>
     <a
       class="text-gray-600 font-semibold"

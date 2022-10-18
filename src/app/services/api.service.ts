@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable, shareReplay } from 'rxjs';
+import { map, Observable, refCount, shareReplay } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 
 export class ApiService {
