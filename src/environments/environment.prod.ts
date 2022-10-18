@@ -3,3 +3,5 @@ export const environment = {
   meilisearch: '',
   meilisearchKey: 'dc55a924c56420ae0bbcf8724311de46816aa623fdc90bc89',
 };
+
+export const PROJECT_NAME='riem-apotheke'

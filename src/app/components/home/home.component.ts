@@ -1,19 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable, share, shareReplay } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable, share, shareReplay, Subscription } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
+import {delay} from 'rxjs/operators';
+import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit,OnDestroy{
   data$ = new Observable<Data>();
   offen = false;
-  constructor(private apiService: ApiService) {}
+  loader$ = new Observable<boolean>();
+  loading = true;
+  loaderSub = new Subscription();
+  constructor(private apiService: ApiService,private _loadingService:LoadingService) {}
+  ngOnDestroy(): void {
+    this.loaderSub.unsubscribe()
+  }
 
   ngOnInit(): void {
-    this.data$ = this.apiService.getData().pipe(shareReplay(1))
+    this.loader$= this._loadingService.loadingSub.pipe(delay(0))
+    this.loaderSub = this.loader$.subscribe((loading)=>this.loading=loading)
+    this.data$ = this.apiService.getData().pipe(shareReplay(1));
     this.istOffen();
   }
   istOffen() {

@@ -1,9 +1,8 @@
-<ng-container *ngIf="{ pages: menu$ | async, data: data$ | async } as vm"
-  >
+<app-loader *ngIf="loading"></app-loader>
+
+<ng-container *ngIf="{ pages: menu$ | async, data: data$ | async } as vm">
   <app-navbar [pages]="vm.pages!"></app-navbar>
   <router-outlet></router-outlet>
   <app-einkaufswagen></app-einkaufswagen>
   <app-footer [links]="vm.pages!" [data]="vm.data!"></app-footer>
 </ng-container>
-
-<app-loader></app-loader>
