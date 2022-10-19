@@ -32,7 +32,8 @@ module.exports = ({ env }) => ({
       host: "localhost:7700",
       apiKey: "dc55a924c56420ae0bbcf8724311de46816aa623fdc90bc89",
     },
-  }, "rest-cache": {
+  },
+  "rest-cache": {
     config: {
       provider: {
         name: "memory",
@@ -44,8 +45,25 @@ module.exports = ({ env }) => ({
       strategy: {
         contentTypes: [
           // list of Content-Types UID to cache
-        
         ],
+      },
+    },
+  },
+  email: {
+    config: {
+      provider: "nodemailer",
+      providerOptions: {
+        host: env("SMTP_HOST", "smtp.example.com"),
+        port: env("SMTP_PORT", 587),
+        auth: {
+          user: env("SMTP_USERNAME"),
+          pass: env("SMTP_PASSWORD"),
+        },
+        // ... any custom nodemailer options
+      },
+      settings: {
+        defaultFrom: env("EMAIL_ADDRESS_FROM"),
+        defaultReplyTo: env("EMAIL_ADDRESS_REPLY"),
       },
     },
   },
@@ -126,7 +144,7 @@ module.exports = ({ env }) => ({
         },
         // https://ckeditor.com/docs/ckeditor5/latest/features/font.html
         fontSize: {
-          options: [9, 11, 13, "default", 17, 19, 21, 27, 35,40,45,50],
+          options: [9, 11, 13, "default", 17, 19, 21, 27, 35, 40, 45, 50],
           supportAllValues: false,
         },
         fontFamily: {
