@@ -4,7 +4,8 @@
   "info": {
     "singularName": "datum",
     "pluralName": "data",
-    "displayName": "Data"
+    "displayName": "Data",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -26,16 +27,19 @@
     "name": {
       "type": "string"
     },
-    "greeting": {
-      "type": "richtext"
+    "motto": {
+      "type": "string"
     },
-    "oeffnungszeiten": {
-      "type": "json"
+    "werktag": {
+      "displayName": "öffnungszeiten",
+      "type": "component",
+      "repeatable": true,
+      "component": "status.oeffnungszeiten"
+    },
+    "greeting": {
+      "type": "string"
     },
     "beschreibung": {
-      "type": "richtext"
-    },
-    "motto": {
       "type": "string"
     }
   }

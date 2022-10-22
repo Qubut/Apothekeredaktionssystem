@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "nachrichten",
+  "info": {
+    "singularName": "nachricht",
+    "pluralName": "nachrichten",
+    "displayName": "Nachricht"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "vorname": {
+      "type": "string"
+    },
+    "telefon": {
+      "type": "string"
+    },
+    "nachricht": {
+      "type": "richtext"
+    },
+    "email": {
+      "type": "email"
+    },
+    "betreff": {
+      "type": "string"
+    }
+  }
+}
