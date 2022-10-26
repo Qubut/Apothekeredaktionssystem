@@ -41,6 +41,16 @@
     },
     "beschreibung": {
       "type": "string"
+    },
+    "header_bild": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
