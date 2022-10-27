@@ -37,6 +37,9 @@
     },
     "details": {
       "type": "json"
+    },
+    "vorname": {
+      "type": "string"
     }
   }
 }
