@@ -1,47 +1,54 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable, refCount, shareReplay } from 'rxjs';
+import {
+  distinctUntilChanged,
+  map,
+  Observable,
+  shareReplay,
+} from 'rxjs';
 @Injectable({ providedIn: 'root' })
-
 export class ApiService {
   constructor(private httpClient: HttpClient) {}
   getMenus(): Observable<Item[]> {
-    return this.httpClient
-      .get(`/api/menus?populate=*`)
-      .pipe(
-        map((res) => (<Menus>res).data[0].items),
-        shareReplay(1)
-      );
+    return this.httpClient.get<Menus>(`/api/menus?populate=*`).pipe(
+      map((res) => res.data[0].items),distinctUntilChanged(),
+      shareReplay(3)
+    );
   }
   getLeistungen(): Observable<Leistung[]> {
-    return this.httpClient.get(`/api/leistungen`).pipe(
-      map((res) => (<Leistungen>res).data),
+    return this.httpClient.get<Leistungen>(`/api/leistungen`).pipe(
+      map((res) => res.data),distinctUntilChanged(),
       shareReplay(1)
     );
   }
   getData(): Observable<Data> {
-    return this.httpClient.get(`/api/datum`).pipe(
-      map((res) => (<DataObject>res).data),
+    return this.httpClient.get<DataObject>(`/api/datum?populate=*`).pipe(
+      map((res) => res.data),distinctUntilChanged(),
+      shareReplay(3)
+    );
+  }
+  getJobs(): Observable<Job[]> {
+    return this.httpClient.get<Jobs>(`/api/jobs?populate=*`).pipe(
+      map((res) => res.data),distinctUntilChanged(),
       shareReplay(1)
     );
   }
-  getJobs():Observable<Job[]>{
-    return this.httpClient.get(`/api/jobs?populate=*`).pipe(
-      map((res)=>(<Jobs>res).data),shareReplay(1)
-    )
-  }
-  getHighlights():Observable<Highlight[]>{
-    return this.httpClient.get(`/api/highlights?populate=*`).pipe(
-      map((res)=>(<Highlights>res).data),shareReplay(1)
-    )
+  getHighlights(): Observable<Highlight[]> {
+    return this.httpClient.get<Highlights>(`/api/highlights?populate=*`).pipe(
+      map((res) => res.data),distinctUntilChanged(),
+      shareReplay(1)
+    );
   }
 
-  getAngebote():Observable<Angebot[]>{
-    return this.httpClient.get(`/api/angebote?populate=*`).pipe(
-      map((res)=>(<Angebote>res).data),shareReplay(1)
-    )
+  getAngebote(): Observable<Angebot[]> {
+    return this.httpClient.get<Angebote>(`/api/angebote?populate=*`).pipe(
+      map((res) => res.data),distinctUntilChanged(),
+      shareReplay(1)
+    );
   }
-  getSearch(query:string):Observable<any>{
-    return this.httpClient.get(`/api/fuzzy-search/search?query=${query}`)
+  getImpressum(): Observable<Impressum> {
+    return this.httpClient
+      .get<Impressum>(`/api/impressum`)
+      .pipe(distinctUntilChanged(), shareReplay(1));
   }
 }

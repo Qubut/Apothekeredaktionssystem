@@ -1,18 +1,37 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, HostListener, Input,AfterViewInit,  OnInit, HostBinding } from '@angular/core';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
+import {
+  Component,
+  HostListener,
+  Input,
+  AfterViewInit,
+  OnInit,
+  HostBinding,
+} from '@angular/core';
 import { Observable, fromEvent } from 'rxjs';
-import { ApiService } from 'src/app/services/api.service';
-import { distinctUntilChanged, filter, map, pairwise, share, throttleTime } from 'rxjs/operators';
+import {
+  distinctUntilChanged,
+  filter,
+  map,
+  pairwise,
+  share,
+  throttleTime,
+} from 'rxjs/operators';
 import { Store, select } from '@ngrx/store';
 
 enum VisibilityState {
   Visible = 'visible',
-  Hidden = 'hidden'
+  Hidden = 'hidden',
 }
 
 enum Direction {
   Up = 'Up',
-  Down = 'Down'
+  Down = 'Down',
 }
 
 @Component({
@@ -24,57 +43,48 @@ enum Direction {
       :host {
         position: fixed;
         top: 0;
-        z-index: 1030;
+        z-index: 999;
         width: 100%;
       }
-    `
+    `,
   ],
   animations: [
     trigger('toggle', [
       state(
         VisibilityState.Hidden,
-        style({ opacity: 0.9, height: '40px', transform: 'translateY(-30%)' }),
+        style({ opacity: 0.9, height: '2.5rem', transform: 'translateY(-10%)' })
       ),
       state(
         VisibilityState.Visible,
-        style({ opacity: 1, transform: 'translateY(0)' })
+        style({ opacity: 0.95, transform: 'translateY(0)' })
       ),
-      transition('* => *', animate('200ms ease-in'))
-    ])
-  ]
+      transition('* => *', animate('200ms ease-in')),
+    ]),
+  ],
 })
-
-
-
-export class NavbarComponent implements AfterViewInit {
-
+export class NavbarComponent implements AfterViewInit, OnInit {
   @Input() pages: Item[] = [];
   public cart$: Observable<[]>;
   public cartCount: number = 0;
   private isVisible = true;
-  isCollapse=true;
-
+  hasCollapsed = true;
   constructor(private store: Store<{ cart: [] }>) {
     this.cart$ = store.select('cart');
-    this.cart$.subscribe(data => {
-        var amount = 0;
-        data.map((item:any, i: number) => {
-           amount += parseInt(item.amount);
-        });
-        this.cartCount = amount;
+    this.cart$.subscribe((data) => {
+      var amount = 0;
+      data.map((item: any, i: number) => {
+        amount += parseInt(item.amount);
+      });
+      this.cartCount = amount;
     });
   }
 
   ngOnInit(): void {}
 
   @HostBinding('@toggle')
-
   get toggle(): VisibilityState {
     return this.isVisible ? VisibilityState.Visible : VisibilityState.Hidden;
   }
-autoCollapse(){
- this.isCollapse = true
-}
   ngAfterViewInit() {
     const scroll$ = fromEvent(window, 'scroll').pipe(
       throttleTime(10),
@@ -86,14 +96,24 @@ autoCollapse(){
     );
 
     const goingUp$ = scroll$.pipe(
-      filter(direction => direction === Direction.Up)
+      filter((direction) => direction === Direction.Up)
     );
 
     const goingDown$ = scroll$.pipe(
-      filter(direction => direction === Direction.Down)
+      filter((direction) => direction === Direction.Down)
     );
 
     goingUp$.subscribe(() => (this.isVisible = true));
     goingDown$.subscribe(() => (this.isVisible = false));
   }
+  uncollapse() {
+    this.hasCollapsed = !this.hasCollapsed;
+  }
+  openTarget = (url: string) => window.open(url, '_blank');
+
+  openAndunCollapse = (url: string) => {
+    this.uncollapse();
+    this.openTarget(url);
+    return;
+  };
 }

@@ -13,25 +13,29 @@ declare global {
       plz: number;
       ort: string;
     };
-    oeffnungszeiten: {
-      zeiten: Zeit[];
-    };
+    werktag: Werktag[];
     motto: string;
     beschreibung: string;
     greeting: string;
+    header_bild?:HeaderBild
   };
-  type Zeit = {
-    tage: string[];
-    schichten: {
-      von: {
-        st: number;
-        min: number;
-      };
-      bis: {
-        st: number;
-        min: number;
-      };
-    }[];
+
+  type Werktag = {
+    offen: boolean;
+    tag: string;
+    oeffnungszeiten: {
+      schichten: VonBis[];
+    };
+  };
+  type VonBis = {
+    von: {
+      st: number;
+      min: number;
+    };
+    bis: {
+      st: number;
+      min: number;
+    };
   };
   type Menus = {
     data: {
@@ -55,7 +59,7 @@ declare global {
     data: Angebot[];
   };
   type Angebot = {
-    id:number;
+    id: number;
     name: string;
     uvp: number;
     discount: number;
@@ -64,8 +68,16 @@ declare global {
       url: string;
     };
     type: string;
-    amount?:number
-    price?:number
+    amount?: number;
+    price?: number;
+  };
+  type ItemSelected = {
+    title: '';
+    discount: 0;
+    uvp: 0;
+    amount: 0;
+    _id: 0;
+    image: '';
   };
   type Jobs = {
     data: Job[];
@@ -78,6 +90,7 @@ declare global {
     };
     telefon?: string;
     adresse?: string;
+    short_desc: string;
   };
   type Highlights = {
     data: Highlight[];
@@ -87,10 +100,34 @@ declare global {
     description?: string;
     bild?: {
       url: string;
+      formats: {
+        small: { url: string };
+        medium: { url: string };
+        large: { url: string };
+      };
     };
     link?: string;
     color: string;
     publishedAt: string;
+  };
+  type Impressum = {
+    data: {
+      Impressum: string;
+    };
+  };
+  type HeaderBild = {
+    url: string;
+    formats: {
+      small: {
+        url: string;
+      };
+      medium: {
+        url: string;
+      };
+      large: {
+        url: string;
+      };
+    };
   };
   type AnyData = { attributes: { [k: string]: any } };
   type document = {

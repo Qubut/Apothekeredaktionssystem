@@ -1,48 +1,26 @@
-.feature-box:hover {
-  transform: translateY(-1.5rem) scale(1.03);
+.feature-box {
+  @apply p-4 text-xl;
 }
-.rounded-lg{
-  position: relative
+.rounded-lg {
+  position: relative;
 }
-.inline-block, .text-black, .bg-clip-text{
-  @apply font-greatVibes;
-  color: #3C786C!important;
-  fill: #3C786C!important;
+.inline-block,
+.text-black,
+.bg-clip-text {
+  color: #3c786c;
+  fill: #3c786c;
   font-weight: bold;
 }
-.info-box__dash.d1, .info-box__dash.d2, .info-box__dash.d3
-{
-  bottom: 9px;
-  height: 138px;
-  left: auto;
-  right: 0;
-  top: 68px;
-  width: 1px;
-  background-color: #3C786C!important;
-  display: block;
-  position: absolute;
-}
-
-@media (width<1000px){
-  .info-box__dash.d1, .info-box__dash.d2, .info-box__dash.d3{
-    display: none;
-  }
-}
-.feature-img{
+.feature-img {
   margin: auto !important;
-  margin-bottom: 20px !important;
+  @apply mb-5;
 }
-.items-center{
-  @apply font-greatVibes;
-  color: #3C786C!important;
-  fill: #3C786C!important;
+.items-center {
+  color: #3c786c ;
+  fill: #3c786c;
   font-weight: bold;
 }
 
-.bg-clip-text{
-  font-family: cursive !important;
-    font-size: 24px !important;
-    color: #555 !important;
-    font-style: normal;
-    font-weight: 700 !important;
+* {
+  font-family: "Times New Roman", Times, serif;
 }

@@ -17,19 +17,23 @@ export class HeaderComponent implements OnInit {
       plz: 0,
       ort: '',
     },
-    oeffnungszeiten: {
-      zeiten: [],
-    },
+    werktag: [],
     motto: '',
     beschreibung: '',
     greeting: '',
   };
   emailLink = '';
-
+  bild = '';
   constructor() {}
 
   ngOnInit(): void {
     this.emailLink = `mailto:${this.data.email}`;
+    this.bild = this.data.header_bild!.url;
+    let width = window.innerWidth;
+    // if (b) {
+      // if (width < 600) this.bild = b.small.url;
+      // else if (width < 1000) this.bild = b.medium.url;
+      // else this.bild = this.data.header_bild!.url;
+    // }
   }
- 
 }

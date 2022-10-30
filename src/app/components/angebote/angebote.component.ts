@@ -10,14 +10,19 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class AngeboteComponent implements OnInit {
   angebote$ = new Observable<Angebot[]>();
+  stop=false
   data:Angebot[] =[]
   constructor(private apiService: ApiService, private httpClient: HttpClient) {}
 
   ngOnInit(): void {
     this.angebote$ = this.apiService.getAngebote();
+    window.scrollTo(0, 0);
+    setTimeout(() => {
+      this.stop=true
+    }, 1000);
   }
 
   show(e: Hits) {
-   this.data = (<Angebot[]>(<unknown>e))
+   this.data = (<Angebot[]>(<unknown>e)).reverse()
   }
 }

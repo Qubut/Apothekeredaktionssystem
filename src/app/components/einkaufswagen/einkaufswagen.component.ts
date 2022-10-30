@@ -1,10 +1,9 @@
-// import { sendmail } from 'sendmail';
-import { EmailService } from 'src/app/services/email.service';
 import { Component, OnInit } from '@angular/core';
-import { Store, select } from '@ngrx/store';
-import { Observable, fromEvent } from 'rxjs';
-import { AddProduct, RemoveProduct, Reset, Refresh } from '../../actions/cart';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { RemoveProduct, Reset } from '../../actions/cart';
+import { KontaktDialogComponent } from '../dialogs/kontakt-dialog/kontakt-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-einkaufswagen',
@@ -17,16 +16,11 @@ export class EinkaufswagenComponent implements OnInit {
   public cartCount = 0;
   public totalPrice = 0;
   public productCount = 0;
-  public userInfo = {
-    anrede: '',
-    name: '',
-    telefon: '',
-    address: '',
-    email: '',
-    message: '',
-  };
-
-  constructor(private store: Store<{ cart: [] }>, private http: HttpClient) {
+  close = false;
+  constructor(
+    private store: Store<{ cart: [] }>,
+    public kontaktDialog: MatDialog
+  ) {
     this.cart$ = store.select('cart');
     this.cart$.subscribe((data) => {
       var amount: number = 0;
@@ -34,7 +28,9 @@ export class EinkaufswagenComponent implements OnInit {
 
       data.map((item: any, i: number) => {
         amount += parseInt(item.amount);
-        price += item.amount * item.uvp * (1 - item.discount / 100);
+        price +=
+          item.amount *
+          (Math.round(item.uvp * (1 - item.discount / 100) * 100) / 100);
       });
 
       this.cartCount = amount;
@@ -44,13 +40,12 @@ export class EinkaufswagenComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-
-  public mail = new EmailService(this.http);
-
-  changeProductCN(product_id: any, amount: any) {
+  changeProductCN(e: { id: any; count: number }) {
+    let product_id = e.id;
+    let amount = e.count;
     let resetCount = {
       _id: product_id,
-      reset_num: amount.value,
+      reset_num: amount,
     };
     this.store.dispatch(new Reset(resetCount));
   }
@@ -59,79 +54,16 @@ export class EinkaufswagenComponent implements OnInit {
     this.store.dispatch(new RemoveProduct({ _id: product_id }));
   }
 
-  orderProduct() {
-    if (this.validateFrm()) {
-      let beautifyTxT = this.makeMessageTxT(this.storedProduct);
-      if (beautifyTxT) {
-        let result = this.mail.SendEmail(beautifyTxT);
-
-        let sub = result.subscribe((response) => console.log());
-        if (result) {
-          alert('Die Vorbestellung ist erfolgreich abgeschlossen worden');
-
-          this.store.dispatch(new Refresh());
-        }
-        sub.unsubscribe();
-      } else return;
-    }
-  }
-
-  makeMessageTxT(
-    products: { title: string; amount: number; discount: number; uvp: number }[]
-  ) {
-    let details: { [key: string]: any } = {};
-    if (products.length == 0) {
-      alert('leerer Einkaufswagen');
-      return;
-    }
-    products.forEach(
-      (item: {
-        title: string;
-        amount: number;
-        discount: number;
-        uvp: number;
-      }) => {
-        details[item.title] = {
-          product: item.title,
-          amount: item.amount,
-          discount: item.discount,
-          preis: (item.uvp * (1 - item.discount / 100) * item.amount).toFixed(
-            2
-          ),
-        };
-      }
-    );
-    let order = {
+  openKontaktDialog() {
+    const ref = this.kontaktDialog.open(KontaktDialogComponent, {
+      width: '80vw',
       data: {
-        anrede: this.userInfo.anrede,
-        name: this.userInfo.name,
-        email: this.userInfo.email,
-        nachricht: this.userInfo.message,
-        telefon: this.userInfo.telefon,
-        preis: this.totalPrice,
-        details,
+        products: this.storedProduct,
+        totalPrice: this.totalPrice,
       },
-    };
-    return JSON.stringify(order);
-  }
+    });
 
-  validateFrm(): Boolean {
-    if (this.userInfo.name == '') {
-      alert('name is required field');
-      return false;
-    } else if (this.userInfo.telefon == '') {
-      alert('telefon is required field');
-      return false;
-    } else if (!this.validateEmail(this.userInfo.email)) {
-      alert('Invalid email');
-      return false;
-    }
-    return true;
+    ref.afterOpened().subscribe((_) => window.scrollTo(0, 0));
+    ref.afterClosed().subscribe((_) => window.scrollTo(0, 0));
   }
-
-  validateEmail = (email: any) => {
-    return email.match(
-      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    );
-  };
 }

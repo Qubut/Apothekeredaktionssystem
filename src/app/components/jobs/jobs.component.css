@@ -1,20 +1,3 @@
-.reverse{
-    @apply md:order-2
-}
-     
-h3, h4, h5, h6{
-    font-family: 'Great Vibes' !important;
-}
-h3 u{
-    font-family: 'Great Vibes' !important;
-}
-h3 strong u{
-    font-family: 'Great Vibes' !important;
-}
-.desc{
-    
-}
-.desc *{
-    font-family: 'Great Vibes' !important;
-
-}
+*{
+     font-family: 'Times New Roman', Times, serif;
+} 

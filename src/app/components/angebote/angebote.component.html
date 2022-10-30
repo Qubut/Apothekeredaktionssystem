@@ -1,17 +1,18 @@
-<app-header></app-header>
-<div class="p-12 text-center"  style="overflow-x: hidden;">
-  <section class="flex p-4 justify-center align-middle min-h-screen" >
-    <div class="items-center px-20">
-      <div class="space-y-10">
-        <app-searchbar class="mb-20" (searched)="show($event)"></app-searchbar>
-        <div
-          class="grid angebote gap-x-6 lg:gap-x-12"
-          style="margin-top: 6rem"
-        >
-          <ng-container *ngFor="let angebot of data">
-            <app-angebot [item]="angebot"></app-angebot>
-          </ng-container>
-        </div>
+<app-loader *ngIf="!stop"></app-loader>
+<div class="text-center" style="overflow-x: hidden">
+  <h1
+    class="text-blue-500"
+    style="font-size: xx-large; margin-top: 10rem; font-family: cursive"
+  >
+    Unsere neuen Angebote
+  </h1>
+  <section class="flex flex-col p-4 justify-center align-middle min-h-screen">
+    <app-searchbar (searched)="show($event)"></app-searchbar>
+    <div class="items-center">
+      <div class="grid angebote gap-x-6 lg:gap-x-12 mx-auto">
+        <ng-container *ngFor="let angebot of data">
+          <app-angebot [item]="angebot"></app-angebot>
+        </ng-container>
       </div>
     </div>
   </section>

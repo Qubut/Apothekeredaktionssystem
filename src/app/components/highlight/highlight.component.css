@@ -1,64 +1,82 @@
-body {
-  background: #fafafa;
-  display: flex;
-  text-transform: uppercase;
-}
-
 h1 {
-  font-size: 60px;
+  @apply text-6xl text-white;
+  @apply mt-8;
+  @apply leading-[4rem];
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+h2,
+h3 {
+  @apply text-5xl text-white;
 }
 h3 {
-  font-size: 26px;
+  @apply text-blue-600;
 }
-
 .italic {
   font-style: italic;
 }
-
-.card {
-  /* @apply lg:ml-16;  */
-  @apply md:ml-16;
-  @apply p-3;
-  @apply flex;
-  @apply flex-col;
-  position: relative;
-  @apply sm:h-[80vh];
-  @apply sm:w-[80vh];
-  @apply md:w-[80vh];
-  @apply md:h-[80vh];
-  @apply lg:h-[60vh];
-  @apply lg:w-[100vh];
-
-  text-align: center;
-  background: linear-gradient(#e96874, #6e3663, #2b0830);
-  background: linear-gradient(
-    160deg,
-    rgba(201, 223, 199, 1) 50%,
-    rgba(236, 206, 204, 1) 85%
-  );
-  background: linear-gradient(
-    160deg,
-    rgba(147, 195, 143, 0.8841737378545168) 48%,
-    rgba(226, 187, 184, 0.8897759787508753) 80%
-  );
+.card-wrapper {
+  background: rgba(0, 0, 0, 0.184);
+  border-radius: 16px;
+  /* box-shadow: 1 4px 30px rgba(0, 0, 0, 0.1); */
+  /* backdrop-filter: blur(11.3px); */
+  /*--webkit-backdrop-filter: blur(11.3px); */
+  /* border: 1px solid rgba(255, 255, 255, 0.25); */
   @apply ease-linear;
   @apply duration-200;
   @apply transition-all;
   @apply rounded-sm;
   @apply shadow-lg;
-  @apply text-black;
+  @apply text-white;
+}
+.card-bg {
+  @apply bg-cover bg-no-repeat;
+  max-width: 94vw !important;
+  background-position: center;
+}
 
-  /* @apply lg:mt-10; */
+.card {
+  @apply md:ml-4;
+  @apply p-3;
+  @apply flex;
+  @apply flex-col;
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  /* @apply sm:w-[90vh];
+  @apply md:w-[90vh];
+  @apply md:h-[90vh];
+  @apply lg:h-[60vh];
+  @apply lg:w-[100vh]; */
+
+  text-align: center;
   @apply md:mt-10;
 }
-.card:hover {
-  background: linear-gradient(
-    160deg,
-    rgba(201, 223, 199, 1) 50%,
-    rgba(236, 206, 204, 1) 85%
-  );
-  transition-timing-function: cubic-bezier(0.95, 0.05, 0.795, 0.035);
-  transition-duration:2s;
+@media screen and (min-width: 650px) {
+  .card-bg {
+  background-size: cover;
+  }
+  .relative{
+    margin: auto;
+    @apply lg:h-[60vh];
+    @apply lg:w-[100vh];
+
+  }
+  .card{
+    width: inherit;
+    height: inherit;
+  }
+
+}
+.card-wrapper:hover {
+  box-shadow: 0 4px 30px rgb(0, 0, 0);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.3s;
+}
+.card-wrapper:hover h2 {
+  @apply text-white;
 }
 .card header {
   position: absolute;
@@ -85,38 +103,8 @@ h3 {
   @apply text-2xl;
   position: relative;
 }
-.logo:before,
-.logo:after {
-  content: "";
-  position: absolute;
-  @apply top-2/4;
-  @apply border-t-4;
-  @apply border-t-slate-100;
-  @apply sm:hidden;
-
-  transform: translateY(-50%);
-}
-
-.logo:before {
-  @apply right-40;
-  @apply w-2/5;
-  @apply sm:hidden;
-}
-.logo:after {
-  @apply left-40;
-  @apply w-7/12;
-  @apply sm:hidden;
-}
 
 .logo span {
-  /*border: solid currentColor;
-  border-width: 0 3px 3px 0;
-  position: absolute;
-  top: -22px;
-  width: 69px;
-  height: 70px;
-  left: 50%;
-  transform: translateX(-58%) rotate(58deg) skew(0deg, -30deg);*/
   display: block;
   position: absolute;
   width: 100%;
@@ -125,7 +113,6 @@ h3 {
 
 .announcement {
   position: relative;
-  border: 3px solid currentColor;
   border-top: 0;
   width: 100%;
   height: 100%;
@@ -134,73 +121,11 @@ h3 {
   justify-content: center;
   align-items: center;
   @apply p-10;
-}
-.announcement_h1 {
-  @apply font-greatVibes;
-  @apply mt-8;
-  @apply leading-[4rem];
-}
-.announcement:before,
-.announcement:after {
-  content: "";
-  position: absolute;
-  top: 0px;
-  border-top: 3px solid currentColor;
-  height: 0;
-  width: 15px;
-}
-.announcement:before {
-  left: -3px;
-}
-.announcement:after {
-  right: -3px;
-}
-
-.inspiration {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
+  color: black;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-html,
-body {
-  height: 100%;
-}
-
-a,
-a:visited,
-a:focus,
-a:active,
-a:link {
-  text-decoration: none;
-  outline: 0;
-}
-
-a {
-  color: currentColor;
-  transition: 0.2s ease-in-out;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  margin: 0.15em 0;
-}
-
-ul {
-  padding: 0;
-  list-style: none;
-}
-
-img {
-  vertical-align: middle;
-  height: auto;
-  width: 100%;
 }

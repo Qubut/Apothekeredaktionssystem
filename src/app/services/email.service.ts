@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -8,32 +9,15 @@ import { map } from 'rxjs';
 export class EmailService {
   headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json; charset=utf-8',
-    'X-Content-Type-Options': 'nosniff',
-    Connection: 'keep-alive',
-    'Keep-Alive': 'timeout=5',
   });
   constructor(private http: HttpClient) {}
-
+  SendMessage(mssg: string) {
+    return this.http.post(`${environment.backend}/api/nachrichten`, mssg, { headers: this.headers });
+  }
   SendEmail(input: string) {
-
-    return this.http
-      .post(`/api/bestellungen`, input, {
-        headers: this.headers,
-        responseType: 'text',
-      })
-      .pipe(
-        map(
-          (response: any) => {
-            if (response) {
-              return response;
-            }
-          },
-          (error: any) => {
-            if (error) {
-              return error;
-            }
-          }
-        )
-      );
+    return this.http.post(`${environment.backend}/api/bestellungen`, input, {
+      headers: this.headers,
+      responseType: 'text',
+    });
   }
 }

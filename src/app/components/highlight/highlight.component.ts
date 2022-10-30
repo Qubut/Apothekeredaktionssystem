@@ -12,6 +12,7 @@ export class HighlightComponent implements OnInit {
     color: '',
     publishedAt: '',
   };
+  bild = '';
   date = new Date();
   day = '';
   year = '';
@@ -19,6 +20,13 @@ export class HighlightComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
+    let b = this.highlight.bild?.formats;
+    let width = window.innerWidth;
+    if (b) {
+      if (width < 600) this.bild = b.small.url;
+      else if (width < 1000) this.bild = b.medium.url;
+      else this.bild = b.large.url;
+    }
     this.date = new Date(this.highlight.publishedAt);
     this.day = this.date.getDay().toString();
     this.month = this.date.getMonth().toString();

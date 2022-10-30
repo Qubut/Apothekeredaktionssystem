@@ -1,9 +1,10 @@
-.bg-clip-text{
-  color: white;
-  font-weight: bold;
-  font-size: 33px;
-  margin-top: 48px;
-  line-height: 111px;
-  font-style: italic;
-  @apply font-greatVibes;
+h1 {
+  font-weight: bolder;
+  line-height: 4rem;
+  color: black;
+  @apply text-black text-6xl;
+}
+
+p {
+  @apply break-words !important;
 }

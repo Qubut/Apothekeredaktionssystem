@@ -1,5 +1,6 @@
 <nav
   class="relative flex flex-wrap items-center justify-between w-full py-4 text-gray-500 bg-gray-100 shadow-lg hover:text-gray-700 focus:text-gray-700 navbar navbar-expand-lg navbar-light"
+  style="overflow-x: hidden;"
 >
   <div
     class="flex flex-wrap items-center justify-between w-full px-6 container-fluid"
@@ -7,14 +8,20 @@
     <button
       class="navbar-toggler text-gray-500 border-0 hover:shadow-none hover:no-underline py-2 px-2.5 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none focus:no-underline"
       type="button"
-      (click)="isCollapse = !isCollapse"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      (click)="uncollapse()"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
     >
       <svg
         aria-hidden="true"
         focusable="false"
         data-prefix="fas"
         data-icon="bars"
-        class="w-6"
+        class="w-5"
         role="img"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 448 512"
@@ -26,38 +33,47 @@
       </svg>
     </button>
     <div
-      class="items-center flex-grow navbar-collapse"
-      [ngClass]="isCollapse ? 'collapse' : 'show'"
+      class="items-center flex-grow collapse navbar-collapse"
       id="navbarSupportedContent"
     >
-      <a
-        class="flex items-center mt-2 mr-1 text-gray-900 hover:text-gray-900 focus:text-gray-900 lg:mt-0"
-        [routerLink]=""
-      >
-        <img
-          class="h-16 w-48"
-          src="/assets/riem/riemlogo.svg"
-          alt=""
-          loading="lazy"
-        />
-      </a>
+      <div class="logo-wrapper">
+        <a
+          routerLink="/home"
+          class="logo-svg"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          (click)="uncollapse()"
+        >
+          <img
+            class="h-[5.5rem] w-48"
+            src="https://riem-apotheke-bucket.s3.eu-west-2.amazonaws.com/logo_vector_87b7d82bde.svg?updated_at=2022-10-23T19:24:16.390Z"
+            alt=""
+            srcset=""
+          />
+        </a>
+      </div>
+
       <!-- Left links -->
       <ul class="flex flex-col pl-0 mr-auto navbar-nav list-style-none">
         <ng-container *ngFor="let page of pages">
           <li class="p-2 nav-item">
             <ng-container *ngIf="page.target != '_blank'; else external">
               <a
-                class="p-0 text-gray-500 nav-link focus:text-blue-700 hover:text-blue-500"
+                class="p-0 nav-link focus:text-blue-700 hover:text-blue-500"
                 [routerLink]="page.url"
-                (click)="autoCollapse()"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                (click)="uncollapse()"
                 >{{ page.title }}</a
               ></ng-container
             >
             <ng-template #external>
               <a
-              (click)="autoCollapse()"
                 [target]="page.target"
-                class="p-0 text-gray-500 nav-link hover:text-blue-500 focus:text-blue-700"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                (click)="openAndunCollapse(page.url) "
+                class="p-0 nav-link hover:text-blue-500 focus:text-blue-700"
                 [href]="page.url"
                 >{{ page.title }}</a
               ></ng-template
@@ -71,7 +87,10 @@
     <!-- Collapsible wrapper -->
 
     <!-- Right elements -->
-    <div class="relative flex items-center">
+    <div
+      class="relative flex items-center"
+      [ngClass]="!hasCollapsed ? 'shopping-cart' : ''"
+    >
       <!-- Icon -->
       <a
         class="mr-4 text-gray-500 hover:text-gray-700 focus:text-gray-700"
@@ -83,7 +102,7 @@
       >
         <div
           *ngIf="cartCount > 0"
-          class="absolute inline-block top-0 right-0 bottom-auto left-auto -translate-y-5 rotate-0 skew-x-0 skew-y-0 scale-x-100 scale-y-100 py-1 px-2.5 text-xs leading-none text-center whitespace-nowrap align-baseline font-bold bg-red-500 text-white rounded-full z-10 -translate-x-1"
+          class="p-16 absolute inline-block top-0 right-0 bottom-auto left-auto -translate-y-5 rotate-0 skew-x-0 skew-y-0 scale-x-100 scale-y-100 py-1 px-2.5 font-kaushan text-xs leading-none text-center whitespace-nowrap align-baseline font-bold bg-red-600 text-white rounded-full z-10 -translate-x-1"
         >
           {{ cartCount }}
         </div>
@@ -93,7 +112,7 @@
           focusable="false"
           data-prefix="fas"
           data-icon="shopping-cart"
-          class="w-4"
+          class="w-7"
           role="img"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 576 512"

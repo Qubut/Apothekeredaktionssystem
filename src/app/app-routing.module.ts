@@ -9,6 +9,8 @@ import { HomeComponent } from './components/home/home.component';
 import { JobsComponent } from './components/jobs/jobs.component';
 import { KontaktComponent } from './components/kontakt/kontakt.component';
 import { LeistungenComponent } from './components/leistungen/leistungen.component';
+import { ImpressumComponent } from './components/impressum/impressum.component';
+import { DatenschutzComponent } from './components/datenschutz/datenschutz.component';
 
 const routes: Routes = [
   {
@@ -25,6 +27,8 @@ const routes: Routes = [
   { path: 'angebote', component: AngeboteComponent },
   { path: 'dienstleistungen', component: LeistungenComponent },
   { path: 'jobs', component: JobsComponent },
+  { path: 'impressum', component: ImpressumComponent },
+  { path: 'datenschutz', component: DatenschutzComponent },
   { path: '**', component: ErrorComponent },
 ];
 

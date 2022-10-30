@@ -1,22 +1,35 @@
-<div
-  *ngIf="highlight"
-  class="relative m-40"
->
-    <div class="card">
-      <header>
-        <time
-        [attr.datetime]="date.toDateString()"
-        >{{day}} - {{month}} - {{year}}</time>
-        <div class="logo">
-          <img src="/assets/riem/abda.svg"></div>
-        <div class="sponsor">Riem-Apotheke</div>
-      </header>
-      <div class="announcement">
-        <h1 class="announcement_h1">{{highlight.title}}</h1>
-        <h3 style="font-family: 'Kaushan Script'!important;">{{highlight.description}}</h3>
-        <h2 style="font-family: 'Kaushan Script'!important; font-size: xx-large;" *ngIf="highlight.link as link"><a  [href]="highlight.link" target="_blank"><u>zum Link</u></a></h2>
+<ng-container *ngIf="highlight"
+  ><div class="relative">
+    <div class="card rounded-lg">
+      <div
+        class="card-bg"
+        style="width: inherit; height: inherit"
+        [style.background-image]="'url(' + bild + ')'"
+      >
+        <div class="announcement card-wrapper">
+          <h1 class="announcement_h1">{{ highlight.title }}</h1>
+          <h2 style="font-family: 'Times New Roman', Times, serif !important">
+            {{ highlight.description }}
+          </h2>
+          <h3 *ngIf="highlight.link as link">
+            <a
+              [href]="highlight.link"
+              target="_blank"
+              mat-fab
+              color="primary"
+              aria-label="anchor tag with arrow icon"
+            >
+              <mat-icon
+                class="text-5xl top-1/2 left-1/2"
+                style="transform: translate(-50%, -50%)"
+                >arrow_right_alt</mat-icon
+              >
+            </a>
+          </h3>
+        </div>
       </div>
     </div>
+  </div></ng-container
+>
 
-</div>
 <!-- flex flex-col items-center justify-center  -->

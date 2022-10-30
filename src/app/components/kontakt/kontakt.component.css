@@ -1,19 +1,21 @@
 *{
-  font-family: cursive !important;
+   @apply text-lg;
 }
-
-@media (width<1000px){
-  .register-panel{
+h2 {
+  @apply font-bold;
+  @apply text-2xl mb-10;
+}
+@media (width<1000px) {
+  .register-panel {
     width: 100%;
     margin-top: 56px;
-
   }
-  .map-container{
+  .map-container {
     width: 100%;
+    @apply h-[60rem] !important;
   }
-  .main-section{
+  .main-section {
     margin-bottom: 1rem !important;
     padding: 2rem !important;
   }
 }
-

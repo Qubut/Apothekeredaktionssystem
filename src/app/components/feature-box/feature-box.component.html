@@ -1,45 +1,48 @@
 <div class="container my-24 px-6 mx-auto">
-  <section class="mb-32 text-gray-800 text-center ">
-    <div class="grid md:grid-cols-3 gap-x-6 lg:gap-x-12 ">
-      <div
-        class="mb-6 lg:mb-0 duration-300"
-      >
-        <div class="hover:scale-125 transition duration-150 ease-out block rounded-lg shadow-lg relative bg-slate-50 text-lg">
-          <div class=" text-center">
-            <div *ngIf="data.oeffnungszeiten as oeffnungszeiten" class="">
-              <img src="/assets/riem/feature-1.png" class="feature-img">
-              <h4
-                style="font-family: 'Kaushan Script'; font-size: larger;"
-              >
+  <section class="mb-32 text-gray-800 text-center">
+    <div class="grid lg:grid-cols-3 md:grid-cols-1 sm:grid-cols-1 gap-x-6 lg:gap-x-12">
+      <div class="mb-12 lg:mb-0 duration-300">
+        <div class="box feature-box block rounded-lg relative text-lg">
+          <div class="text-center">
+            <div *ngIf="data.werktag as werktage" class="">
+              <img src="/assets/riem/feature-3.png" class="feature-img" />
+              <!-- <img src="/assets/riem/feature-1.png" class="feature-img" /> -->
+              <h4 style="font-weight: bold; font-size: larger">
                 Öffnungszeiten
               </h4>
 
-              <ng-container *ngFor="let zeit of oeffnungszeiten.zeiten">
-                <ng-container *ngFor="let tag of zeit.tage; let i = index">
-                  <ng-template #Rest>
-                    <div class="inline-block m-2 text-black">
-                      {{ tag }}
-                    </div>
-                  </ng-template>
-                  <div
-                    *ngIf="i == zeit.tage.length - 1; else Rest"
-                    class="inline-block m-2 text-black"
-                  >
-                    {{ tag }}:
-                  </div>
+              <table
+                class="w-full font-bold"
+                style="font-family: 'Times New Roman', Times, serif"
+              >
+                <ng-container *ngFor="let tag of werktage">
+                  <tr>
+                    <td>{{ tag.tag }}</td>
+                    <ng-container *ngIf="tag.offen; else geschlossen">
+                      <td>
+                        <ng-container
+                          *ngFor="
+                            let schicht of tag.oeffnungszeiten.schichten;
+                            let i = index
+                          "
+                        >
+                          <span *ngIf="i == 1">/&nbsp;</span>
+                          {{ schicht.von.st | formatWorkHours }}:{{
+                            schicht.von.min | formatWorkHours
+                          }}
+                          - {{ schicht.bis.st | formatWorkHours }}:{{
+                            schicht.bis.min | formatWorkHours
+                          }}
+                          <span *ngIf="i == 0"></span>
+                        </ng-container>
+                      </td>
+                    </ng-container>
+                    <ng-template #geschlossen>
+                      <td class="block text-right">geschlossen</td>
+                    </ng-template>
+                  </tr>
                 </ng-container>
-                <div
-                  *ngFor="let schicht of zeit.schichten"
-                  class="m-2 text-black"
-                >
-                  {{ schicht.von.st | formatWorkHours }}:{{
-                    schicht.von.min | formatWorkHours
-                  }}
-                  - {{ schicht.bis.st | formatWorkHours }}:{{
-                    schicht.bis.min | formatWorkHours
-                  }}
-                </div>
-              </ng-container>
+              </table>
             </div>
             <div class="2">
               <app-status [offen]="offen" class="mb-10"></app-status>
@@ -48,18 +51,15 @@
         </div>
       </div>
 
-      <div
-        class="mb-6 lg:mb-0 duration-300 "
-      >
-        <div class="hover:scale-125 transition duration-150 ease-out block rounded-lg shadow-lg relative bg-slate-50">
+      <div class="mb-12 lg:mb-0 duration-300">
+        <div class="box ease-out block rounded-lg relative">
           <div class="clients text-center flex flex-col justify-center">
-            <img src="/assets/riem/feature-2.png" class="feature-img">
-            <h5
-            style="font-family: 'Kaushan Script'; font-size:x-large"
+            <img src="/assets/riem/feature-2.png" class="feature-img" />
+            <h5 style="font-weight: bold; font-size: x-large">Wir sprechen</h5>
+            <div
+              class="flex items-center justify-center mt-6"
+              style="padding: 35px"
             >
-              Wir Sprechen
-            </h5>
-            <div class="flex items-center justify-center mt-6" style="    padding: 35px;">
               <div class="w-full py-3 mr-4">
                 <img src="/assets/flags/de.svg" alt="ayroui" />
               </div>
@@ -74,24 +74,29 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
-      <div
-        class="mb-6 lg:mb-0 duration-300 text-center"
-      >
-        <div class="hover:scale-125 transition duration-150 ease-out block rounded-lg shadow-lg relative text-lg">
+      <div class="mb-6 lg:mb-0 duration-300 text-center">
+        <div class="box rounded-lg relative text-lg">
           <div
             class="flex flex-col justify-items-center align-middle justify-center"
           >
-            <img src="/assets/riem/feature-3.png" class="feature-img">
+            <img src="/assets/riem/feature-1.png" class="feature-img" />
             <h4
-            style="font-family: 'Kaushan Script'; font-size:x-large"
+              style="
+                font-size: x-large;
+                font-weight: bold;
+                font-family: 'Times New Roman', Times, serif;
+              "
             >
               Kontakt
             </h4>
             <div class="items-center justify-center mb-4">
-              <p *ngIf="data.adresse as adresse" class="font-kaushan">
+              <p
+                *ngIf="data.adresse as adresse"
+                class="text-2xl"
+                style="font-family: 'Times New Roman', Times, serif"
+              >
                 <svg
                   aria-hidden="true"
                   focusable="false"
@@ -115,7 +120,7 @@
             <a
               *ngIf="data.email as email"
               [href]="emailLink"
-              class="flex items-center justify-center mb-4 cursor-pointer font-kaushan"
+              class="flex items-center justify-center mb-4 cursor-pointer text-2xl"
             >
               <svg
                 aria-hidden="true"
@@ -136,7 +141,7 @@
             </a>
             <p
               *ngIf="data.number as number"
-              class="flex items-center justify-center mb-4"
+              class="flex items-center justify-center mb-4 text-2xl"
             >
               <svg
                 aria-hidden="true"
@@ -157,7 +162,7 @@
             </p>
             <p
               *ngIf="data.fax as fax"
-              class="flex items-center justify-center mb-10"
+              class="flex items-center justify-center mb-10 text-2xl"
             >
               <svg
                 aria-hidden="true"
