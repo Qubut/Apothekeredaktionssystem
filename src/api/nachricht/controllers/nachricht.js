@@ -42,7 +42,6 @@ module.exports = createCoreController(
         };
         await strapi.plugins["email"].services.email.send(emailOptions);
         strapi.log.debug(`Email sent to ${sendTo}`);
-        ctx.send({ message: "Email sent" });
       } catch (err) {
         strapi.log.error(`Error sending email to ${sendTo}`, err);
         ctx.send({ error: "Error sending email" });
