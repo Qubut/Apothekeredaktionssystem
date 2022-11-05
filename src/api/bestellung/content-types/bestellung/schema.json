@@ -23,6 +23,9 @@
     "name": {
       "type": "string"
     },
+    "vorname": {
+      "type": "string"
+    },
     "email": {
       "type": "email"
     },
@@ -37,9 +40,6 @@
     },
     "details": {
       "type": "json"
-    },
-    "vorname": {
-      "type": "string"
     }
   }
 }

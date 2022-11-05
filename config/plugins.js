@@ -55,6 +55,7 @@ module.exports = ({ env }) => ({
       providerOptions: {
         host: env("SMTP_HOST", "smtp.example.com"),
         port: env("SMTP_PORT", 587),
+        secure: true,
         auth: {
           user: env("SMTP_USERNAME"),
           pass: env("SMTP_PASSWORD"),
@@ -62,8 +63,8 @@ module.exports = ({ env }) => ({
         // ... any custom nodemailer options
       },
       settings: {
-        defaultFrom: env("EMAIL_ADDRESS_FROM"),
-        defaultReplyTo: env("EMAIL_ADDRESS_REPLY"),
+        defaultFrom: env("ADDRESS_FROM"),
+        defaultReplyTo: env("ADDRESS_REPLY"),
       },
     },
   },
