@@ -66,7 +66,6 @@ module.exports = createCoreController(
         strapi.log.debug(`Email sent to ${sendTo}`);
       } catch (err) {
         strapi.log.error(`Error sending email to ${sendTo}`, err);
-        ctx.send({ error: "Error sending email" });
       }
       return response;
     },
