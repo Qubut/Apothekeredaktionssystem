@@ -15,8 +15,9 @@ export class AngeboteComponent implements OnInit {
   constructor(private apiService: ApiService, private httpClient: HttpClient) {}
 
   ngOnInit(): void {
+    window.scrollTo(0,0)
     this.angebote$ = this.apiService.getAngebote();
-    window.scrollTo(0, 0);
+    
     setTimeout(() => {
       this.stop=true
     }, 1000);

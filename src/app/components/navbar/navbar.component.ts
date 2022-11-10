@@ -5,14 +5,7 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import {
-  Component,
-  HostListener,
-  Input,
-  AfterViewInit,
-  OnInit,
-  HostBinding,
-} from '@angular/core';
+import { Component, AfterViewInit, OnInit, HostBinding } from '@angular/core';
 import { Observable, fromEvent } from 'rxjs';
 import {
   distinctUntilChanged,
@@ -22,7 +15,8 @@ import {
   share,
   throttleTime,
 } from 'rxjs/operators';
-import { Store, select } from '@ngrx/store';
+import { Store } from '@ngrx/store';
+import { ApiService } from 'src/app/services/api.service';
 
 enum VisibilityState {
   Visible = 'visible',
@@ -63,12 +57,15 @@ enum Direction {
   ],
 })
 export class NavbarComponent implements AfterViewInit, OnInit {
-  @Input() pages: Item[] = [];
+  pages$ = new Observable<Item[]>();
   public cart$: Observable<[]>;
   public cartCount: number = 0;
   private isVisible = true;
   hasCollapsed = true;
-  constructor(private store: Store<{ cart: [] }>) {
+  constructor(
+    private store: Store<{ cart: [] }>,
+    private _apiService: ApiService
+  ) {
     this.cart$ = store.select('cart');
     this.cart$.subscribe((data) => {
       var amount = 0;
@@ -86,6 +83,7 @@ export class NavbarComponent implements AfterViewInit, OnInit {
     return this.isVisible ? VisibilityState.Visible : VisibilityState.Hidden;
   }
   ngAfterViewInit() {
+    this.pages$ = this._apiService.getMenus();
     const scroll$ = fromEvent(window, 'scroll').pipe(
       throttleTime(10),
       map(() => window.pageYOffset),

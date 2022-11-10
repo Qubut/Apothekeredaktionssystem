@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { ApiService } from './services/api.service';
 import { LoadingService } from './services/loading.service';
 import { delay } from 'rxjs/operators';
@@ -10,12 +10,11 @@ import { Title, Meta } from '@angular/platform-browser';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit, OnDestroy {
-  title = 'RiemApotheke';
-  menu$ = new Observable<Item[]>();
-  data$ = new Observable<Data>();
+  title = 'Riem Apotheke';
   loader$ = new Observable<boolean>();
   loading = true;
   loaderSub = new Subscription();
+  stop = false
   constructor(
     private _title: Title,
     private _meta: Meta,
@@ -24,9 +23,9 @@ export class AppComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    
-    this.menu$ = this._apiService.getMenus();
-    this.data$ = this._apiService.getData();
+    setTimeout(() => {
+      this.stop=true
+    }, 3000);
     this.loader$ = this._loadingService.loadingSub.pipe(delay(0));
     this.loaderSub = this.loader$.subscribe(
       (loading) => (this.loading = loading)

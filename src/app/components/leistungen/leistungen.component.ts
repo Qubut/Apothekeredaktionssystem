@@ -8,15 +8,11 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./leistungen.component.css'],
 })
 export class LeistungenComponent implements OnInit {
-   leistungen$ = new Observable< Leistung[]>();
-   stop = false
-  constructor(private apiService:ApiService) {}
+  leistungen$ = new Observable<Leistung[]>();
+  constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
-    this.leistungen$ = this.apiService.getLeistungen()
-    setTimeout(() => {
-      this.stop = true;
-    }, 500);
+    this.leistungen$ = this.apiService.getLeistungen();
   }
 }

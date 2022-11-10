@@ -26,7 +26,10 @@ export class KontaktDialogComponent implements OnInit {
   }
   orderProduct(kontakt: Kontakt) {
     let order = this.makeMessageTxT(this.storedProducts, kontakt);
-    this._emailService.SendEmail(order).subscribe((r) => r);
+    this._emailService.SendEmail(order).subscribe(
+      (r) => r,
+      (error) => console.log(error)
+    );
     this.store.dispatch(new Refresh());
     this.show = true;
   }
@@ -60,7 +63,7 @@ export class KontaktDialogComponent implements OnInit {
     );
     let order = {
       data: {
-        // anrede: kontakt.anrede,
+        anrede: kontakt.anrede,
         name: kontakt.name,
         vorname: kontakt.vorname,
         email: kontakt.email,

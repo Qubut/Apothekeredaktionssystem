@@ -45,7 +45,7 @@
           (click)="uncollapse()"
         >
           <img
-            class="h-[5.5rem] w-48"
+            class="h-[5rem] w-48"
             src="https://riem-apotheke-bucket.s3.eu-west-2.amazonaws.com/logo_vector_87b7d82bde.svg?updated_at=2022-10-23T19:24:16.390Z"
             alt=""
             srcset=""
@@ -54,8 +54,8 @@
       </div>
 
       <!-- Left links -->
-      <ul class="flex flex-col pl-0 mr-auto navbar-nav list-style-none">
-        <ng-container *ngFor="let page of pages">
+      <ul class="flex flex-col pl-0 mr-auto navbar-nav list-style-none" autoscroll="true">
+        <ng-container *ngFor="let page of pages$|async">
           <li class="p-2 nav-item">
             <ng-container *ngIf="page.target != '_blank'; else external">
               <a

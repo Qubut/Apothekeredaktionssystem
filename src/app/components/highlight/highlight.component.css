@@ -28,6 +28,30 @@ h3 {
   @apply shadow-lg;
   @apply text-white;
 }
+@media screen and (max-width: 700px) {
+  .card{
+    margin: auto !important;
+  }
+  .card-wrapper {
+    @apply m-auto;
+    max-height: 53vh !important;
+  }
+  .card-bg {
+    max-height: 53vh !important;
+  }
+  h1 {
+    @apply text-4xl text-white;
+    @apply mt-8;
+    @apply leading-[2rem];
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  }
+  h2 {
+    @apply text-3xl text-white;
+  }
+  h3 {
+    @apply text-6xl text-white;
+  }
+}
 .card-bg {
   @apply bg-cover bg-no-repeat;
   max-width: 94vw !important;
@@ -51,21 +75,19 @@ h3 {
   text-align: center;
   @apply md:mt-10;
 }
-@media screen and (min-width: 650px) {
+@media screen and (min-width: 450px) {
   .card-bg {
-  background-size: cover;
+    background-size: cover;
   }
-  .relative{
+  .relative {
     margin: auto;
     @apply lg:h-[60vh];
     @apply lg:w-[100vh];
-
   }
-  .card{
+  .card {
     width: inherit;
     height: inherit;
   }
-
 }
 .card-wrapper:hover {
   box-shadow: 0 4px 30px rgb(0, 0, 0);

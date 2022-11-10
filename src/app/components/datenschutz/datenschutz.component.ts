@@ -10,7 +10,7 @@ export class DatenschutzComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    window.scrollTo(0, 0);
+    window.scrollTo(0,0)
     setTimeout(() => {
       this.stop = true;
     }, 1000);

@@ -10,14 +10,10 @@ import { ApiService } from 'src/app/services/api.service';
 export class JobsComponent implements OnInit {
   jobs$ = new Observable<Job[]>();
   pow = Math.pow;
-  stop = false
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
-    window.scrollTo(0, 0);
+    window.scrollTo(0,0)
     this.jobs$ = this.apiService.getJobs();
-    setTimeout(() => {
-      this.stop = true;
-    }, 600);
   }
 }

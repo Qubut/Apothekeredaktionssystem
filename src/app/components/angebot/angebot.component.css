@@ -1,10 +1,10 @@
+.card-body{
+background-color: #fdfbfbe9;
+}
 .card {
-  @apply shadow-slate-500;
   width: fit-content;
   @apply h-[35rem];
-}
-.card-body {
-  background-color: #e2e2e715;
+  @apply w-[23.5rem];
 }
 .card-img {
   @apply h-52;

@@ -7,10 +7,9 @@ import {
   HttpErrorResponse,
 } from '@angular/common/http';
 import { HttpCacheService } from 'src/app/services/http-cache.service';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { catchError, finalize, tap } from 'rxjs/operators';
 import { LoadingService } from 'src/app/services/loading.service';
-import { SnackBarService } from '../services/snack-bar.service';
 
 /**
  * Intercept all http requests
@@ -20,8 +19,7 @@ import { SnackBarService } from '../services/snack-bar.service';
 export class HttpRequestInterceptor implements HttpRequestInterceptor {
   constructor(
     private _loading: LoadingService,
-    private _cache: HttpCacheService,
-    private _snackbar: SnackBarService
+    private _cache: HttpCacheService
   ) {}
 
   /**
@@ -35,51 +33,51 @@ export class HttpRequestInterceptor implements HttpRequestInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    if (
-      request.url == '/api/bestellungen' ||
-      request.url == '/api/menus?populate=*'
-    ) {
-      return next.handle(request);
-    } else if (request.url == '/api/nachrichten') {
-      return next.handle(request);
-    } else if (request.url == '/api/menus?populate=*')
-      return next.handle(request);
-    else {
-      this._loading.setLoading(true, request.url);
-      let cachedResponse: any;
-      if (request.method === 'GET') {
-        cachedResponse = this._cache.get(request);
-        if (cachedResponse) {
-          console.log(
-            `Response from cache for ${request.urlWithParams}`,
-            cachedResponse
-          );
-        }
-      } else if (
-        request.method === 'POST' ||
-        request.method === 'PUT' ||
-        request.method === 'PATCH' ||
-        request.method === 'DELETE'
-      ) {
-        const removedFromCache = this._cache.delete(request);
-        if (removedFromCache) {
-          console.log(`Cleared ${request.urlWithParams} from the cache`);
-        }
+    // if (
+    //   request.url == '/api/bestellungen' ||
+    //   request.url == '/api/menus?populate=*'
+    // ) {
+    //   return next.handle(request);
+    // } else if (request.url == '/api/nachrichten') {
+    //   return next.handle(request);
+    // } else if (request.url == '/api/menus?populate=*')
+    //   return next.handle(request);
+
+    // else {
+    this._loading.setLoading(true, request.url);
+    let cachedResponse: any;
+    if (request.method === 'GET') {
+      cachedResponse = this._cache.get(request);
+      if (cachedResponse) {
+        console.log(
+          `Response from cache for ${request.urlWithParams}`,
+          cachedResponse
+        );
       }
-      return next.handle(request).pipe(
-        tap<HttpEvent<any>>((httpEvent: HttpEvent<any>) => {
-          if (httpEvent instanceof HttpResponse) {
-            this._cache.put(request, httpEvent);
-          }
-          return cachedResponse ? cachedResponse : httpEvent;
-        }),
-        catchError((err: HttpErrorResponse) => {
-          throw err;
-        }),
-        finalize(() => {
-          this._loading.setLoading(false, request.url);
-        })
-      );
+    } else if (
+      request.method === 'POST' ||
+      request.method === 'PUT' ||
+      request.method === 'PATCH' ||
+      request.method === 'DELETE'
+    ) {
+      const removedFromCache = this._cache.delete(request);
+      if (removedFromCache) {
+        console.log(`Cleared ${request.urlWithParams} from the cache`);
+      }
     }
+    return next.handle(request).pipe(
+      tap<HttpEvent<any>>((httpEvent: HttpEvent<any>) => {
+        if (httpEvent instanceof HttpResponse) {
+          this._cache.put(request, httpEvent);
+        }
+        return cachedResponse ? cachedResponse : httpEvent;
+      }),
+      catchError((err: HttpErrorResponse) => {
+        throw err;
+      }),
+      finalize(() => {
+        this._loading.setLoading(false, request.url);
+      })
+    );
   }
 }
