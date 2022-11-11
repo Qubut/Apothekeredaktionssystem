@@ -5,9 +5,8 @@
 export const environment = {
   production: false,
   
-  backend: 'http://localhost:1337',
-  graphql: 'http://localhost:1337/graphql',
-  meilisearch: 'http://localhost:7700',
+  backend: 'https://riem-apotheke.de:8080',
+  meilisearch: 'https://riem-apotheke.de:8085',
   meilisearchKey: 'dc55a924c56420ae0bbcf8724311de46816aa623fdc90bc89',
 };
 export const PROJECT_NAME='riem-apotheke'

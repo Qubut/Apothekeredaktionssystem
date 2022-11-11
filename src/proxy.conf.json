@@ -1,13 +1,13 @@
 {
   "/api/*": {
-    "target": "http://localhost:1337",
-    "secure": false,
+    "target": "https://riem-apotheke.de:8080",
+    "secure": true,
     "changeOrigin": true,
     "logLevel": "debug"
   },
   "/search/*": {
-    "target": "http://localhost:7700",
-    "secure": false,
+    "target": "https://riem-apotheke.de:8080",
+    "secure": true,
     "changeOrigin": true,
     "logLevel": "debug"
   }
