@@ -7,7 +7,20 @@
     Unsere neuen Angebote
   </h1>
   <section class="flex flex-col p-4 justify-center align-middle min-h-screen">
-    <app-searchbar (searched)="show($event)"></app-searchbar>
+    <div class="flex flex-row justify-center" id="search-panel">
+      <div class="search-item w-2/5">
+          <app-searchbar (searched)="show($event)"></app-searchbar>
+      </div>
+      <div class="p-2 pagenation-item">
+        <mat-paginator
+          [length]="length"
+          [pageSize]="pageSize"
+          [pageSizeOptions]="pageSizeOptions"
+          (page)="pageHandle($event)"
+          aria-label="Select page">
+        </mat-paginator>
+      </div>
+    </div>
     <div class="items-center">
       <div class="grid angebote gap-x-6 lg:gap-x-12 mx-auto">
         <ng-container *ngFor="let angebot of data">

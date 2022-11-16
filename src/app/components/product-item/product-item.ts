@@ -13,9 +13,11 @@ import { ChooseProduct } from '../../actions/product';
 export class ProductItemComponent  {
 
   cart$: Observable<[]>;
+
   constructor(private store: Store<{ cart: [] }>, public element: ElementRef) {
     this.cart$ = store.select('cart');
   }
+
   public product_amount:any = 0
 
   ngOnInit(): void {
