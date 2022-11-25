@@ -30,7 +30,7 @@ module.exports = createCoreController(
             Rufnummer: ${data.telefon}
             </li>
             <li>
-            email: ${data.email}
+            Email: ${data.email}
             </li>
             ${file}
           </ul>   

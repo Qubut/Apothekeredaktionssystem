@@ -344,7 +344,7 @@ ul.social li{
             				<h3>
                     Rufnummer: ${data.telefon}
                     <br>
-                    email: ${data.email} 
+                    Email: ${data.email} 
                   <hr></h3>
             			</div>
             		</td>
@@ -374,7 +374,7 @@ ul.social li{
 					  		</div>
 					  	</td>
 					  	<td valign="middle" width="20%" style="text-align:left; padding: 0 2.5em;">
-					  		<span class="price" style="color: #000; font-size: 20px;">${bestellung.preis}€</span>
+					  		<span class="price" style="color: #000; font-size: 20px;">${bestellung.preis.toFixed(2).replace('.',',')}€</span>
 					  	</td>
 					  </tr>`
         );
