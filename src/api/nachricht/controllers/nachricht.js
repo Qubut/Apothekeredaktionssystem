@@ -21,12 +21,8 @@ module.exports = createCoreController(
           ? "Herrn"
           : data.anrede
         : "";
-
-      try {
-        const emailOptions = {
-          to: sendTo,
-          subject: `${data.betreff}`,
-          html: `<h1>Nachricht von ${anrede} ${fullname}</h1>
+      const file = data.file? data.file:''
+      const mssg = `<h1>Nachricht von ${anrede} ${fullname}</h1>
           <ul>
             <li>
             Rufnummer: ${data.telefon}
@@ -34,11 +30,19 @@ module.exports = createCoreController(
             <li>
             email: ${data.email}
             </li>
-          We are here
+            <li>
+            Datei: <a href="${file}">${file}<a/>
+            </li>
           </ul>   
           <hr>
+
           <p>${data.nachricht}</p>
-         `,
+         `
+      try {
+        const emailOptions = {
+          to: sendTo,
+          subject: `${data.betreff}`,
+          html: mssg,
         };
         await strapi.plugins["email"].services.email.send(emailOptions);
       } catch (err) {

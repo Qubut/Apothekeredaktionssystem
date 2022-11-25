@@ -32,6 +32,9 @@
     },
     "anrede": {
       "type": "string"
+    },
+    "file": {
+      "type": "string"
     }
   }
 }
