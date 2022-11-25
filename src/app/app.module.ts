@@ -102,7 +102,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     AfterNachrichtDialogComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
     MatPaginatorModule,

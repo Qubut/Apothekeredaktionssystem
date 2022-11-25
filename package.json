@@ -6,7 +6,11 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "dev:ssr": "ng run RiemApotheke:serve-ssr",
+    "serve:ssr": "node dist/RiemApotheke/server/main.js",
+    "build:ssr": "ng build && gzipper compress && ng run RiemApotheke:server",
+    "prerender": "ng run RiemApotheke:prerender"
   },
   "private": true,
   "dependencies": {
@@ -19,10 +23,13 @@
     "@angular/material": "15.0.0",
     "@angular/platform-browser": "^15.0.1",
     "@angular/platform-browser-dynamic": "^15.0.1",
+    "@angular/platform-server": "^15.0.1",
     "@angular/router": "^15.0.1",
     "@ngrx/store": "^14.3.2",
     "@ngrx/store-devtools": "^14.3.2",
     "@ngtools/webpack": "^14.2.6",
+    "@nguniversal/express-engine": "15.0.0",
+    "express": "^4.15.2",
     "meilisearch": "^0.27.0",
     "ngrx": "0.0.1-security",
     "route-parser": "^0.0.5",
@@ -33,10 +40,12 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-builders/custom-webpack": "^14.0.1",
+    "@angular-builders/custom-webpack": "^14.1.0",
     "@angular-devkit/build-angular": "^15.0.1",
     "@angular/cli": "^15.0.1",
     "@angular/compiler-cli": "^15.0.1",
+    "@nguniversal/builders": "^15.0.0",
+    "@types/express": "^4.17.0",
     "@types/jasmine": "~3.10.0",
     "@types/jquery": "^3.5.14",
     "@types/node": "^12.11.1",

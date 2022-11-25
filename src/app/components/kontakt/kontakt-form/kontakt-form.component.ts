@@ -17,7 +17,7 @@ export class KontaktFormComponent implements OnInit {
 
   @Input() hasBetreff = true;
   @Input() hasAttachment = true;
-  form = new FormGroup({});
+  // form:FormGroup = new FormGroup({});
   @Output() postForm = new EventEmitter<Kontakt>();
 
   selectedFile: File = new File([],'');
@@ -29,7 +29,7 @@ export class KontaktFormComponent implements OnInit {
   @Input() size!: number | string;
   @Output() sizeChange = new EventEmitter<number>();
 
-  constructor(private _fb: FormBuilder) {}
+  constructor(private _fb: FormBuilder,public form:FormGroup) {}
 
   ngOnInit(): void {
     this.form = this._fb.group({
@@ -77,7 +77,7 @@ export class KontaktFormComponent implements OnInit {
       this.postForm.emit(this.form.value);
       this.form.markAsPristine();
       this.form.reset();
-      Object.keys(this.form.controls).forEach((key) => {
+      Object.keys(this.form.controls).forEach((key:string) => {
         this.form.controls[key].setErrors(null);
       });
     }
