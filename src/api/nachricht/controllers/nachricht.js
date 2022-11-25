@@ -21,7 +21,9 @@ module.exports = createCoreController(
           ? "Herrn"
           : data.anrede
         : "";
-      const file = data.file? data.file:''
+      const file = data.file.length!=0? ` <li>
+            Datei: <a href="${data.file}">${data.file}<a/>
+            </li>`:''
       const mssg = `<h1>Nachricht von ${anrede} ${fullname}</h1>
           <ul>
             <li>
@@ -30,9 +32,7 @@ module.exports = createCoreController(
             <li>
             email: ${data.email}
             </li>
-            <li>
-            Datei: <a href="${file}">${file}<a/>
-            </li>
+            ${file}
           </ul>   
           <hr>
 

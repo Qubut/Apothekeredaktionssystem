@@ -385,7 +385,7 @@ ul.social li{
           <p style="font-size:x-large; color:black">${data.nachricht}</p>`
           : "";
       let ordering = bestellungen.join("");
-      const preis = data.preis.toLocalString("DE")
+      const preis = data.preis.toLocaleString("DE")
       const end = `<tr>
 					  	<td valign="middle" style="text-align:left; padding: 1em 2.5em;">
 					  		<p><a class="btn btn-custom" style="font-size:large; color:black;"><strong>Gesamtpreis: ${preis}€</strong></a></p>
