@@ -9,7 +9,7 @@
     "test": "ng test",
     "dev:ssr": "ng run RiemApotheke:serve-ssr",
     "serve:ssr": "node dist/RiemApotheke/server/main.js",
-    "build:ssr": "ng build && gzipper compress && ng run RiemApotheke:server",
+    "build:ssr": "ng build && gzipper compress ./dist && ng run RiemApotheke:server",
     "prerender": "ng run RiemApotheke:prerender"
   },
   "private": true,
