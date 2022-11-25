@@ -1,10 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Kontakt } from 'src/app/interfaces/kontakt';
 import { EmailService } from 'src/app/services/email.service';
@@ -29,14 +23,25 @@ export class KontaktComponent implements OnInit {
       this.stop = true;
     }, 1000);
   }
-  onSubmit(kontakt: Kontakt) {
-    this._emailService
-      .SendMessage(JSON.stringify({ data: kontakt }))
-      .subscribe();
+  async onSubmit(kontakt: Kontakt) {
+    if (kontakt.file) {
+      let data = new FormData();
+      data.append('files', kontakt.file);
+      this._emailService.Upload(data).subscribe((res: any) => {
+        kontakt.file = res[0].url;
+        console.log(kontakt)
+        this._emailService
+          .SendMessage(JSON.stringify({ data: kontakt }))
+          .subscribe();
+      });
+    } else
+      this._emailService
+        .SendMessage(JSON.stringify({ data: kontakt }))
+        .subscribe();
     const ref = this._dialog.open(AfterNachrichtDialogComponent, {
       width: '80vw',
     });
-    ref.afterOpened().subscribe((_)=>window.scrollTo(0, 0))
+    ref.afterOpened().subscribe((_) => window.scrollTo(0, 0));
     ref.afterClosed().subscribe((_) => window.scrollTo(0, 0));
   }
 }

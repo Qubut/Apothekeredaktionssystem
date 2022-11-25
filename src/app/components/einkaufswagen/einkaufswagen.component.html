@@ -20,8 +20,8 @@
       ></button>
     </div>
     <div class="offcanvas-body flex-grow p-4 overflow-y-auto">
-      <ng-container *ngIf="storedProduct.length > 0">
-        <ng-container *ngFor="let item of storedProduct">
+      <ng-container *ngIf="storedProducts.length > 0">
+        <ng-container *ngFor="let item of storedProducts">
           <app-product
             [item]="item"
             (changeCount)="changeProductCN($event)"

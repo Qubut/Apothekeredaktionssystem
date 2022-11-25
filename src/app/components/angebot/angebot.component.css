@@ -136,19 +136,22 @@ button.unsere-angebote-btn {
 }
 
 div.discount-ico{
-  background: url('../../../assets/riem/discountico.png');
+  background: url('../../../assets/icons/rec.png');
   background-size: contain;
   background-repeat: no-repeat;
-  left: 5%;
-  top: 5%;
+  left: 1%;
+  top: -2%;
+  @apply h-12;
+  @apply w-28;
 }
 
 span.discount{
   position: absolute;
-  font-size: 19px;
+  @apply text-lg;
   font-weight: bold;
-  color: #ebebeb;
-  left: 5%;
-  top: 72%;
+  color: #fefefe;
+  left: 3%;
+  top: 12%;
+  @apply rounded-full;
 }
 

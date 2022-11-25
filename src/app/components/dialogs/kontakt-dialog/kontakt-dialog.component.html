@@ -4,6 +4,7 @@
     *ngIf="!show"
     [action]="'vorbestellen'"
     [hasBetreff]="false"
+    [hasAttachment]="false"
     (postForm)="orderProduct($event)"
   ></app-kontakt-form>
   <div

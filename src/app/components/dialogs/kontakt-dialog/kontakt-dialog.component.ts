@@ -33,6 +33,10 @@ export class KontaktDialogComponent implements OnInit {
     this.store.dispatch(new Refresh());
     this.show = true;
   }
+  transform(num: number, places: number = 2): number {
+    const factor = 10 ** places;
+    return Math.round(num * factor) / factor;
+  }
 
   makeMessageTxT(
     products: {
@@ -40,12 +44,14 @@ export class KontaktDialogComponent implements OnInit {
       amount: number;
       discount: number;
       uvp: number;
+      image: string;
     }[],
     kontakt: Kontakt
   ) {
     let details: { [key: string]: any } = {};
     products.forEach(
       (item: {
+        image: string;
         title: string;
         amount: number;
         discount: number;
@@ -55,9 +61,9 @@ export class KontaktDialogComponent implements OnInit {
           product: item.title,
           amount: item.amount,
           discount: item.discount,
-          preis: (item.uvp * (1 - item.discount / 100) * item.amount).toFixed(
-            2
-          ),
+          preis:
+            this.transform(item.uvp * (1 - item.discount / 100)) * item.amount,
+          image: item.image,
         };
       }
     );

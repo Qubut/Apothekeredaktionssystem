@@ -12,7 +12,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class EinkaufswagenComponent implements OnInit {
   public cart$: Observable<[]>;
-  public storedProduct: any = [];
+  public storedProducts: any = [];
   public cartCount = 0;
   public totalPrice = 0;
   public productCount = 0;
@@ -30,12 +30,12 @@ export class EinkaufswagenComponent implements OnInit {
         amount += parseInt(item.amount);
         price +=
           item.amount *
-          (Math.round(item.uvp * (1 - item.discount / 100) * 100) / 100);
+          (this.transform(item.uvp * (1 - item.discount / 100)));
       });
 
       this.cartCount = amount;
-      this.totalPrice = price;
-      this.storedProduct = data;
+      this.totalPrice = this.transform(price);
+      this.storedProducts = data;
     });
   }
 
@@ -53,12 +53,15 @@ export class EinkaufswagenComponent implements OnInit {
   removeProduct(product_id: any): void {
     this.store.dispatch(new RemoveProduct({ _id: product_id }));
   }
-
+ transform(num: number, places: number = 2): number {
+    const factor = 10 ** places;
+    return Math.round(num * factor) / factor;
+  }
   openKontaktDialog() {
     const ref = this.kontaktDialog.open(KontaktDialogComponent, {
       width: '80vw',
       data: {
-        products: this.storedProduct,
+        products: this.storedProducts,
         totalPrice: this.totalPrice,
       },
     });
