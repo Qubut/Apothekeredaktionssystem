@@ -300,7 +300,7 @@
   dependencies:
     "tslib" "^2.3.0"
 
-"@angular/core@^13.0.0", "@angular/core@^15.0.0 || ^16.0.0", "@angular/core@^15.0.1", "@angular/core@15.0.1":
+"@angular/core@^14.0.0", "@angular/core@^15.0.0 || ^16.0.0", "@angular/core@^15.0.1", "@angular/core@15.0.1":
   "integrity" "sha512-idaKf9hhguyGn/yj5KMHIUEvW4PpeYcwlRUSoEskQC1799BsXwJyV0AwZ67GH1ltnAj34gbhMhDedcCLdhOffA=="
   "resolved" "https://registry.npmjs.org/@angular/core/-/core-15.0.1.tgz"
   "version" "15.0.1"
@@ -2346,17 +2346,17 @@
     "@material/theme" "15.0.0-canary.ecfee946f.0"
     "tslib" "^2.1.0"
 
-"@ngrx/store-devtools@^13.2.0":
-  "integrity" "sha512-k1NifkR/4OjbjAxauVZODCsgs2owMJXvEX2XoTWth7zscbHE8L3pLd0k1ox5pMPUEqWIptWTaJDzYqnQSoJaaw=="
-  "resolved" "https://registry.npmjs.org/@ngrx/store-devtools/-/store-devtools-13.2.0.tgz"
-  "version" "13.2.0"
+"@ngrx/store-devtools@^14.3.2":
+  "integrity" "sha512-lm1BobiHXzBC3tqYNAghCRNfBdIbs4JyfaTO9wqOEoDCh6COvzGLi7tAo9Zjls1REZC1NiIwSw4vKK8OMc+tfA=="
+  "resolved" "https://registry.npmjs.org/@ngrx/store-devtools/-/store-devtools-14.3.2.tgz"
+  "version" "14.3.2"
   dependencies:
     "tslib" "^2.0.0"
 
-"@ngrx/store@^13.2.0", "@ngrx/store@13.2.0":
-  "integrity" "sha512-3wlGMkfe0EXsiS6E6W0wCksuGapa5Z6JVFvKQMHFpXZ3XeixXKlULnemlcdMT7Yrnry+CGOtRHqkmKxLoQzhTw=="
-  "resolved" "https://registry.npmjs.org/@ngrx/store/-/store-13.2.0.tgz"
-  "version" "13.2.0"
+"@ngrx/store@^14.3.2", "@ngrx/store@14.3.2":
+  "integrity" "sha512-XGHjr0arh6gClo8Ce+xqJLvW9PkeXPW2tCo9Z5qMtHFI/z5dUppLVKGmMgD/fQBDyoqWTK5xu+89tDkdeZfRjQ=="
+  "resolved" "https://registry.npmjs.org/@ngrx/store/-/store-14.3.2.tgz"
+  "version" "14.3.2"
   dependencies:
     "tslib" "^2.0.0"
 
@@ -6790,14 +6790,7 @@
   dependencies:
     "queue-microtask" "^1.2.2"
 
-"rxjs@^6.5.3 || ^7.4.0", "rxjs@~7.4.0":
-  "integrity" "sha512-7SQDi7xeTMCJpqViXh8gL/lebcwlp3d831F05+9B44A4B0WfsEwUQHR64gsH1kvJ+Ep/J9K2+n1hVl1CsGN23w=="
-  "resolved" "https://registry.npmjs.org/rxjs/-/rxjs-7.4.0.tgz"
-  "version" "7.4.0"
-  dependencies:
-    "tslib" "~2.1.0"
-
-"rxjs@^7.5.5":
+"rxjs@^6.5.3 || ^7.4.0", "rxjs@^6.5.3 || ^7.5.0", "rxjs@^7.5.5", "rxjs@~7.5.7":
   "integrity" "sha512-z9MzKh/UcOqB3i20H6rtrlaE/CgjLOvheWK/9ILrbhROGTweAi1BaFsTT9FbwZi5Trr1qNRs+MXkhmR06awzQA=="
   "resolved" "https://registry.npmjs.org/rxjs/-/rxjs-7.5.7.tgz"
   "version" "7.5.7"
@@ -7556,11 +7549,6 @@
   "integrity" "sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ=="
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.4.0.tgz"
   "version" "2.4.0"
-
-"tslib@~2.1.0":
-  "integrity" "sha512-hcVC3wYEziELGGmEEXue7D75zbwIIVUMWAVbHItGPx0ziyXxrOMQx4rQEVEV45Ut/1IotuEvwqPopzIOkDMf0A=="
-  "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.1.0.tgz"
-  "version" "2.1.0"
 
 "tslib@2.4.1":
   "integrity" "sha512-tGyy4dAjRIEwI7BzsB0lynWgOpfqjUdq91XXAlIWD2OwKBH7oCl/GZG/HT4BOHrTlPMOASlMQ7veyTqpmRcrNA=="
