@@ -17,10 +17,10 @@ export class KontaktFormComponent implements OnInit {
 
   @Input() hasBetreff = true;
   @Input() hasAttachment = true;
-  // form:FormGroup = new FormGroup({});
+  form:FormGroup
   @Output() postForm = new EventEmitter<Kontakt>();
 
-  selectedFile: File = new File([],'');
+  selectedFile: File = new File([], '');
   display: FormControl = new FormControl('');
   readonly maxSize: number = 5242880;
 
@@ -29,9 +29,7 @@ export class KontaktFormComponent implements OnInit {
   @Input() size!: number | string;
   @Output() sizeChange = new EventEmitter<number>();
 
-  constructor(private _fb: FormBuilder,public form:FormGroup) {}
-
-  ngOnInit(): void {
+  constructor(private _fb: FormBuilder) {
     this.form = this._fb.group({
       anrede: new FormControl(''),
       name: new FormControl('', [
@@ -61,6 +59,10 @@ export class KontaktFormComponent implements OnInit {
         Validators.maxLength(250),
       ]),
     });
+  }
+
+  ngOnInit(): void {
+    
     if (this.hasAttachment) this.form.addControl('file', new FormControl(''));
 
     if (this.hasBetreff)
@@ -72,12 +74,11 @@ export class KontaktFormComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-
-      this.form.value.file = this.selectedFile
+      this.form.value.file = this.selectedFile;
       this.postForm.emit(this.form.value);
       this.form.markAsPristine();
       this.form.reset();
-      Object.keys(this.form.controls).forEach((key:string) => {
+      Object.keys(this.form.controls).forEach((key: string) => {
         this.form.controls[key].setErrors(null);
       });
     }
@@ -87,16 +88,16 @@ export class KontaktFormComponent implements OnInit {
     return this.form.get(k)?.touched && this.form.get(k)?.hasError(e);
   }
 
-  handleFileInputChange(event: any){
-    console.table(event.target)
+  handleFileInputChange(event: any) {
+    console.table(event.target);
     this.selectedFile = event.target.files[0];
-    this.selectedFile.name.replace("C:\\fakepath\\", "");
+    this.selectedFile.name.replace('C:\\fakepath\\', '');
     if (this.selectedFile.size > this.maxSize) {
       this.uploadLimitSize = true;
     } else {
       this.uploadLimitSize = false;
     }
 
-   this.display.patchValue(event.target.files[0].name ?? null);
+    this.display.patchValue(event.target.files[0].name ?? null);
   }
 }
