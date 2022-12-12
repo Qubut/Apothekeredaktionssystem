@@ -43,6 +43,17 @@
       "type": "string"
     },
     "header_bild": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "logo": {
       "allowedTypes": [
         "images",
         "files",
